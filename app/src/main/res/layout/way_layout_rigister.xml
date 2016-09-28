@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/way_bcg_sign_in"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/way_rigister_btn_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="#ffffff"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号码"
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
+
+        <EditText
+            android:layout_width="200dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dip"
+            android:id="@+id/editText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="验证码"
+            android:textColor="#ffffff"
+            android:textSize="14dp" />
+
+        <LinearLayout
+            android:layout_width="200dip"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_height="38dp"
+                android:text="发送"
+                android:textSize="14dp"
+                android:textColor="#6bd866"
+                android:background="@drawable/way_xml_btn_cricle_half"
+                android:layout_width="70dp" />
+
+            <EditText
+                android:layout_width="200dip"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dip" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:layout_marginTop="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/way_xml_btn_circle_full"
+        android:src="@drawable/way_rigister_btn_go" />
+
+
+</LinearLayout>

@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e7e7e7"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dip"
+        android:background="@drawable/cwp_main_header"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dip"
+            android:paddingRight="10dip"
+            android:src="@drawable/cwp_main_menu" />
+
+        <TextView
+            android:id="@+id/text_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40dp"
+            android:text="加油站/修车点/停车场/路径导航"
+            android:textColor="@android:color/white"
+            android:textSize="12dp" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dip">
+
+            <TextView
+                android:id="@+id/map_full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="40dp"
+                android:text="全能地图"
+                android:textColor="@android:color/white"
+                android:textSize="20dp" />
+
+            <ImageView
+                android:id="@+id/down"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:paddingLeft="10dip"
+                android:src="@drawable/cwp_main_down" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d6f0ff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+
+                android:background="@drawable/cwp_main_bcg_tabs">
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="24dp"
+                    android:text="路径导航"
+                    android:textSize="18dp"
+                    android:background="#29d97e"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#6ad865" />
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="24dp"
+                    android:text="加油站"
+                    android:textSize="18dp"
+                    android:textColor="#6ad865" />
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#6ad865" />
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18dp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="24dp"
+                    android:text="修车店"
+                    android:textColor="#6ad865" />
+
+                <ImageView
+                    android:layout_width="2dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#6ad865" />
+
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18dp"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="24dp"
+                    android:text="停车场"
+                    android:textColor="#6ad865" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cwp_main_bcg_search" />
+
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center|right"
+                        android:layout_marginRight="30dp"
+                        android:background="@drawable/cwp_main_btn_search" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#ffffff"
+
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center"
+            android:background="#c8c8c8" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center"
+            android:background="#c8c8c8"
+            android:id="@+id/imageView" />
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_gravity="center"
+            android:background="#c8c8c8" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_safe"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:src="@drawable/cwp_main_item_insurance" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="车辆保险"
+                android:textColor="#404040"
+                android:textSize="12dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_tag"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:src="@drawable/cwp_main_item_gastag" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="今日油价"
+                android:textColor="#404040"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_ticket"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:src="@drawable/cwp_main_item_illegal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="违章记录"
+                android:textColor="#404040"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_notice"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:src="@drawable/cwp_main_item_notice" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="通知移车"
+                android:textColor="#404040"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_check"
+                android:layout_width="80dip"
+                android:layout_height="80dip"
+                android:src="@drawable/cwp_main_item_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="车辆体检"
+                android:textColor="#404040"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dip"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="40dip"
+            android:background="@android:color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/cwp_main_banner_one"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="20dp"
+                    android:text="汽车资讯"
+                    android:textColor="@android:color/white"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="10dip"
+                    android:text="电动机与内燃机:不存在真正的可比性"
+                    android:textColor="@android:color/white"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/cwp_main_banner_two"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:text="国产smart:虽大通小异，却也精彩绝伦"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/cwp_main_banner_two"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:text="国产smart:虽大通小异，却也精彩绝伦"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/cwp_main_banner_two"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="45dp"
+                    android:text="国产smart:虽大通小异，却也精彩绝伦"
+                    android:textSize="10dp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>
