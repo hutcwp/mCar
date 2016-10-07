@@ -33,5 +33,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/BaiduLBS_Android.jar')
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile 'com.zhy:okhttputils:2.6.2'//远程导入鸿洋的OKHttp的工具类
 }
