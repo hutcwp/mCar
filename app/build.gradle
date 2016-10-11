@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "com.hut.cwp.cwp_menu_mcar"
         minSdkVersion 15
@@ -10,18 +10,12 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        jackOptions { enabled true }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -33,5 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     testCompile 'junit:junit:4.12'
     compile files('libs/BaiduLBS_Android.jar')
-    compile 'com.zhy:okhttputils:2.6.2'//远程导入鸿洋的OKHttp的工具类
+    compile 'com.zhy:okhttputils:2.6.2'
+    //远程导入鸿洋的OKHttp的工具类
+    compile 'com.google.code.gson:gson:2.7'
 }
