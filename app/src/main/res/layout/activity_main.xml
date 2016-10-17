@@ -8,26 +8,20 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="200dp"
         android:layout_marginTop="100dp"
-        android:background="@android:color/holo_blue_bright" />
+        android:background="@android:color/holo_blue_bright"
+        />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp">
-
-        <include layout="@layout/cwp_layout_main_map" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/layout_other"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/cwp_layout_main_header" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="#657892" />
 
         <LinearLayout
             android:id="@+id/one"
@@ -36,9 +30,19 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="202dp"
+                android:background="#578907"
+                android:visibility="gone">
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:id="@+id/two_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="300dp"
                 android:layout_marginTop="0dp"
                 android:background="#907"
                 android:orientation="vertical">
@@ -46,21 +50,21 @@
                 <ImageButton
                     android:id="@+id/btn"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:src="@drawable/xiala"
                     android:background="#e7e7e7"
-                    android:src="@drawable/xiala" />
+                    android:layout_height="35dp" />
 
-                <include layout="@layout/cwp_layout_main_h_listview" />
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
 
-                <include layout="@layout/cwp_layout_main_news" />
+                    android:text="dddd" />
 
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <include layout="@layout/cwp_layout_main_menu" />
 
 
 </FrameLayout>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_map"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="#c0ddff"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/bcgatabs">
+
+        <TextView
+            android:id="@+id/cwp_layout_main_b_navigation"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingTop="16dp"
+            android:text="路径导航"
+            android:textColor="#6ad865"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="#6ad865" />
+
+        <TextView
+            android:id="@+id/cwp_layout_main_b_gas"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="加油站"
+            android:textColor="#6ad865"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="#6ad865" />
+
+        <TextView
+            android:id="@+id/cwp_layout_main_b_repair"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="修车店"
+            android:textColor="#6ad865"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="#6ad865" />
+
+        <TextView
+            android:id="@+id/cwp_layout_main_b_stop"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="停车场"
+            android:textColor="#6ad865"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="94dp">
+
+        <include
+            layout="@layout/cwp_layout_baidu_map"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="50dp">
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/cwp_main_btn_search" />
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cwp_main_bcg_search"
+            android:completionHint="请选择目的地"
+            android:completionThreshold="1"
+            android:dropDownHeight="200dp"
+            android:gravity="left|center_vertical"
+            android:hint="湖南工业大学"
+            android:paddingLeft="20dp"
+            android:textSize="12dp" />
+
+    </FrameLayout>
+
+
+</FrameLayout>

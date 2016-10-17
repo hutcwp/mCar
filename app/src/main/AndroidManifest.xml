@@ -47,20 +47,33 @@
             android:enabled="true"
             android:process=":remote" />
 
+        <activity android:name=".cwp.activity.TestActivity">
+
+        </activity>
         <activity
             android:name=".cwp.activity.BNDemoMainActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".cwp.activity.BNDemoGuideActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
-        <activity android:name=".zero.view.OilCityActivity"/>
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity android:name=".cwp.activity.Activity_myCar" />
+        <activity android:name=".cwp.activity.Activity_User" />
+        <activity android:name=".cwp.activity.Activity_Update" />
+        <activity android:name=".cwp.activity.Activity_Share" />
+        <activity android:name=".cwp.activity.Activity_About" />
+        <activity android:name=".cwp.activity.Activity_feedBack" />
+        <activity android:name=".cwp.activity.MainActivity" />
+
+        <activity android:name=".zero.view.OilCityActivity" />
+
+
     </application>
 
 </manifest>

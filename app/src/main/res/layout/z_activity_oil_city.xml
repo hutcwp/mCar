@@ -7,6 +7,13 @@
     android:background="@drawable/z_bcg_youjia"
     tools:context=".zero.view.OilCityActivity">
 
+    <ProgressBar
+        android:visibility="gone"
+        android:id="@+id/pb"
+        android:layout_gravity="center"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
     <RelativeLayout
         android:id="@+id/rl_oil_city"
         android:layout_width="match_parent"
@@ -259,12 +266,5 @@
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
-
-    <ProgressBar
-        android:visibility="gone"
-        android:id="@+id/pb"
-        android:layout_gravity="center"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
 
 </FrameLayout>

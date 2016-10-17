@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">mCar</string>
+    <string name="title_activity_my_car">Activity_myCar</string>
 </resources>
