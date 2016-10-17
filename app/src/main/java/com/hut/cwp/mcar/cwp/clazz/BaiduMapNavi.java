@@ -19,7 +19,7 @@ import java.util.List;
 
 public class BaiduMapNavi {
 
-    private final static String TAG = "MainActivity";
+    private final static String TAG = "MainActivity_a";
     private static final String APP_FOLDER_NAME = "mCar";
 
     public static final String ROUTE_PLAN_NODE = "routePlanNode";

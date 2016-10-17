@@ -66,12 +66,18 @@
         <activity android:name=".cwp.activity.Activity_myCar" />
         <activity android:name=".cwp.activity.Activity_User" />
         <activity android:name=".cwp.activity.Activity_Update" />
-        <activity android:name=".cwp.activity.Activity_Share" />
+        <activity android:name=".cwp.activity.Activity_news" />
         <activity android:name=".cwp.activity.Activity_About" />
         <activity android:name=".cwp.activity.Activity_feedBack" />
-        <activity android:name=".cwp.activity.MainActivity" />
+        <activity android:name=".cwp.activity.MainActivity_a" />
 
         <activity android:name=".zero.view.OilCityActivity" />
+
+
+        <activity android:name=".cwp.activity.MainActivity" />
+        <activity android:name=".cwp.activity.RegisterActivity" />
+        <activity android:name=".cwp.activity.RegisterActivity2" />
+        <activity android:name=".cwp.activity.LoginActivity" />
 
 
     </application>

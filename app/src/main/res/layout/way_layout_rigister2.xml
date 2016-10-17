@@ -15,16 +15,15 @@
             android:layout_height="24dp"
             android:layout_marginLeft="40dp"
             android:layout_gravity="center"
-            android:background="@drawable/way_login_btn_back"
-            android:id="@+id/bu_return1"
-            android:layout_alignParentTop="true" />
+            android:id="@+id/bu_return3"
+            android:background="@drawable/way_login_btn_back" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_centerInParent="true"
-            android:text="登录"
+            android:text="注册"
             android:textColor="#ffffff"
             android:textSize="24sp" />
 
@@ -42,14 +41,13 @@
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:textSize="18sp"
-            android:text="帐号"
-            />
+            android:text="帐号"/>
 
         <EditText
             android:layout_width="200dip"
             android:layout_marginLeft="20dip"
             android:layout_height="wrap_content"
-            android:id="@+id/login_account"
+            android:id="@+id/account_rigister_Text"
             />
 
         <TextView
@@ -63,7 +61,21 @@
             android:layout_width="200dip"
             android:layout_marginLeft="20dip"
             android:layout_height="wrap_content"
-            android:id="@+id/login_password" />
+            android:id="@+id/password_rigister_Text" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:text="验证密码"/>
+
+        <EditText
+            android:layout_width="200dip"
+            android:layout_marginLeft="20dip"
+            android:layout_height="wrap_content"
+            android:id="@+id/password2_rigister_Text"
+            />
 
     </LinearLayout>
 
@@ -74,7 +86,7 @@
         android:src="@drawable/way_login_btn_login"
         android:background="@drawable/way_xml_btn_circle_full"
         android:layout_gravity="center"
-        android:id="@+id/bu_login_in"/>
+        android:id="@+id/bu_register_finish"/>
 
 
 </LinearLayout>

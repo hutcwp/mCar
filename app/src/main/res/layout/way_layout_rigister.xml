@@ -10,12 +10,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
 
-        <ImageView
+        <ImageButton
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_gravity="center"
             android:layout_marginLeft="40dp"
-            android:src="@drawable/way_rigister_btn_back" />
+            android:layout_gravity="center"
+            android:background="@drawable/way_login_btn_back"
+            android:id="@+id/bu_return2"
+            android:layout_alignParentTop="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -24,7 +26,7 @@
             android:gravity="center"
             android:text="注册"
             android:textColor="#ffffff"
-            android:textSize="18dp" />
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
@@ -40,20 +42,20 @@
             android:layout_height="wrap_content"
             android:text="手机号码"
             android:textColor="#ffffff"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <EditText
             android:layout_width="200dip"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dip"
-            android:id="@+id/editText" />
+            android:id="@+id/tel_rigister_Text" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="验证码"
             android:textColor="#ffffff"
-            android:textSize="14dp" />
+            android:textSize="18dp" />
 
         <LinearLayout
             android:layout_width="200dip"
@@ -65,12 +67,16 @@
                 android:textSize="14dp"
                 android:textColor="#6bd866"
                 android:background="@drawable/way_xml_btn_cricle_half"
-                android:layout_width="70dp" />
+                android:layout_width="70dp"
+                android:id="@+id/bu_massage" />
 
             <EditText
                 android:layout_width="200dip"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dip" />
+                android:layout_marginLeft="20dip"
+                android:id="@+id/massage_rigister_Text" />
+
+
         </LinearLayout>
 
 
@@ -82,7 +88,8 @@
         android:layout_height="80dp"
         android:layout_gravity="center"
         android:background="@drawable/way_xml_btn_circle_full"
-        android:src="@drawable/way_rigister_btn_go" />
+        android:src="@drawable/way_rigister_btn_go"
+        android:id="@+id/bu_register_go"/>
 
 
 </LinearLayout>

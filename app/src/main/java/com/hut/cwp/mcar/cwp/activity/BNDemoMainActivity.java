@@ -52,7 +52,9 @@ public class BNDemoMainActivity extends Activity {
     public static List<Activity> activityList = new LinkedList<>();
 
     public static final String ROUTE_PLAN_NODE = "routePlanNode";
-    private final static String TAG = "MainActivity";
+    private final static String TAG = "MainActivity_a";
+
+    private long exitTime;
 
     private BaiduMap mBaiduMap;
     private MapView mMapView = null;
@@ -73,6 +75,7 @@ public class BNDemoMainActivity extends Activity {
     //**********************
 
     //**************菜单*****************
+    private boolean isMenuOpen;
     private ImageView menu_close;
     private LinearLayout menu_mycar;
     private LinearLayout menu_exit;
@@ -81,6 +84,7 @@ public class BNDemoMainActivity extends Activity {
     private LinearLayout menu_share;
     private LinearLayout menu_update;
     private LinearLayout menu_user;
+
     //**********************
 
     private double endLatitue;
@@ -120,7 +124,7 @@ public class BNDemoMainActivity extends Activity {
     private LinearLayout layout_a;
     private LinearLayout.LayoutParams lp;
 
-    private final static int MOVE_WIDTH = 20;
+    private int MOVE_WIDTH = 20;
 
     private int mTopMargin = 0;
     private int mMaxTopMargin = 400;
@@ -133,15 +137,29 @@ public class BNDemoMainActivity extends Activity {
 
     //****************************
 
+    //***********文章*************
+
+    TextView article_title;
+    TextView article_one;
+    TextView article_two;
+    TextView article_three;
+
+    View.OnClickListener article_OnClickListener;
+    //****************************
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityList.add(this);
+
         log_i("001");
         setContentView(R.layout.cwp_layout_main);
         log_i("002");
 
         mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 400);
+        MOVE_WIDTH = dipTopx(BNDemoMainActivity.this, 10);
+
 
         initMap();
 
@@ -240,11 +258,13 @@ public class BNDemoMainActivity extends Activity {
         ll_map = (FrameLayout) findViewById(R.id.ll_map);
 
 
-//        mMaxTopMargin =
-
-
         img_btn_down = (ImageView) findViewById(R.id.down);
         img_btn_menu = (ImageView) findViewById(R.id.menu);
+
+        article_title = (TextView) findViewById(R.id.article_title);
+        article_one = (TextView) findViewById(R.id.article_one);
+        article_two = (TextView) findViewById(R.id.article_two);
+        article_three = (TextView) findViewById(R.id.article_three);
 
         navi = (TextView) findViewById(R.id.cwp_layout_main_b_navigation);
         gas = (TextView) findViewById(R.id.cwp_layout_main_b_gas);
@@ -276,6 +296,7 @@ public class BNDemoMainActivity extends Activity {
                         if (ll_main_menu.getVisibility() == View.VISIBLE) {
 
                             ll_main_menu.setVisibility(View.GONE);
+                            isMenuOpen = false;
                         }
                         break;
                     case R.id.menu_mycar:
@@ -295,7 +316,8 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.menu_share:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_Share.class));
+                        onClickShare(menu_share);
+//                        shareText(menu_share);
 
                         break;
                     case R.id.menu_feedback:
@@ -365,15 +387,15 @@ public class BNDemoMainActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.img_check:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_Share.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     case R.id.img_notice:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_Share.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     case R.id.img_safe:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_Share.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     case R.id.img_tag:
@@ -381,7 +403,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.img_ticket:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_Share.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     default:
@@ -390,12 +412,48 @@ public class BNDemoMainActivity extends Activity {
             }
         };
 
+
+        article_OnClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (v.getId()) {
+                    case R.id.article_title:
+
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        break;
+
+                    case R.id.article_one:
+
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        break;
+
+                    case R.id.article_two:
+
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        break;
+
+                    case R.id.article_three:
+
+                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+            }
+        };
+
+
         onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.menu:
                         if (ll_main_menu.getVisibility() == View.GONE) {
+
+                            isMenuOpen = true;
 
                             ll_main_menu.setVisibility(View.VISIBLE);
 
@@ -541,6 +599,11 @@ public class BNDemoMainActivity extends Activity {
         img_btn_menu.setOnClickListener(onClickListener);
         img_btn_down.setOnClickListener(onClickListener);
 
+        article_title.setOnClickListener(article_OnClickListener);
+        article_one.setOnClickListener(article_OnClickListener);
+        article_two.setOnClickListener(article_OnClickListener);
+        article_three.setOnClickListener(article_OnClickListener);
+
         navi.setOnClickListener(textItemOnClickListener);
         repair.setOnClickListener(textItemOnClickListener);
         gas.setOnClickListener(textItemOnClickListener);
@@ -663,72 +726,31 @@ public class BNDemoMainActivity extends Activity {
     }
 
     /**
-     * 内部接口类
+     * 按两次back 退出程序两次间隔时间节点
+     * 设置为2000 ms
      */
+    @Override
+    public void onBackPressed() {
+        if (ll_main_menu.getVisibility() == View.VISIBLE) {
 
-    //TextWatcher接口
-    private class TextWatcher_Enum implements TextWatcher {
-        //文字变化前
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count,
-                                      int after) {
+            ll_main_menu.setVisibility(View.GONE);
+            isMenuOpen = false;
+            return;
+        } else if ((System.currentTimeMillis() - exitTime) > 2000) {
 
-        }
+            Toast.makeText(BNDemoMainActivity.this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
+            exitTime = System.currentTimeMillis();
 
-        //文字变化时
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before,
-                                  int count) {
-            if (autoCompleteTextView.getText().toString().length() > 0) {
-                suggestionSearch("株洲", autoCompleteTextView.getText().toString());
-            }
-        }
-
-        //文字变化后
-        @Override
-        public void afterTextChanged(Editable s) {
+            Log.i("JJJ", "exitTime: " + exitTime + "currenttimr" + System.currentTimeMillis());
+            return;
 
         }
-
+        this.finish();
     }
 
-    private class DemoRoutePlanListener implements RoutePlanListener {
-
-        private BNRoutePlanNode mBNRoutePlanNode = null;
-
-        public DemoRoutePlanListener(BNRoutePlanNode node) {
-            mBNRoutePlanNode = node;
-        }
-
-        @Override
-        public void onJumpToNavigator() {
-            /*
-             * 设置途径点以及resetEndNode会回调该接口
-			 */
-            for (Activity ac : activityList) {
-
-                if (ac.getClass().getName().endsWith("BNDemoGuideActivity")) {
-
-                    return;
-                }
-            }
-            Intent intent = new Intent(BNDemoMainActivity.this, BNDemoGuideActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putSerializable(ROUTE_PLAN_NODE, mBNRoutePlanNode);
-            intent.putExtras(bundle);
-            startActivity(intent);
-
-        }
-
-        @Override
-        public void onRoutePlanFailed() {
-            // TODO Auto-generated method stub
-            Toast.makeText(BNDemoMainActivity.this, "算路失败", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-
+    /**
+     * *  方法
+     */
     public void initPanel() {
 
         btn = (ImageButton) findViewById(R.id.btn);
@@ -798,6 +820,28 @@ public class BNDemoMainActivity extends Activity {
 
     }
 
+    public void onClickShare(View view) {
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "分享");
+        intent.putExtra(Intent.EXTRA_TEXT, "要分享的内容!!!");
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(Intent.createChooser(intent, "分享到"));
+
+    }
+
+
+    //分享文字
+    public void shareText(View view) {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "要分享的内容");
+        shareIntent.setType("text/plain");
+
+        //设置分享列表的标题，并且每次都显示分享列表
+        startActivity(Intent.createChooser(shareIntent, "标题：分享到"));
+    }
 
     public void scroll(float positionOffset) {
 
@@ -819,7 +863,73 @@ public class BNDemoMainActivity extends Activity {
         layout.setLayoutParams(lp);
     }
 
-    class AsynMove extends AsyncTask<Integer, Integer, Void> {
+
+    /**
+     * 内部接口类
+     */
+    //TextWatcher接口
+    private class TextWatcher_Enum implements TextWatcher {
+        //文字变化前
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                                      int after) {
+
+        }
+
+        //文字变化时
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before,
+                                  int count) {
+            if (autoCompleteTextView.getText().toString().length() > 0) {
+                suggestionSearch("株洲", autoCompleteTextView.getText().toString());
+            }
+        }
+
+        //文字变化后
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+
+    }
+
+    private class DemoRoutePlanListener implements RoutePlanListener {
+
+        private BNRoutePlanNode mBNRoutePlanNode = null;
+
+        public DemoRoutePlanListener(BNRoutePlanNode node) {
+            mBNRoutePlanNode = node;
+        }
+
+        @Override
+        public void onJumpToNavigator() {
+            /*
+             * 设置途径点以及resetEndNode会回调该接口
+			 */
+            for (Activity ac : activityList) {
+
+                if (ac.getClass().getName().endsWith("BNDemoGuideActivity")) {
+
+                    return;
+                }
+            }
+            Intent intent = new Intent(BNDemoMainActivity.this, BNDemoGuideActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(ROUTE_PLAN_NODE, mBNRoutePlanNode);
+            intent.putExtras(bundle);
+            startActivity(intent);
+
+        }
+
+        @Override
+        public void onRoutePlanFailed() {
+            // TODO Auto-generated method stub
+            Toast.makeText(BNDemoMainActivity.this, "算路失败", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private class AsynMove extends AsyncTask<Integer, Integer, Void> {
 
         @Override
         protected Void doInBackground(Integer... params) {
@@ -845,7 +955,7 @@ public class BNDemoMainActivity extends Activity {
             for (int i = 0; i < times; i++) {
                 publishProgress(params);
                 try {
-                    Thread.sleep(Math.abs(params[0]));
+                    Thread.sleep(Math.abs(24));
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -878,7 +988,7 @@ public class BNDemoMainActivity extends Activity {
         }
     }
 
-    class AsynMoveBtn extends AsyncTask<Integer, Integer, Void> {
+    private class AsynMoveBtn extends AsyncTask<Integer, Integer, Void> {
         @Override
         protected Void doInBackground(Integer... params) {
             int times = 0;
@@ -905,7 +1015,7 @@ public class BNDemoMainActivity extends Activity {
             for (int i = 0; i < times; i++) {
                 publishProgress(params);
                 try {
-                    Thread.sleep(Math.abs(params[0]));
+                    Thread.sleep(Math.abs(24));
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -925,7 +1035,6 @@ public class BNDemoMainActivity extends Activity {
                 mTopMargin = 0;
             }
 
-
             lp.topMargin = mTopMargin;
             layout.setLayoutParams(lp);
 
@@ -941,3 +1050,4 @@ public class BNDemoMainActivity extends Activity {
 
 
 }
+

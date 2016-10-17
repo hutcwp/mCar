@@ -15,7 +15,8 @@
         android:layout_marginRight="40dp"
         android:background="@drawable/way_xml_btn_cricle_half"
         android:text="注册"
-        android:textColor="#3ae42d" />
+        android:textColor="#3ae42d"
+        android:id="@+id/bu_register"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -25,7 +26,8 @@
         android:layout_marginLeft="40dp"
         android:background="@drawable/way_xml_btn_cricle_half"
         android:text="登录"
-        android:textColor="#72a6e7" />
+        android:textColor="#72a6e7"
+        android:id="@+id/bu_login"/>
 
     <TextView
         android:id="@+id/text"
@@ -38,13 +40,14 @@
         android:textColor="#ffffff"
         android:textSize="16dp" />
 
-    <ImageView
+    <ImageButton
 
         android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_height="15dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:src="@drawable/way_welcome_down" />
+        android:background="@drawable/way_welcome_down"
+        android:id="@+id/bu_kankan"/>
 
 </RelativeLayout>
