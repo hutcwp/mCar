@@ -19,6 +19,7 @@
         android:id="@+id/text_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:paddingLeft="40dp"
         android:text="加油站/修车点/停车场/路径导航"
         android:textColor="@android:color/white"

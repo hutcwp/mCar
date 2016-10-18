@@ -8,6 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.hut.cwp.mcar.cwp.activity.Activity_Update">
+    tools:context=".cwp.activity.Activity_Update">
 
 </RelativeLayout>

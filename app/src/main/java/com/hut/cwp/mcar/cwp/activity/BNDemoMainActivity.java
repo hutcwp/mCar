@@ -11,6 +11,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -46,6 +47,8 @@ import com.hut.cwp.mcar.zero.view.OilCityActivity;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+
+
 
 public class BNDemoMainActivity extends Activity {
 
@@ -157,9 +160,12 @@ public class BNDemoMainActivity extends Activity {
         setContentView(R.layout.cwp_layout_main);
         log_i("002");
 
+       //透明状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+
         mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 400);
         MOVE_WIDTH = dipTopx(BNDemoMainActivity.this, 10);
-
 
         initMap();
 

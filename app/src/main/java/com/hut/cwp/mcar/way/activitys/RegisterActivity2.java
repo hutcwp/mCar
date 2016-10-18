@@ -1,4 +1,4 @@
-package com.hut.cwp.mcar.cwp.activity;
+package com.hut.cwp.mcar.way.activitys;
 
 
 import android.app.Activity;

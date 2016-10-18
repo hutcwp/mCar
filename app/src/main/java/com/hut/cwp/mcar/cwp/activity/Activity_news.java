@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -42,6 +43,9 @@ public class Activity_news extends Activity {
         webview.loadUrl("http://www.sina.com.cn/");
         //设置Web视图
         webview.setWebViewClient(new HelloWebViewClient());
+
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
     }
 

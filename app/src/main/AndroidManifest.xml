@@ -53,10 +53,7 @@
         <activity
             android:name=".cwp.activity.BNDemoMainActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -73,12 +70,16 @@
 
         <activity android:name=".zero.view.OilCityActivity" />
 
+        <activity android:name=".way.activitys.RegisterActivity" />
+        <activity android:name=".way.activitys.RegisterActivity2" />
+        <activity android:name=".way.activitys.LoginActivity" />
+        <activity android:name=".way.activitys.WelcomeActivity">
 
-        <activity android:name=".cwp.activity.MainActivity" />
-        <activity android:name=".cwp.activity.RegisterActivity" />
-        <activity android:name=".cwp.activity.RegisterActivity2" />
-        <activity android:name=".cwp.activity.LoginActivity" />
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

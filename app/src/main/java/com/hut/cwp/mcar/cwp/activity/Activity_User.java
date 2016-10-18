@@ -3,6 +3,7 @@ package com.hut.cwp.mcar.cwp.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,6 +20,7 @@ public class Activity_User extends Activity {
         setContentView(R.layout.activity__user);
 
         init();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
     }
 

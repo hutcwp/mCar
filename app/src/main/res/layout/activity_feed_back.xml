@@ -25,6 +25,7 @@
             android:textSize="16dp" />
 
         <EditText
+            android:id="@+id/user_mail_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="邮箱"
@@ -33,6 +34,7 @@
             android:textSize="16dp" />
 
         <EditText
+            android:id="@+id/user_suggest_content"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:hint="请输入意见或者反馈给我们"

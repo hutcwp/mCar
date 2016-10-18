@@ -1,4 +1,4 @@
-package com.hut.cwp.mcar.cwp.activity;
+package com.hut.cwp.mcar.way.activitys;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
 import cn.bmob.v3.Bmob;
 
@@ -67,7 +68,7 @@ public class WelcomeActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(WelcomeActivity.this,MainActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this,BNDemoMainActivity.class);
                 startActivity(intent);
                 //finish();
 
