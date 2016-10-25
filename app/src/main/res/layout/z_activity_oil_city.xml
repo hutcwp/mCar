@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/z_bcg_youjia"
-    tools:context=".zero.view.OilCityActivity">
+    tools:context=".zero.activity.OilCityActivity">
 
     <ProgressBar
         android:visibility="gone"

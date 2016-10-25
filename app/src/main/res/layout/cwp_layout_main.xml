@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#efefef"
-
     android:orientation="vertical">
 
     <TextView
@@ -16,7 +15,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp">
+        android:layout_marginBottom="@dimen/y148"
+        android:layout_marginTop="@dimen/y286">
 
         <include layout="@layout/cwp_layout_main_map" />
     </LinearLayout>
@@ -28,8 +28,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/cwp_layout_main_header"
-           />
+        <include layout="@layout/cwp_layout_main_header" />
 
         <LinearLayout
             android:id="@+id/one"
@@ -41,16 +40,15 @@
                 android:id="@+id/two_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="0dp"
-                android:background="#907"
+                android:background="#7bb5ed"
                 android:orientation="vertical">
 
                 <ImageButton
                     android:id="@+id/btn"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/y44"
                     android:background="#e7e7e7"
-                    android:src="@drawable/xiala" />
+                    android:src="@drawable/cwp_main_btn_xiala" />
 
                 <include layout="@layout/cwp_layout_main_h_listview" />
 
@@ -63,6 +61,4 @@
     </LinearLayout>
 
     <include layout="@layout/cwp_layout_main_menu" />
-
-
 </FrameLayout>

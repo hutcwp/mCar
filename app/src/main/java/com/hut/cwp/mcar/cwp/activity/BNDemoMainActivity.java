@@ -42,12 +42,16 @@ import com.hut.cwp.mcar.cwp.clazz.BaiduMapLocal;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapNavi;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
 import com.hut.cwp.mcar.cwp.view.HListView;
-import com.hut.cwp.mcar.zero.view.OilCityActivity;
+import com.hut.cwp.mcar.way.activitys.InfocarActivity;
+import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.bmob.v3.listener.BmobUpdateListener;
+import cn.bmob.v3.update.BmobUpdateAgent;
+import cn.bmob.v3.update.UpdateResponse;
 
 
 public class BNDemoMainActivity extends Activity {
@@ -61,6 +65,9 @@ public class BNDemoMainActivity extends Activity {
 
     private BaiduMap mBaiduMap;
     private MapView mMapView = null;
+
+    boolean isAsycMoveBtnFinish = true;
+    boolean isAsycMoveFinish = true;
 
     private AutoCompleteTextView autoCompleteTextView;
     private List<String> listData;
@@ -154,16 +161,21 @@ public class BNDemoMainActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityList.add(this);
-
         log_i("001");
-        setContentView(R.layout.cwp_layout_main);
+        activityList.add(this);
         log_i("002");
+        setContentView(R.layout.cwp_layout_main);
+        log_i("0030");
 
-       //透明状态栏
+        //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-
+//        if (Integer.getInteger(Build.VERSION.SDK) > 5) {
+//            mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 420);
+//        } else {
+//            mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 400);
+//
+//        }
         mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 400);
         MOVE_WIDTH = dipTopx(BNDemoMainActivity.this, 10);
 
@@ -171,6 +183,13 @@ public class BNDemoMainActivity extends Activity {
 
         initPanel();
 
+        BmobUpdateAgent.update(this);//用于自动更新
+        BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+            @Override
+            public void onUpdateReturned(int i, UpdateResponse updateResponse) {
+                Toast.makeText(BNDemoMainActivity.this, ""+i, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
@@ -306,12 +325,12 @@ public class BNDemoMainActivity extends Activity {
                         }
                         break;
                     case R.id.menu_mycar:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_myCar.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, InfocarActivity.class));
                         break;
 
-                    case R.id.menu_user:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_User.class));
-                        break;
+//                    case R.id.menu_user:
+//                        startActivity(new Intent(BNDemoMainActivity.this, RepasswordActivity.class));
+//                        break;
 
                     case R.id.menu_update:
                         startActivity(new Intent(BNDemoMainActivity.this, Activity_Update.class));
@@ -333,7 +352,6 @@ public class BNDemoMainActivity extends Activity {
                     case R.id.menu_exit:
 
                         BNDemoMainActivity.this.finish();
-
                         break;
 
                     default:
@@ -347,7 +365,7 @@ public class BNDemoMainActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.cwp_layout_main_b_navigation:
-                        navi.setTextColor(Color.RED);
+                        navi.setTextColor(Color.parseColor("#7bb5ed"));
                         gas.setTextColor(Color.parseColor("#6ad865"));
                         repair.setTextColor(Color.parseColor("#6ad865"));
                         stop.setTextColor(Color.parseColor("#6ad865"));
@@ -356,7 +374,7 @@ public class BNDemoMainActivity extends Activity {
 
                     case R.id.cwp_layout_main_b_repair:
 
-                        repair.setTextColor(Color.RED);
+                        repair.setTextColor(Color.parseColor("#7bb5ed"));
                         gas.setTextColor(Color.parseColor("#6ad865"));
                         stop.setTextColor(Color.parseColor("#6ad865"));
                         navi.setTextColor(Color.parseColor("#6ad865"));
@@ -365,7 +383,7 @@ public class BNDemoMainActivity extends Activity {
 
                     case R.id.cwp_layout_main_b_gas:
 
-                        gas.setTextColor(Color.RED);
+                        gas.setTextColor(Color.parseColor("#7bb5ed"));
                         stop.setTextColor(Color.parseColor("#6ad865"));
                         repair.setTextColor(Color.parseColor("#6ad865"));
                         navi.setTextColor(Color.parseColor("#6ad865"));
@@ -374,7 +392,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.cwp_layout_main_b_stop:
-                        stop.setTextColor(Color.RED);
+                        stop.setTextColor(Color.parseColor("#7bb5ed"));
                         gas.setTextColor(Color.parseColor("#6ad865"));
                         repair.setTextColor(Color.parseColor("#6ad865"));
                         navi.setTextColor(Color.parseColor("#6ad865"));
@@ -477,14 +495,17 @@ public class BNDemoMainActivity extends Activity {
 
                         if (isMapShow) {
 
-                            new AsynMoveBtn().execute(new Integer[]{-MOVE_WIDTH});// 正数收缩,向上
-                            isMapShow = false;
+                            if (isAsycMoveBtnFinish && isAsycMoveFinish) {
+                                new AsynMoveBtn().execute(new Integer[]{-MOVE_WIDTH});// 正数收缩,向上
+                                isMapShow = false;
+                            }
                         } else {
 
-                            new AsynMoveBtn().execute(new Integer[]{MOVE_WIDTH});// 正数展开,向下
-                            isMapShow = true;
+                            if (isAsycMoveBtnFinish && isAsycMoveFinish) {
+                                new AsynMoveBtn().execute(new Integer[]{MOVE_WIDTH});// 正数展开,向下
+                                isMapShow = true;
+                            }
                         }
-
                         break;
 
                     case R.id.btn_go:
@@ -534,7 +555,7 @@ public class BNDemoMainActivity extends Activity {
                         if (Math.abs(currentX - sX) > 8) {
 
                             if (duration > 150) {
-                                int s = hListView.getScreenWidth() / 4 + 80;
+                                int s = hListView.getScreenWidth() / 4 + 160;
                                 hListView.scroll(s);
                                 duration = s;
                             } else {
@@ -800,20 +821,17 @@ public class BNDemoMainActivity extends Activity {
                     case MotionEvent.ACTION_UP:
 
                         if (Math.abs(currentY - sY) > 8) {
-
                             if (mTopMargin < mMaxTopMargin && mTopMargin > (mMaxTopMargin / 2)) {
                                 //下滑
-
                                 new AsynMove().execute(new Integer[]{MOVE_WIDTH});// 正数展开,向下
                                 isMapShow = true;
 
                             } else if ((mTopMargin > 0 && mTopMargin <= (mMaxTopMargin / 2))) {
                                 //上滑
-
                                 new AsynMove().execute(new Integer[]{-MOVE_WIDTH});// 正数展开,向下
                                 isMapShow = false;
-                            }
 
+                            }
                             return true;
                         }
 
@@ -837,7 +855,6 @@ public class BNDemoMainActivity extends Activity {
 
     }
 
-
     //分享文字
     public void shareText(View view) {
         Intent shareIntent = new Intent();
@@ -853,14 +870,15 @@ public class BNDemoMainActivity extends Activity {
 
         if (mTopMargin < mMaxTopMargin && positionOffset > 0) {
             Log.e("scroll", "Down" + mTopMargin);
-
-            layoutScroll(positionOffset);
+            if ((mTopMargin + positionOffset) <= mMaxTopMargin) {
+                layoutScroll(positionOffset);
+            }
         } else if (mTopMargin > 0 && positionOffset < 0) {
             Log.e("scroll", "Up" + mTopMargin);
-
-            layoutScroll(positionOffset);
+            if ((mTopMargin + positionOffset) > 0) {
+                layoutScroll(positionOffset);
+            }
         }
-
     }
 
     private void layoutScroll(float offset) {
@@ -940,7 +958,7 @@ public class BNDemoMainActivity extends Activity {
         @Override
         protected Void doInBackground(Integer... params) {
             int times = 0;
-
+            isAsycMoveFinish = false;
             if (mTopMargin < mMaxTopMargin / 2) {
 
                 if (mTopMargin % Math.abs(params[0]) == 0)// 整除
@@ -981,7 +999,7 @@ public class BNDemoMainActivity extends Activity {
                 mTopMargin = 0;
             }
 
-
+            isAsycMoveFinish = true;
             lp.topMargin = mTopMargin;
             layout.setLayoutParams(lp);
 
@@ -998,7 +1016,7 @@ public class BNDemoMainActivity extends Activity {
         @Override
         protected Void doInBackground(Integer... params) {
             int times = 0;
-
+            isAsycMoveBtnFinish = false;
             if (params[0] > 0) {
 
                 if ((mMaxTopMargin - mTopMargin) % Math.abs(params[0]) == 0)// 整除
@@ -1043,7 +1061,7 @@ public class BNDemoMainActivity extends Activity {
 
             lp.topMargin = mTopMargin;
             layout.setLayoutParams(lp);
-
+            isAsycMoveBtnFinish = true;
         }
 
         @Override
@@ -1054,6 +1072,15 @@ public class BNDemoMainActivity extends Activity {
         }
     }
 
+    public static int getAndroidSDKVersion() {
+        int version = 0;
+        try {
+            version = Integer.valueOf(android.os.Build.VERSION.SDK);
+        } catch (NumberFormatException e) {
+
+        }
+        return version;
+    }
 
 }
 

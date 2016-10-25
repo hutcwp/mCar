@@ -6,15 +6,15 @@ package com.hut.cwp.mcar.base.utils;
 
 public class Local {
 
-    private static String Province = "湖南省";
-    private static String City = "株洲市";
+    private static String Province = "NULL";
+    private static String City = "NULL";
 
     public static String getProvince() {
         return Province;
     }
 
     public static void setProvince(String province) {
-        Province = province;
+        Province = province.replace("省","");
     }
 
     public static String getCity() {
@@ -22,7 +22,7 @@ public class Local {
     }
 
     public static void setCity(String city) {
-        City = city;
+        City = city.replace("市","");
     }
 
 

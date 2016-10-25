@@ -9,48 +9,54 @@
 
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
         android:background="#ffffff"
-        android:paddingBottom="20dip"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/x30"
+        android:paddingRight="@dimen/x30">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="20dp"
-            android:text="你好，感谢使用，如有紧急问题欢迎加入用户体验群1234567890"
-            android:textSize="16dp" />
+            android:layout_marginTop="@dimen/y80"
+            android:text="你好，感谢使用，如有紧急问题欢迎加入用户体验群1234567890."
+            android:textColor="#404040"
+            android:textSize="@dimen/x24" />
 
         <EditText
             android:id="@+id/user_mail_id"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/x660"
+            android:layout_height="@dimen/y100"
+            android:layout_marginTop="@dimen/y80"
+            android:background="@drawable/cwp_half_feedback_button"
             android:hint="邮箱"
-            android:padding="20dp"
             android:textColor="#8e8e8e"
-            android:textSize="16dp" />
+            android:textSize="@dimen/x24" />
 
         <EditText
             android:id="@+id/user_suggest_content"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/x660"
             android:layout_height="150dp"
+            android:layout_marginTop="@dimen/y40"
+            android:background="@drawable/cwp_half_feedback_button"
+            android:gravity="left"
             android:hint="请输入意见或者反馈给我们"
-            android:padding="20dp"
             android:textColor="#8e8e8e"
-            android:textSize="16dp" />
+            android:textSize="@dimen/x24" />
 
         <Button
             android:id="@+id/push"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/x180"
+            android:layout_height="@dimen/y80"
             android:layout_gravity="right"
+            android:layout_marginBottom="@dimen/y80"
+            android:layout_marginTop="@dimen/y40"
+            android:background="@drawable/cwp_half_button"
             android:text="提交"
             android:textColor="#404040"
-            android:textSize="16dp"
-            android:background="@drawable/cwp_half_button"/>
+            android:textSize="@dimen/x24" />
 
     </LinearLayout>
 

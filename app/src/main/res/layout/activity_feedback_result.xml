@@ -10,45 +10,49 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/y20"
         android:background="#ffffff"
         android:orientation="vertical">
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="@dimen/y80"
             android:text="留言成功"
-            android:textSize="20dp" />
-
+            android:textColor="#404040"
+            android:textSize="@dimen/x36" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="@dimen/y80"
             android:text="我们会在一个工作日内联系你"
-            android:textSize="12dp" />
+            android:textColor="#404040"
+            android:textSize="@dimen/x18" />
 
         <Button
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/x400"
+            android:layout_height="@dimen/y100"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/y80"
             android:background="@drawable/cwp_half_button_bulebcg"
-            android:text="好的，返回" />
+            android:text="好的，返回"
+            android:textSize="@dimen/x24"
+            android:textColor="#ffffff" />
 
 
         <Button
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/x400"
+            android:layout_height="@dimen/y100"
             android:layout_gravity="center"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginBottom="@dimen/y80"
+            android:layout_marginTop="@dimen/y40"
             android:background="@drawable/cwp_half_button_bulebcg"
-            android:text="再次留言" />
+            android:text="再次留言"
+            android:textSize="@dimen/x24"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
@@ -40,53 +39,53 @@ public class HListView extends LinearLayout {
 
     public void init() {
 
-        Log.e("TestForHListView", "init");
-        this.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-
-                        startX = event.getRawX();
-                        sX = startX;
-
-                        Log.e("TestForHListView", "ACTION_DOWN");
-                        break;
-
-                    case MotionEvent.ACTION_MOVE:
-
-                        currentX = event.getRawX();
-
-                        float dx = currentX - startX;
-
-                        duration -= dx;
-                        scroll(duration);
-
-                        startX = currentX;
-
-                        Log.e("TestForHListView", "ACTION_MOVE");
-                        break;
-                    case MotionEvent.ACTION_UP:
-
-                        if (Math.abs(currentX - sX) > 8) {
-
-                            if (duration > 150) {
-                                int s = getScreenWidth() / 4 + 80;
-                                scroll(s);
-                                duration = s;
-                            } else {
-                                scroll(0);
-                                duration = 0;
-                            }
-
-                            return true;
-                        }
-                        break;
-                }
-                return false;
-
-            }
-        });
+//        Log.e("TestForHListView", "init");
+//        this.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//
+//                        startX = event.getRawX();
+//                        sX = startX;
+//
+//                        Log.e("TestForHListView", "ACTION_DOWN");
+//                        break;
+//
+//                    case MotionEvent.ACTION_MOVE:
+//
+//                        currentX = event.getRawX();
+//
+//                        float dx = currentX - startX;
+//
+//                        duration -= dx;
+//                        scroll(duration);
+//
+//                        startX = currentX;
+//
+//                        Log.e("TestForHListView", "ACTION_MOVE");
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//
+//                        if (Math.abs(currentX - sX) > 8) {
+//
+//                            if (duration > 150) {
+//                                int s = getScreenWidth() / 4 + 160;
+//                                scroll(s);
+//                                duration = s;
+//                            } else {
+//                                scroll(0);
+//                                duration = 0;
+//                            }
+//
+//                            return true;
+//                        }
+//                        break;
+//                }
+//                return false;
+//
+//            }
+//        });
 
     }
 

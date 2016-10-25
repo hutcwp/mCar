@@ -3,7 +3,6 @@ package com.hut.cwp.mcar.cwp.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -11,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hut.cwp.mcar.R;
+
 
 public class Activity_news extends Activity {
 
@@ -24,23 +24,23 @@ public class Activity_news extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__news);
 
-        text_content = (TextView) findViewById(R.id.menu_title_text_content);
-        btn_back = (ImageView) findViewById(R.id.menu_title_btn_back);
+//        text_content = (TextView) findViewById(R.id.menu_title_text_content);
+//        btn_back = (ImageView) findViewById(R.id.menu_title_btn_back);
 
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+//        btn_back.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
 
-        text_content.setText("汽车新闻");
+//        text_content.setText("汽车新闻");
 
         webview = (WebView) findViewById(R.id.webview);
         //设置WebView属性，能够执行Javascript脚本
         webview.getSettings().setJavaScriptEnabled(true);
         //加载需要显示的网页
-        webview.loadUrl("http://www.sina.com.cn/");
+        webview.loadUrl("http://www.autohome.com.cn/");
         //设置Web视图
         webview.setWebViewClient(new HelloWebViewClient());
 

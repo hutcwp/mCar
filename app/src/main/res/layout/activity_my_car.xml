@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#ebebeb"
     android:orientation="vertical">
 
     <include layout="@layout/cwp_layout_title_menu" />
@@ -18,141 +19,286 @@
             <LinearLayout
                 android:id="@+id/toplayout"
                 android:layout_width="match_parent"
-                android:layout_height="240dip"
+                android:layout_height="@dimen/y300"
                 android:background="@drawable/cwp_menu_mycar_banner_bcg"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:weightSum="1">
 
                 <TextView
                     android:id="@+id/count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x60"
                     android:text="1"
-                    android:textColor="#ffffff"
-                    android:textSize="50dp" />
+                    android:textColor="#fff"
+                    android:textSize="@dimen/x120" />
 
-                <TextView
-                    android:layout_width="80dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignTop="@id/count"
-                    android:layout_toRightOf="@id/count"
-                    android:paddingTop="30dp"
-                    android:text="辆车在记录之中"
-                    android:textColor="#ffffff" />
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x10"
+                        android:paddingTop="@dimen/y10"
+                        android:text="辆车"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/x26" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x10"
+                        android:layout_marginTop="@dimen/y10"
+                        android:text="在记录之中"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/x26" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="@dimen/y80"
                 android:layout_alignParentBottom="true"
                 android:background="#ffffff" />
         </LinearLayout>
 
-        <ImageView
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y260"
+            android:layout_gravity="bottom|right">
 
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="100dp"
-            android:src="@drawable/cwp_menu_mycar_button_add" />
+            <ImageView
+                android:id="@+id/add_intcar"
+                android:layout_width="@dimen/x164"
+                android:layout_height="@dimen/y365"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/x160"
+                android:src="@drawable/add" />
 
-        <ImageView
-            android:id="@+id/right"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom|right"
-            android:layout_marginBottom="20dp"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/cwp_half_button_delete" />
+            <ImageView
+                android:id="@+id/right"
+                android:layout_width="@dimen/x154"
+                android:layout_height="@dimen/y365"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/x32"
+                android:src="@drawable/cwp_half_button_delete" />
 
+        </FrameLayout>
 
     </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/y20"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="车牌号"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="陕A948S9"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/x26" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#ebebeb" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="发动机号"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="27297531734208"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/x26" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#ebebeb" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="车架号"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="WDDNG8HB8BA375689"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/x26" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#ebebeb" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/y20"
         android:background="#ffffff"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:gravity="center"
-                android:text="车牌号" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:text="陕A948S9" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="车牌号"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x30" />
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="陕A948S9"
+                    android:textColor="#dadada"
+                    android:textSize="@dimen/x26" />
 
-        </RelativeLayout>
+            </RelativeLayout>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#ebebeb" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_margin="8dp"
-            android:background="#ebebeb" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="发动机号"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x30" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:gravity="center"
-                android:text="发动机号" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="27297531734208"
+                    android:textColor="#dadada"
+                    android:textSize="@dimen/x26" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:text="27297531734208" />
+            </RelativeLayout>
 
-        </RelativeLayout>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="#ebebeb" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_margin="8dp"
-            android:background="#ebebeb" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="车架号"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x30" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:gravity="center"
-                android:text="车架号" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="WDDNG8HB8BA375689"
+                    android:textColor="#dadada"
+                    android:textSize="@dimen/x26" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:text="WDDNG8HB8BA375689" />
+            </RelativeLayout>
 
-
-        </RelativeLayout>
+        </LinearLayout>
 
     </LinearLayout>
 

@@ -1,8 +1,6 @@
 package com.hut.cwp.mcar.cwp.activity;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -63,16 +61,15 @@ public class Activity_feedBack extends Activity {
             @Override
             public void onClick(View v) {
 
-                string_user_mail = user_mail_id.getText().toString().trim();
-                string_user_suggest = user_suggest_content.getText().toString().trim();
-
-
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-                intent.setData(Uri.parse("mailto:hutcwp@163.com"));
-                intent.putExtra(Intent.EXTRA_SUBJECT, "用户反馈");
-                intent.putExtra(Intent.EXTRA_TEXT, "反馈意见来自于：" + string_user_mail +
-                        "  内容为：" + string_user_suggest);
-                startActivity(intent);
+//                string_user_mail = user_mail_id.getText().toString().trim();
+//                string_user_suggest = user_suggest_content.getText().toString().trim();
+//
+//                Intent intent = new Intent(Intent.ACTION_SENDTO);
+//                intent.setData(Uri.parse("mailto:hutcwp@163.com"));
+//                intent.putExtra(Intent.EXTRA_SUBJECT, "用户反馈");
+//                intent.putExtra(Intent.EXTRA_TEXT, "反馈意见来自于：" + string_user_mail +
+//                        "  内容为：" + string_user_suggest);
+//                startActivity(intent);
 
                 setContentView(R.layout.activity_feedback_result);
             }

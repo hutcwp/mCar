@@ -1,52 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="120dip"
+    android:layout_height="@dimen/y286"
     android:background="@drawable/cwp_main_header"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/menu"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+        android:layout_width="@dimen/x42"
+        android:layout_height="@dimen/y42"
         android:layout_gravity="right"
-        android:layout_marginTop="10dip"
-        android:paddingRight="10dip"
+        android:layout_marginTop="@dimen/y64"
+        android:paddingRight="@dimen/y30"
         android:src="@drawable/cwp_main_menu" />
 
-    <TextView
-        android:id="@+id/text_tip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:paddingLeft="40dp"
-        android:text="加油站/修车点/停车场/路径导航"
-        android:textColor="@android:color/white"
-        android:textSize="12dp" />
-
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dip">
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y286"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/map_full"
+            android:id="@+id/text_tip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="40dp"
-            android:text="全能地图"
+            android:paddingLeft="@dimen/x60"
+            android:paddingTop="@dimen/y152"
+            android:text="加油站 / 修车点 / 停车场 / 路径导航"
             android:textColor="@android:color/white"
-            android:textSize="20dp" />
+            android:textSize="@dimen/x22" />
 
-        <ImageView
-            android:id="@+id/down"
-            android:layout_width="26dp"
-            android:layout_height="26dp"
-            android:paddingLeft="10dip"
-            android:src="@drawable/cwp_main_down" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/x60"
+            android:paddingTop="@dimen/y24">
+
+            <TextView
+                android:id="@+id/map_full"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="全能地图"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x42" />
+
+            <ImageView
+                android:id="@+id/down"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y30"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x30"
+                android:src="@drawable/cwp_main_down" />
+
+        </LinearLayout>
 
     </LinearLayout>
-</LinearLayout>
+
+</FrameLayout>
 

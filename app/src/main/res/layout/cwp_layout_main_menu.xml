@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     android:background="#b4000000"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingRight="@dimen/x60"
     android:visibility="gone">
 
     <ImageView
         android:id="@+id/menu_close"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="@dimen/x30"
+        android:layout_height="@dimen/y30"
         android:layout_gravity="right"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="@dimen/y340"
         android:src="@drawable/cwp_menu_close" />
 
     <LinearLayout
@@ -21,20 +21,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的私家车"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/y40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_menu_mcar" />
 
     </LinearLayout>
@@ -45,21 +45,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="帐号"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_menu_user" />
 
     </LinearLayout>
@@ -69,21 +69,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="更新"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
-
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_menu_refresh" />
 
     </LinearLayout>
@@ -93,21 +92,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="分享"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_menu_share" />
 
     </LinearLayout>
@@ -117,21 +116,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="关于"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_menu_about" />
 
     </LinearLayout>
@@ -141,21 +140,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="反馈"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_main_feedback" />
 
     </LinearLayout>
@@ -165,21 +164,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/y60">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="退出"
             android:textColor="@android:color/white"
-            android:textSize="18dp" />
+            android:textSize="@dimen/x32" />
 
         <ImageView
 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="@dimen/x40"
+            android:layout_height="@dimen/x40"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_menu_exit" />
 
     </LinearLayout>

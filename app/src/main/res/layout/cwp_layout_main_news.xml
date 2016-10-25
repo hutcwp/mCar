@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,107 +6,134 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="320dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="40dip"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_marginRight="@dimen/x70"
+        android:layout_marginTop="@dimen/y60"
         android:background="@android:color/white" />
 
-    <FrameLayout
+    <!--背景打造-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="137dp"
+        android:src="@drawable/cwp_main_news_bannera"
+        android:translationX="-14dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y174"
+        android:layout_marginTop="@dimen/y248"
+        android:background="@drawable/bannerb"
+        android:translationX="-14dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y174"
+        android:layout_marginTop="@dimen/y396"
+        android:background="@drawable/bannerb"
+        android:translationX="-14dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y174"
+        android:layout_marginTop="@dimen/y544"
+        android:background="@drawable/bannerb"
+        android:translationX="-14dp" />
+    <!--背景打造-->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
         android:orientation="vertical">
 
-        <LinearLayout
-
-            android:layout_width="wrap_content"
-            android:layout_height="120dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/bannera"
+        <FrameLayout
+            android:layout_width="@dimen/x620"
+            android:layout_height="@dimen/y180"
+            android:layout_marginLeft="@dimen/x70"
+            android:layout_marginTop="@dimen/y24"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="60dp"
-                android:paddingTop="10dp"
+                android:paddingLeft="@dimen/x24"
+                android:paddingTop="@dimen/y24"
                 android:text="汽车资讯"
-                android:textColor="@android:color/white"
-                android:textSize="10dp" />
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x22" />
 
             <TextView
                 android:id="@+id/article_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingTop="26dip"
-                android:text="              电动机与内燃机:不存在真正的可比性"
-                android:textColor="@android:color/white"
-                android:textSize="13dp" />
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="@dimen/y100"
+                android:text="电动机与内燃机:不存在真正的可比性"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x28" />
 
-        </LinearLayout>
+        </FrameLayout>
+
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/bannerb"
+            android:layout_width="@dimen/x620"
+            android:layout_height="@dimen/y110"
+            android:layout_marginLeft="@dimen/x70"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y48"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/article_one"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:gravity="center"
-                android:text="国产smart:虽大通小异，却也精彩绝伦"
-                android:textSize="13dp" />
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:text="  国产smart:虽大通小异，却也精彩绝伦"
+                android:textColor="#808080"
+                android:textSize="@dimen/x26" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="200dp"
-            android:background="@drawable/bannerb"
+            android:layout_width="@dimen/x620"
+            android:layout_height="@dimen/y110"
+            android:layout_marginLeft="@dimen/x70"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y36"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/article_two"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:gravity="center"
-                android:text="国产smart:虽大通小异，却也精彩绝伦"
-                android:textSize="13dp" />
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:text="   国产smart:虽大通小异，却也精彩绝伦"
+                android:textColor="#808080"
+                android:textSize="@dimen/x26" />
 
         </LinearLayout>
 
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="80dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="280dp"
-            android:background="@drawable/bannerb"
+            android:layout_width="@dimen/x620"
+            android:layout_height="@dimen/y110"
+            android:layout_marginLeft="@dimen/x70"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y36"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/article_three"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:gravity="center"
-                android:text="国产smart:虽大通小异，却也精彩绝伦"
-                android:textSize="13dp" />
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:text="   国产smart:虽大通小异，却也精彩绝伦"
+                android:textColor="#808080"
+                android:textSize="@dimen/x26" />
 
         </LinearLayout>
 
-    </FrameLayout>
-
+    </LinearLayout>
 
 </FrameLayout>
