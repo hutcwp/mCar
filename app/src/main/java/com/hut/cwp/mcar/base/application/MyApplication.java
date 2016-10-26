@@ -24,7 +24,7 @@ public class MyApplication extends Application {
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         //注意该方法要再setContentView方法之前实现
         SDKInitializer.initialize(getApplicationContext());
-        Bmob.initialize(getApplicationContext(), "ab032408ad55b67fa3e389c959b482cf");//伍安芸的AppKey
+        Bmob.initialize(getApplicationContext(), "2a2398211c95ae98184d1bc6570a1b40");//Zero's AppKey
     }
 
     public static void setLandState(int state) {

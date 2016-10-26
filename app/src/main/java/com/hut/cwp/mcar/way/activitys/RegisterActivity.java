@@ -4,8 +4,6 @@ package com.hut.cwp.mcar.way.activitys;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,15 +29,13 @@ public class RegisterActivity extends Activity {
 
     private EditText telEdit;
 
-    private Handler mHandler=new Handler();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.way_layout_rigister);
 
-        BmobSMS.initialize(this, "ab032408ad55b67fa3e389c959b482cf");
+        BmobSMS.initialize(this, "2a2398211c95ae98184d1bc6570a1b40");
 
         returnon = (ImageButton) findViewById(R.id.bu_return2);
         registergo =  (ImageButton) findViewById(R.id.bu_register_go);
@@ -53,18 +49,14 @@ public class RegisterActivity extends Activity {
             @Override
             public void onClick(View v) {
                 String massage = massageEdit.getText().toString();
-                String tel = telEdit.getText().toString();
+                final String tel = telEdit.getText().toString();
 
 
                 if (massage.equals("") || tel.equals("") || tel.length()!=11) {
                     Toast.makeText(RegisterActivity.this, "手机或验证码输入不合法", Toast.LENGTH_SHORT).show();
                 }
-                    //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                    //startActivity(intent);
-                    //finish();
                 else{
                     //判断验证码是否正确、
-                    Log.e("++++++++++++++++++++++","++++++++++++");
                     BmobSMS.verifySmsCode(RegisterActivity.this, tel, massage, new VerifySMSCodeListener() {
                         @Override
                         public void done(BmobException ex) {
@@ -72,13 +64,13 @@ public class RegisterActivity extends Activity {
 
                                 Toast.makeText(RegisterActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(RegisterActivity.this, RegisterActivity2.class);
+                                intent.putExtra("account",tel);
                                 startActivity(intent);
-//                                finish();
+                                finish();
                             }
                             else {
                                 Toast.makeText(RegisterActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
                             }
-                            Log.e("++++++++++++++++++++++","++++++++++++2");
                         }
 
                     });
@@ -156,14 +148,9 @@ public class RegisterActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-
-                //String tel =getIntent();
-                String tel = telEdit.getText().toString();
                 Intent intent = new Intent(RegisterActivity.this,WelcomeActivity.class);
-                intent.putExtra("telKey",tel);
                 startActivity(intent);
                 finish();
-
             }
         });
     }

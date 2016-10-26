@@ -39,19 +39,19 @@
         android:orientation="vertical">
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="帐号"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x30" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="帐号"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="@dimen/x30" />-->
 
-        <EditText
-            android:id="@+id/account_rigister_Text"
-            android:layout_width="@dimen/x400"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x40"
-            android:layout_marginTop="@dimen/y20" />
+        <!--<EditText-->
+            <!--android:id="@+id/account_rigister_Text"-->
+            <!--android:layout_width="@dimen/x400"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="@dimen/x40"-->
+            <!--android:layout_marginTop="@dimen/y20" />-->
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,6 +61,7 @@
             android:textSize="@dimen/x30" />
 
         <EditText
+            android:inputType="textPassword"
             android:id="@+id/password_rigister_Text"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"
@@ -75,6 +76,7 @@
             android:textSize="@dimen/x30" />
 
         <EditText
+            android:inputType="textPassword"
             android:id="@+id/password2_rigister_Text"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"

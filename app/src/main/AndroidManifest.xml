@@ -55,7 +55,6 @@
         <activity
             android:name=".cwp.activity.BNDemoMainActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
-
         </activity>
 
         <activity
@@ -73,15 +72,14 @@
         <activity android:name=".zero.activity.IllegalQueryActivity" />
         <activity android:name=".zero.activity.IllegalResultActivity" />
         <activity android:name=".zero.activity.FeedbackActivity" />
-        <activity android:name=".zero.activity.FeedbackSuccessActivity"></activity>
+        <activity android:name=".zero.activity.FeedbackSuccessActivity"/>
 
         <!--Way-->
-        <activity android:name=".way.activitys.InfocarActivity" />
-        <activity android:name=".way.activitys.InfocarActivity2" />
+        <activity android:name=".way.activitys.InfoCarActivity" />
+        <activity android:name=".way.activitys.InfoCarActivity2" />
         <activity android:name=".way.activitys.RepasswordActivity" />
-        <activity android:name=".way.activitys.RepasswordActivity2" />
+        <activity android:name=".way.activitys.RePasswordActivity2" />
         <activity android:name=".way.activitys.WelcomeActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -94,11 +92,7 @@
         <!--activity-->
         <activity android:name=".cwp.activity.Activity_feedBack" />
         <activity android:name=".cwp.activity.Activity_news" />
-        <activity android:name=".cwp.activity.Activity_User" />
         <activity android:name=".cwp.activity.Activity_About" />
         <activity android:name=".cwp.activity.Activity_myCar" />
-
-
     </application>
-
 </manifest>

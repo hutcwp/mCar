@@ -55,7 +55,6 @@
             android:textSize="@dimen/x32" />
 
         <ImageView
-
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
@@ -102,7 +101,6 @@
             android:textSize="@dimen/x32" />
 
         <ImageView
-
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
@@ -126,7 +124,6 @@
             android:textSize="@dimen/x32" />
 
         <ImageView
-
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
@@ -150,7 +147,6 @@
             android:textSize="@dimen/x32" />
 
         <ImageView
-
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
@@ -169,18 +165,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="退出"
+            android:text="退出当前账号"
             android:textColor="@android:color/white"
             android:textSize="@dimen/x32" />
 
         <ImageView
-
             android:layout_width="@dimen/x40"
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
             android:src="@drawable/cwp_main_menu_img_exit" />
-
     </LinearLayout>
 
 

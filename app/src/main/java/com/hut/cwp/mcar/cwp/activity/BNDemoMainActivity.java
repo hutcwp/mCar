@@ -37,24 +37,24 @@ import com.baidu.navisdk.adapter.BNRoutePlanNode.CoordinateType;
 import com.baidu.navisdk.adapter.BaiduNaviManager;
 import com.baidu.navisdk.adapter.BaiduNaviManager.RoutePlanListener;
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.application.MyApplication;
 import com.hut.cwp.mcar.base.utils.DisplayUtil;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapLocal;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapNavi;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
 import com.hut.cwp.mcar.cwp.view.HListView;
-import com.hut.cwp.mcar.way.activitys.InfocarActivity;
+import com.hut.cwp.mcar.way.activitys.InfoCarActivity;
+import com.hut.cwp.mcar.way.activitys.LoginActivity;
+import com.hut.cwp.mcar.way.activitys.RepasswordActivity;
 import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
 import com.hut.cwp.mcar.zero.activity.IllegalQueryActivity;
-import com.hut.cwp.mcar.way.activitys.RepasswordActivity;
 import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import cn.bmob.v3.listener.BmobUpdateListener;
 import cn.bmob.v3.update.BmobUpdateAgent;
-import cn.bmob.v3.update.UpdateResponse;
 
 
 public class BNDemoMainActivity extends Activity {
@@ -185,12 +185,6 @@ public class BNDemoMainActivity extends Activity {
 
         log_i("007");
         BmobUpdateAgent.update(this);//用于自动更新
-        BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
-            @Override
-            public void onUpdateReturned(int i, UpdateResponse updateResponse) {
-                Toast.makeText(BNDemoMainActivity.this, "" + i, Toast.LENGTH_SHORT).show();
-            }
-        });
         log_i("008");
     }
 
@@ -328,35 +322,49 @@ public class BNDemoMainActivity extends Activity {
                         menuClose();
                         break;
                     case R.id.menu_mycar:
-                        startActivity(new Intent(BNDemoMainActivity.this, InfocarActivity.class));
+                        if (MyApplication.getLandState()==MyApplication.HAD_LANDED) {
+                            startActivity(new Intent(BNDemoMainActivity.this, InfoCarActivity.class));
+                        } else if (MyApplication.getLandState()==MyApplication.NO_LAND){
+                            Intent intent=new Intent(BNDemoMainActivity.this, LoginActivity.class);
+                            intent.putExtra("TAG","FROM_BNDemoMainActivity");
+                            startActivity(intent);
+                        }
                         break;
 
                     case R.id.menu_user:
-                        startActivity(new Intent(BNDemoMainActivity.this, RepasswordActivity.class));
+                        if (MyApplication.getLandState()==MyApplication.HAD_LANDED) {
+                            startActivity(new Intent(BNDemoMainActivity.this, RepasswordActivity.class));
+                        } else if (MyApplication.getLandState()==MyApplication.NO_LAND){
+                            Intent intent=new Intent(BNDemoMainActivity.this, LoginActivity.class);
+                            intent.putExtra("TAG","FROM_BNDemoMainActivity");
+                            startActivity(intent);
+                        }
                         break;
 
                     case R.id.menu_update:
-
                         BmobUpdateAgent.update(BNDemoMainActivity.this);//用于自动更新
                         break;
 
                     case R.id.menu_about:
                         startActivity(new Intent(BNDemoMainActivity.this, Activity_About.class));
                         break;
-
                     case R.id.menu_share:
                         onClickShare(menu_share);
-
                         break;
                     case R.id.menu_feedback:
-//                        startActivity(new Intent(BNDemoMainActivity.this, Activity_feedBack.class));
                         startActivity(new Intent(BNDemoMainActivity.this, FeedbackActivity.class));
                         break;
-                    case R.id.menu_exit:
-
-                        BNDemoMainActivity.this.finish();
+                    case R.id.menu_exit://退出当前账号
+                        if (MyApplication.getLandState()==MyApplication.HAD_LANDED) {
+                            MyApplication.setLandState(MyApplication.NO_LAND);
+                            MyApplication.setUsername("");
+                            menuClose();
+                            Toast.makeText(BNDemoMainActivity.this, "已经退出当前账号", Toast.LENGTH_SHORT).show();
+                            Log.d("测试","已经退出当前账号");
+                        } else if(MyApplication.getLandState()==MyApplication.NO_LAND) {
+                            Toast.makeText(BNDemoMainActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
+                        }
                         break;
-
                     default:
                 }
 
@@ -1063,9 +1071,7 @@ public class BNDemoMainActivity extends Activity {
 
         @Override
         protected void onProgressUpdate(Integer... params) {
-
             layoutScroll(params[0]);
-
         }
     }
 

@@ -46,6 +46,7 @@
             android:textSize="@dimen/x30" />
 
         <EditText
+            android:inputType="phone"
             android:id="@+id/tel_rigister_Text"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"

@@ -10,14 +10,13 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
-import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.UpdateListener;
 
 
-public class RepasswordActivity2 extends Activity {
+public class RePasswordActivity2 extends Activity {
 
     private EditText oldpasswordEdit;
 
@@ -51,10 +50,10 @@ public class RepasswordActivity2 extends Activity {
                 String newpassword2 = newpassword2Edit.getText().toString().trim();
 
                 if (TextUtils.isEmpty(oldpassword)||TextUtils.isEmpty(newpassword)||TextUtils.isEmpty(newpassword2)) {
-                    Toast.makeText(RepasswordActivity2.this, "内容不能为空", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RePasswordActivity2.this, "内容不能为空", Toast.LENGTH_SHORT).show();
                 }
                 else if(newpassword.length()<6){
-                    Toast.makeText(RepasswordActivity2.this, "密码长度不能小于六个字符", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RePasswordActivity2.this, "密码长度不能小于六个字符", Toast.LENGTH_SHORT).show();
                 }
                 else if (newpassword.equals(newpassword2)){
 
@@ -64,13 +63,13 @@ public class RepasswordActivity2 extends Activity {
                         public void done(BmobException e) {
                             if (e == null) {
                                 //toast("密码修改成功，可以用新密码进行登录啦");
-                                Toast.makeText(RepasswordActivity2.this, "密码修改成功", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RepasswordActivity2.this, BNDemoMainActivity.class);
-                                startActivity(intent);
-                                //finish();
+                                Toast.makeText(RePasswordActivity2.this, "密码修改成功", Toast.LENGTH_SHORT).show();
+//                                Intent intent = new Intent(RePasswordActivity2.this, BNDemoMainActivity.class);
+//                                startActivity(intent);
+                                finish();
                             } else {
                                 //toast("失败:" + e.getMessage());
-                                Toast.makeText(RepasswordActivity2.this, "密码修改失败", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RePasswordActivity2.this, "密码修改失败", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -78,7 +77,7 @@ public class RepasswordActivity2 extends Activity {
 
                 }
                 else{
-                    Toast.makeText(RepasswordActivity2.this, "两次输入新密码不符合", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RePasswordActivity2.this, "两次输入新密码不符合", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -90,7 +89,7 @@ public class RepasswordActivity2 extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(RepasswordActivity2.this,RepasswordActivity.class);
+                Intent intent = new Intent(RePasswordActivity2.this,RepasswordActivity.class);
                 startActivity(intent);
                 finish();
 

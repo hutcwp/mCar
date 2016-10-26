@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">私家车</string>
     <string name="title_activity_my_car">Activity_myCar</string>
+    <string name="num_and_letter">0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</string>
 </resources>

@@ -70,6 +70,7 @@
             android:textSize="@dimen/x30" />
 
         <EditText
+            android:inputType="textPassword"
             android:id="@+id/login_password"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"

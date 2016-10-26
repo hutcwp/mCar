@@ -44,7 +44,7 @@ public class MycarInfoAdapter extends ArrayAdapter<CarInfo>{
 
 		licensePlateInfo.setText(mData.get(position).getLicensePlate().toString());
 		engineInfo.setText(mData.get(position).getEngine().toString());
-		frameInfo.setText(mData.get(position).getFrame().toString());
+		frameInfo.setText(mData.get(position).getVin().toString());
 //		asd.setOnClickListener(new View.OnClickListener() {
 //			@Override
 //			public void onClick(View v) {

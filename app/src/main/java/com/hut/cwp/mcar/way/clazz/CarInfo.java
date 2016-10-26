@@ -1,7 +1,5 @@
 package com.hut.cwp.mcar.way.clazz;
 
-import android.widget.EditText;
-
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -11,22 +9,22 @@ public class CarInfo extends BmobObject {
 
     private String licensePlate;
 
-    private String usernameObject;
+    private String username;
 
     private String engine;
 
-    private String frame;
+    private String vin;
 
 
 
-    public String getUsernameObject() {
+    public String getUsername() {
 
-        return usernameObject;
+        return username;
     }
 
-    public void setUsernameObject(String usernameObject) {
+    public void setUsername(String username) {
 
-        this.usernameObject = usernameObject;
+        this.username = username;
     }
 
     public String getLicensePlate() {
@@ -52,14 +50,14 @@ public class CarInfo extends BmobObject {
 
 
 
-    public String getFrame() {
+    public String getVin() {
 
-        return frame;
+        return vin;
     }
 
-    public void setFrame(String frame) {
+    public void setVin(String vin) {
 
-        this.frame = frame;
+        this.vin = vin;
     }
 
 

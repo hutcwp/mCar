@@ -5,13 +5,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.application.MyApplication;
 import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
 import cn.bmob.v3.BmobUser;
@@ -46,13 +46,11 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                String account2 = accountEdit.getText().toString().trim();
+                final String account2 = accountEdit.getText().toString().trim();
                 String password2 = passwordEdit.getText().toString().trim();
-//                if (account2.equals("") || password2.equals("")) {
                 if (TextUtils.isEmpty(account2)||TextUtils.isEmpty(password2)) {
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
-                    Log.d("+++",account2+"  "+password2);
                     BmobUser bu2 = new BmobUser();
                     bu2.setUsername(account2);
                     bu2.setPassword(password2);
@@ -63,13 +61,15 @@ public class LoginActivity extends Activity {
                         public void done(BmobUser bmobUser, BmobException e) {
 
                             if(e==null){
-                                //String account = accountEdit.getText().toString();
-                                //String password = passwordEdit.getText().toString();
-                                Log.i("smile","用户登陆成功");
-                                //Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-                                //Intent intent = new Intent(LoginActivity.this,RepasswordActivity.class);
-                                Intent intent = new Intent(LoginActivity.this,BNDemoMainActivity.class);
-                                startActivity(intent);
+                                try {
+                                    if (!"FROM_BNDemoMainActivity".equals(getIntent().getStringExtra("TAG"))) {
+                                        startActivity(new Intent(LoginActivity.this,BNDemoMainActivity.class));
+                                    }
+                                } catch (NullPointerException e1) {
+                                    e1.printStackTrace();
+                                }
+                                MyApplication.setLandState(MyApplication.HAD_LANDED);
+                                MyApplication.setUsername(account2);
                                 finish();
                             }
                             else {
@@ -87,11 +87,15 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
-                startActivity(intent);
+                try {
+                    if (!"FROM_BNDemoMainActivity".equals(getIntent().getStringExtra("TAG"))) {
+                        Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
+                        startActivity(intent);
+                    }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                }
                 finish();
-
             }
         });
     }

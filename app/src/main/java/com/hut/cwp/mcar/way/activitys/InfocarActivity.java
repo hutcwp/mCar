@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class InfocarActivity extends Activity {
+public class InfoCarActivity extends Activity {
 
     private ImageView addCar;
 
@@ -71,7 +71,7 @@ public class InfocarActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(InfocarActivity.this, InfocarActivity2.class);
+                Intent intent = new Intent(InfoCarActivity.this, InfoCarActivity2.class);
                 startActivity(intent);
                 //finish();
 

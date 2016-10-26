@@ -60,6 +60,8 @@
             android:textSize="@dimen/x30" />
 
         <EditText
+            android:inputType="number"
+            android:digits="@string/num_and_letter"
             android:id="@+id/engine_intcar_Text"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"
@@ -74,6 +76,8 @@
             android:textSize="@dimen/x30" />
 
         <EditText
+            android:inputType="number"
+            android:digits="@string/num_and_letter"
             android:id="@+id/frame_intcar_Text"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"
