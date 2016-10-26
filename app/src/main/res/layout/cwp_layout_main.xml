@@ -5,14 +5,8 @@
     android:background="#efefef"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="100dp"
-        android:background="@android:color/holo_blue_bright" />
-
     <LinearLayout
+        android:id="@+id/layout_hiden_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/y148"
@@ -21,40 +15,32 @@
         <include layout="@layout/cwp_layout_main_map" />
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/layout_other"
+        android:id="@+id/layout_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <include layout="@layout/cwp_layout_main_header" />
 
+
         <LinearLayout
-            android:id="@+id/one"
+            android:id="@+id/layout_slidable_slidingdown"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#7bb5ed"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/two_layout"
+            <ImageButton
+                android:id="@+id/btn_dropdown"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#7bb5ed"
-                android:orientation="vertical">
+                android:layout_height="@dimen/y44"
+                android:background="#e7e7e7"
+                android:src="@drawable/cwp_main_img_dropdown" />
 
-                <ImageButton
-                    android:id="@+id/btn"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/y44"
-                    android:background="#e7e7e7"
-                    android:src="@drawable/cwp_main_btn_xiala" />
+            <include layout="@layout/cwp_layout_main_h_listview" />
 
-                <include layout="@layout/cwp_layout_main_h_listview" />
-
-                <include layout="@layout/cwp_layout_main_news" />
-
-            </LinearLayout>
+            <include layout="@layout/cwp_layout_main_news" />
 
         </LinearLayout>
 

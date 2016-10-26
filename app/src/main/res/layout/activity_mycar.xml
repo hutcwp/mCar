@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ebebeb"
+    android:orientation="vertical">
+
+    <include layout="@layout/cwp_layout_title_menu" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/toplayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y300"
+                android:background="@drawable/cwp_mycar_banner"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/count_mycar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x60"
+                    android:text="1"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/x120" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x10"
+                        android:paddingTop="@dimen/y10"
+                        android:text="辆车"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/x26" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x10"
+                        android:layout_marginTop="@dimen/y10"
+                        android:text="在记录之中"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/x26" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y80"
+                android:layout_alignParentBottom="true"
+                android:background="#ffffff" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y260"
+            android:layout_gravity="bottom|right">
+
+            <ImageView
+                android:id="@+id/add_intcar"
+                android:layout_width="@dimen/x164"
+                android:layout_height="@dimen/y365"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/x160"
+                android:src="@drawable/cwp_mycar_img_add" />
+
+            <ImageView
+                android:id="@+id/delete_intcar"
+                android:layout_width="@dimen/x154"
+                android:layout_height="@dimen/y365"
+                android:layout_gravity="right"
+                android:layout_marginRight="@dimen/x32"
+                android:src="@drawable/cwp_mycar_img_sub" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+
+    <ListView
+        android:id="@+id/mycar_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="false"
+        android:fastScrollEnabled="false"
+        android:scrollbars="none" />
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/y20"-->
+    <!--android:background="#ffffff"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginLeft="@dimen/x30"-->
+    <!--android:layout_marginRight="@dimen/x30"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/y88">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="陕A948S9"-->
+    <!--android:textColor="#808080"-->
+    <!--android:textSize="@dimen/x26" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="车牌号"-->
+    <!--android:textColor="#404040"-->
+    <!--android:textSize="@dimen/x30"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_alignParentStart="true"-->
+    <!--android:id="@+id/textView2" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/x1"-->
+    <!--android:background="#ebebeb" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/y88">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="发动机号"-->
+    <!--android:textColor="#404040"-->
+    <!--android:textSize="@dimen/x30" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="27297531734208"-->
+    <!--android:textColor="#808080"-->
+    <!--android:textSize="@dimen/x26" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/x1"-->
+    <!--android:background="#ebebeb" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/y88">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="车架号"-->
+    <!--android:textColor="#404040"-->
+    <!--android:textSize="@dimen/x30" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="WDDNG8HB8BA375689"-->
+    <!--android:textColor="#808080"-->
+    <!--android:textSize="@dimen/x26" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/x1"-->
+    <!--android:background="#ebebeb" />-->
+
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/y20"-->
+    <!--android:background="#ffffff"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_marginLeft="@dimen/x30"-->
+    <!--android:layout_marginRight="@dimen/x30"-->
+    <!--android:orientation="vertical">-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/y88">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="车牌号"-->
+    <!--android:textColor="#404040"-->
+    <!--android:textSize="@dimen/x30" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="陕A948S9"-->
+    <!--android:textColor="#dadada"-->
+    <!--android:textSize="@dimen/x26" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/x1"-->
+    <!--android:background="#ebebeb" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/y88">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="发动机号"-->
+    <!--android:textColor="#404040"-->
+    <!--android:textSize="@dimen/x30" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="27297531734208"-->
+    <!--android:textColor="#dadada"-->
+    <!--android:textSize="@dimen/x26" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/x1"-->
+    <!--android:background="#ebebeb" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/y88">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="车架号"-->
+    <!--android:textColor="#404040"-->
+    <!--android:textSize="@dimen/x30" />-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:layout_centerVertical="true"-->
+    <!--android:text="WDDNG8HB8BA375689"-->
+    <!--android:textColor="#dadada"-->
+    <!--android:textSize="@dimen/x26" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <!--</LinearLayout>-->
+
+</LinearLayout>

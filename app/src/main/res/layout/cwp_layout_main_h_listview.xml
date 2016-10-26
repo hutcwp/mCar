@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_insurance" />
+            android:src="@drawable/cwp_main_item_img_insurance" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_gastag" />
+            android:src="@drawable/cwp_main_item_img_gastag" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_illegal" />
+            android:src="@drawable/cwp_main_item_img_illegal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_notice" />
+            android:src="@drawable/cwp_main_item_img_notice" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_check" />
+            android:src="@drawable/cwp_main_item_img_check" />
 
         <TextView
             android:layout_width="wrap_content"

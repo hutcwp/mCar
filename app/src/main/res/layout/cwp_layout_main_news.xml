@@ -23,21 +23,21 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/y174"
         android:layout_marginTop="@dimen/y248"
-        android:background="@drawable/bannerb"
+        android:background="@drawable/cwp_main_news_bannerb"
         android:translationX="-14dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/y174"
         android:layout_marginTop="@dimen/y396"
-        android:background="@drawable/bannerb"
+        android:background="@drawable/cwp_main_news_bannerb"
         android:translationX="-14dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/y174"
         android:layout_marginTop="@dimen/y544"
-        android:background="@drawable/bannerb"
+        android:background="@drawable/cwp_main_news_bannerb"
         android:translationX="-14dp" />
     <!--背景打造-->
 

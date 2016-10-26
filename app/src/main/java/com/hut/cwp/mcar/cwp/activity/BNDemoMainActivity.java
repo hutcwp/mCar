@@ -1,7 +1,6 @@
 package com.hut.cwp.mcar.cwp.activity;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -38,6 +37,7 @@ import com.baidu.navisdk.adapter.BNRoutePlanNode.CoordinateType;
 import com.baidu.navisdk.adapter.BaiduNaviManager;
 import com.baidu.navisdk.adapter.BaiduNaviManager.RoutePlanListener;
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.utils.DisplayUtil;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapLocal;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapNavi;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
@@ -45,6 +45,7 @@ import com.hut.cwp.mcar.cwp.view.HListView;
 import com.hut.cwp.mcar.way.activitys.InfocarActivity;
 import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
 import com.hut.cwp.mcar.zero.activity.IllegalQueryActivity;
+import com.hut.cwp.mcar.way.activitys.RepasswordActivity;
 import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
 import java.util.ArrayList;
@@ -58,35 +59,44 @@ import cn.bmob.v3.update.UpdateResponse;
 
 public class BNDemoMainActivity extends Activity {
 
+    //**************工具、全局**************
+    private final static String TAG = "BNDemoMainActivity";
+    private long activityExitTime;
+
+    private AdapterView.OnItemClickListener autoCompleteTextViewOnItemClickListener;
+    //**************************************
+
+    //**************地图********************
     public static List<Activity> activityList = new LinkedList<>();
-
     public static final String ROUTE_PLAN_NODE = "routePlanNode";
-    private final static String TAG = "MainActivity_a";
 
-    private long exitTime;
+    private List<String> listData;
+    private ArrayAdapter<String> adapter;
 
     private BaiduMap mBaiduMap;
     private MapView mMapView = null;
 
-    boolean isAsycMoveBtnFinish = true;
-    boolean isAsycMoveFinish = true;
+    private Button btn_search;
+    private TextView navi, gas, repair, stop;
 
-    private AutoCompleteTextView autoCompleteTextView;
-    private List<String> listData;
-    private ArrayAdapter<String> adapter;
+    private View.OnClickListener onClickListener;
+
     private SuggestionSearch mSuggestionSearch;
+    private AutoCompleteTextView autoCompleteTextView;
     private List<SuggestionResult.SuggestionInfo> suggestionInfosData;
+    //*******************************
 
-    //**************Item*****************
+    //********HlistviewItem(主服务项)************
     private ImageView item_check;
     private ImageView item_notice;
     private ImageView item_ticket;
     private ImageView item_tag;
     private ImageView item_safe;
+    private View.OnClickListener itemOnClickListener;
+    private View.OnTouchListener itemOnTouchListener;
+    //*********************************************
 
-    //**********************
-
-    //**************菜单*****************
+    //**************菜单***************************
     private boolean isMenuOpen;
     private ImageView menu_close;
     private LinearLayout menu_mycar;
@@ -96,67 +106,57 @@ public class BNDemoMainActivity extends Activity {
     private LinearLayout menu_share;
     private LinearLayout menu_update;
     private LinearLayout menu_user;
+    private View.OnClickListener menuOnClickListener;
+    //*********************************************
 
-    //**********************
+    //******************地图数据*******************
+    private boolean isMapShow = false;
 
     private double endLatitue;
     private double endLongLatitue;
-
-    private Button btn_go;
-    private Button btn_search;
-
-    private TextView navi, gas, repair, stop;
-
-    private ImageView img_btn_down, img_btn_menu;
-    private LinearLayout ll_main_menu;
-    private FrameLayout ll_map;
-
-
-    private View.OnClickListener menuOnClickListener;
-    private View.OnClickListener itemOnClickListener;
-    private View.OnClickListener onClickListener;
-    private View.OnClickListener textItemOnClickListener;
-    private View.OnTouchListener itemOnTouchListener;
-
-    private OnGetSuggestionResultListener onGetSuggestionResultListener;
-    private AdapterView.OnItemClickListener autoCompleteTextViewOnItemClickListener;
 
     private BaiduMapLocal baiduMapLocal;
     private BaiduMapNavi baiduMapNavi;
     private BaiduMapPoiSearch poiSearch;
 
     private HListView hListView;
+    private ImageView img_btn_down, img_btn_menu;
+    private LinearLayout ll_main_menu;
+    private FrameLayout ll_map;
 
+    //全能地图点击事件二级菜单监听
+    private View.OnClickListener textItemOnClickListener;
+    //路径导航的建议搜索监听
+    private OnGetSuggestionResultListener onGetSuggestionResultListener;
 
     //**********下滑条************
     private ImageButton btn;
-    private TextView text;
+    boolean isAsycMoveBtnFinish = true;
+    boolean isAsycMoveFinish = true;
 
     private LinearLayout layout;
-    private LinearLayout layout_a;
     private LinearLayout.LayoutParams lp;
 
     private int MOVE_WIDTH = 20;
-
+    private int pauseTime = 10;
     private int mTopMargin = 0;
     private int mMaxTopMargin = 400;
 
-    private float startY;
-    private float currentY;
-    private float sY;
-
-    boolean isMapShow = false;
+    private float slidingDownStartY;
+    private float slidingDownCurrentY;
+    private float slidingDownSY;
 
     //****************************
 
     //***********文章*************
 
-    TextView article_title;
-    TextView article_one;
-    TextView article_two;
-    TextView article_three;
+    private TextView article_title;
+    private TextView article_one;
+    private TextView article_two;
+    private TextView article_three;
 
-    View.OnClickListener article_OnClickListener;
+    private View.OnClickListener article_OnClickListener;
+    private List<TextView> mapItem;
     //****************************
 
     @Override
@@ -172,26 +172,26 @@ public class BNDemoMainActivity extends Activity {
         //透明状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-//        if (Integer.getInteger(Build.VERSION.SDK) > 5) {
-//            mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 420);
-//        } else {
-//            mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 400);
-//
-//        }
-        mMaxTopMargin = dipTopx(BNDemoMainActivity.this, 400);
-        MOVE_WIDTH = dipTopx(BNDemoMainActivity.this, 10);
+        log_i("004");
+        mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 400);
 
+        MOVE_WIDTH = DisplayUtil.dip2px(BNDemoMainActivity.this, 5);
+
+
+        log_i("005");
         initMap();
-
+        log_i("006");
         initPanel();
 
+        log_i("007");
         BmobUpdateAgent.update(this);//用于自动更新
         BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
             @Override
             public void onUpdateReturned(int i, UpdateResponse updateResponse) {
-                Toast.makeText(BNDemoMainActivity.this, ""+i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(BNDemoMainActivity.this, "" + i, Toast.LENGTH_SHORT).show();
             }
         });
+        log_i("008");
     }
 
     /**
@@ -211,18 +211,27 @@ public class BNDemoMainActivity extends Activity {
 
         listData = new ArrayList<>();
         suggestionInfosData = new ArrayList<>();
+        mapItem = new ArrayList<>();
+
+
         //缩放地图，让地图更加美观
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(15.0f);
         mBaiduMap.setMapStatus(msu);
-        log_i("003");
+
         initFindView();
-        log_i("004");
+
         initListener();
-        log_i("005");
+
         initSetListener();
-        log_i("006");
+
         initAutoCompeleted();
         baiduMapLocal.initLocation();
+
+
+        mapItem.add(navi);
+        mapItem.add(gas);
+        mapItem.add(repair);
+        mapItem.add(stop);
 
         // 打开log开关
         BNOuterLogUtil.setLogSwitcher(true);
@@ -266,25 +275,18 @@ public class BNDemoMainActivity extends Activity {
     }
 
 
-    public int dipTopx(Context context, float dpValue) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dpValue * scale + 0.5f);
-    }
-
     /**
-     * 一系列初始化的方法
+     * 一系列初始化findViewById的方法
      */
     private void initFindView() {
 
-        btn_go = (Button) findViewById(R.id.btn_go);
-        btn_search = (Button) findViewById(R.id.btn_search);
-
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+
 
         ll_main_menu = (LinearLayout) findViewById(R.id.layout_main_menu);
         ll_map = (FrameLayout) findViewById(R.id.ll_map);
 
-
+        btn_search = (Button) findViewById(R.id.btn_search);
         img_btn_down = (ImageView) findViewById(R.id.down);
         img_btn_menu = (ImageView) findViewById(R.id.menu);
 
@@ -314,28 +316,28 @@ public class BNDemoMainActivity extends Activity {
         menu_update = (LinearLayout) findViewById(R.id.menu_update);
     }
 
+    /**
+     * 一系列初始化findViewById的方法
+     */
     private void initListener() {
         menuOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.menu_close:
-                        if (ll_main_menu.getVisibility() == View.VISIBLE) {
-
-                            ll_main_menu.setVisibility(View.GONE);
-                            isMenuOpen = false;
-                        }
+                        menuClose();
                         break;
                     case R.id.menu_mycar:
                         startActivity(new Intent(BNDemoMainActivity.this, InfocarActivity.class));
                         break;
 
-//                    case R.id.menu_user:
-//                        startActivity(new Intent(BNDemoMainActivity.this, RepasswordActivity.class));
-//                        break;
+                    case R.id.menu_user:
+                        startActivity(new Intent(BNDemoMainActivity.this, RepasswordActivity.class));
+                        break;
 
                     case R.id.menu_update:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_Update.class));
+
+                        BmobUpdateAgent.update(BNDemoMainActivity.this);//用于自动更新
                         break;
 
                     case R.id.menu_about:
@@ -344,7 +346,6 @@ public class BNDemoMainActivity extends Activity {
 
                     case R.id.menu_share:
                         onClickShare(menu_share);
-//                        shareText(menu_share);
 
                         break;
                     case R.id.menu_feedback:
@@ -367,37 +368,26 @@ public class BNDemoMainActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.cwp_layout_main_b_navigation:
-                        navi.setTextColor(Color.parseColor("#7bb5ed"));
-                        gas.setTextColor(Color.parseColor("#6ad865"));
-                        repair.setTextColor(Color.parseColor("#6ad865"));
-                        stop.setTextColor(Color.parseColor("#6ad865"));
 
+                        textItemOnClick(R.id.cwp_layout_main_b_navigation);
                         break;
 
                     case R.id.cwp_layout_main_b_repair:
 
-                        repair.setTextColor(Color.parseColor("#7bb5ed"));
-                        gas.setTextColor(Color.parseColor("#6ad865"));
-                        stop.setTextColor(Color.parseColor("#6ad865"));
-                        navi.setTextColor(Color.parseColor("#6ad865"));
+
+                        textItemOnClick(R.id.cwp_layout_main_b_repair);
                         poiSearch.boundSearch(baiduMapLocal, "修车店");
                         break;
 
                     case R.id.cwp_layout_main_b_gas:
 
-                        gas.setTextColor(Color.parseColor("#7bb5ed"));
-                        stop.setTextColor(Color.parseColor("#6ad865"));
-                        repair.setTextColor(Color.parseColor("#6ad865"));
-                        navi.setTextColor(Color.parseColor("#6ad865"));
-
+                        textItemOnClick(R.id.cwp_layout_main_b_gas);
                         poiSearch.boundSearch(baiduMapLocal, "加油站");
                         break;
 
                     case R.id.cwp_layout_main_b_stop:
-                        stop.setTextColor(Color.parseColor("#7bb5ed"));
-                        gas.setTextColor(Color.parseColor("#6ad865"));
-                        repair.setTextColor(Color.parseColor("#6ad865"));
-                        navi.setTextColor(Color.parseColor("#6ad865"));
+
+                        textItemOnClick(R.id.cwp_layout_main_b_stop);
                         poiSearch.boundSearch(baiduMapLocal, "停车场");
                         break;
 
@@ -477,20 +467,7 @@ public class BNDemoMainActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.menu:
-                        if (ll_main_menu.getVisibility() == View.GONE) {
-
-                            isMenuOpen = true;
-
-                            ll_main_menu.setVisibility(View.VISIBLE);
-
-                            ll_main_menu.setOnTouchListener(new View.OnTouchListener() {
-                                @Override
-                                public boolean onTouch(View v, MotionEvent event) {
-                                    return true;
-                                }
-                            });
-
-                        }
+                        menuOpen();
                         break;
 
                     case R.id.down:
@@ -510,9 +487,6 @@ public class BNDemoMainActivity extends Activity {
                         }
                         break;
 
-                    case R.id.btn_go:
-                        route_go();
-                        break;
                     case R.id.btn_search:
                         String key = autoCompleteTextView.getText().toString();
                         suggestionSearch("株洲", key);
@@ -557,7 +531,11 @@ public class BNDemoMainActivity extends Activity {
                         if (Math.abs(currentX - sX) > 8) {
 
                             if (duration > 150) {
-                                int s = hListView.getScreenWidth() / 4 + 160;
+                                int s = (int) (hListView.getScreenWidth() * (45.0 / 108.0));
+
+                                Toast.makeText(BNDemoMainActivity.this, " " + hListView.getScreenWidth(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(BNDemoMainActivity.this, " " + s, Toast.LENGTH_SHORT).show();
+
                                 hListView.scroll(s);
                                 duration = s;
                             } else {
@@ -620,9 +598,48 @@ public class BNDemoMainActivity extends Activity {
         };
     }
 
+    private void textItemOnClick(int id) {
+
+
+        for (int i = 0; i < mapItem.size(); i++) {
+
+            if (mapItem.get(i).getId() == id) {
+                mapItem.get(i).setTextColor(Color.parseColor("#7bb5ed"));
+            } else {
+                mapItem.get(i).setTextColor(Color.parseColor("#6ad865"));
+            }
+        }
+
+    }
+
+    private void menuOpen() {
+        if (ll_main_menu.getVisibility() == View.GONE) {
+
+            ll_main_menu.setVisibility(View.VISIBLE);
+
+            ll_main_menu.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+
+        }
+    }
+
+    private void menuClose() {
+        if (ll_main_menu.getVisibility() == View.VISIBLE) {
+
+            ll_main_menu.setVisibility(View.GONE);
+
+        }
+    }
+
+    /**
+     * 为控件设置Listener
+     */
     private void initSetListener() {
 
-        btn_go.setOnClickListener(onClickListener);
         btn_search.setOnClickListener(onClickListener);
 
         img_btn_menu.setOnClickListener(onClickListener);
@@ -649,7 +666,6 @@ public class BNDemoMainActivity extends Activity {
         item_safe.setOnTouchListener(itemOnTouchListener);
         item_tag.setOnTouchListener(itemOnTouchListener);
         item_check.setOnTouchListener(itemOnTouchListener);
-
 
         menu_close.setOnClickListener(menuOnClickListener);
         menu_mycar.setOnClickListener(menuOnClickListener);
@@ -765,12 +781,12 @@ public class BNDemoMainActivity extends Activity {
             ll_main_menu.setVisibility(View.GONE);
             isMenuOpen = false;
             return;
-        } else if ((System.currentTimeMillis() - exitTime) > 2000) {
+        } else if ((System.currentTimeMillis() - activityExitTime) > 2000) {
 
             Toast.makeText(BNDemoMainActivity.this, "再按一次退出应用", Toast.LENGTH_SHORT).show();
-            exitTime = System.currentTimeMillis();
+            activityExitTime = System.currentTimeMillis();
 
-            Log.i("JJJ", "exitTime: " + exitTime + "currenttimr" + System.currentTimeMillis());
+            Log.i("JJJ", "activityExitTime: " + activityExitTime + "currenttimr" + System.currentTimeMillis());
             return;
 
         }
@@ -782,20 +798,11 @@ public class BNDemoMainActivity extends Activity {
      */
     public void initPanel() {
 
-        btn = (ImageButton) findViewById(R.id.btn);
-        text = (TextView) findViewById(R.id.text);
+        btn = (ImageButton) findViewById(R.id.btn_dropdown);
 
-        layout_a = (LinearLayout) findViewById(R.id.one);
-        layout = (LinearLayout) findViewById(R.id.two_layout);
+        layout = (LinearLayout) findViewById(R.id.layout_slidable_slidingdown);
 
         lp = (LinearLayout.LayoutParams) layout.getLayoutParams();
-
-        text.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(BNDemoMainActivity.this, "OnClick", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         btn.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -803,26 +810,26 @@ public class BNDemoMainActivity extends Activity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN:
                         Log.e("MOVE", "***************************");
-                        startY = event.getRawY();
-                        sY = startY;
-                        Log.e("MOVE", "**startY**" + startY);
+                        slidingDownStartY = event.getRawY();
+                        slidingDownSY = slidingDownStartY;
+                        Log.e("MOVE", "**slidingDownStartY**" + slidingDownStartY);
                         break;
 
                     case MotionEvent.ACTION_MOVE:
 
-                        currentY = event.getRawY();
-                        Log.e("MOVE", "**currentY**" + currentY + "**startY**" + startY);
-                        float dy = currentY - startY;
+                        slidingDownCurrentY = event.getRawY();
+                        Log.e("MOVE", "**slidingDownCurrentY**" + slidingDownCurrentY + "**slidingDownStartY**" + slidingDownStartY);
+                        float dy = slidingDownCurrentY - slidingDownStartY;
 
                         scroll(dy);
 
-                        startY = currentY;
+                        slidingDownStartY = slidingDownCurrentY;
 
-                        Log.e("MOVE", "**dy**" + dy + "**currentY**" + currentY + "**startY**" + startY);
+                        Log.e("MOVE", "**dy**" + dy + "**slidingDownCurrentY**" + slidingDownCurrentY + "**slidingDownStartY**" + slidingDownStartY);
                         break;
                     case MotionEvent.ACTION_UP:
 
-                        if (Math.abs(currentY - sY) > 8) {
+                        if (Math.abs(slidingDownCurrentY - slidingDownSY) > 8) {
                             if (mTopMargin < mMaxTopMargin && mTopMargin > (mMaxTopMargin / 2)) {
                                 //下滑
                                 new AsynMove().execute(new Integer[]{MOVE_WIDTH});// 正数展开,向下
@@ -857,17 +864,6 @@ public class BNDemoMainActivity extends Activity {
 
     }
 
-    //分享文字
-    public void shareText(View view) {
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "要分享的内容");
-        shareIntent.setType("text/plain");
-
-        //设置分享列表的标题，并且每次都显示分享列表
-        startActivity(Intent.createChooser(shareIntent, "标题：分享到"));
-    }
-
     public void scroll(float positionOffset) {
 
         if (mTopMargin < mMaxTopMargin && positionOffset > 0) {
@@ -888,7 +884,6 @@ public class BNDemoMainActivity extends Activity {
         lp.topMargin = mTopMargin;
         layout.setLayoutParams(lp);
     }
-
 
     /**
      * 内部接口类
@@ -981,7 +976,7 @@ public class BNDemoMainActivity extends Activity {
             for (int i = 0; i < times; i++) {
                 publishProgress(params);
                 try {
-                    Thread.sleep(Math.abs(24));
+                    Thread.sleep(Math.abs(pauseTime));
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -1041,7 +1036,7 @@ public class BNDemoMainActivity extends Activity {
             for (int i = 0; i < times; i++) {
                 publishProgress(params);
                 try {
-                    Thread.sleep(Math.abs(24));
+                    Thread.sleep(Math.abs(pauseTime));
                 } catch (InterruptedException e) {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
@@ -1074,15 +1069,6 @@ public class BNDemoMainActivity extends Activity {
         }
     }
 
-    public static int getAndroidSDKVersion() {
-        int version = 0;
-        try {
-            version = Integer.valueOf(android.os.Build.VERSION.SDK);
-        } catch (NumberFormatException e) {
-
-        }
-        return version;
-    }
 
 }
 

@@ -19,8 +19,8 @@ public class Activity_About extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__about);
 
-
         init();
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
     }
@@ -37,5 +37,7 @@ public class Activity_About extends Activity {
             }
         });
         text_content.setText("关于");
+
     }
+
 }

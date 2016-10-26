@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.hut.cwp.cwp_menu_mcar", appContext.getPackageName());
+        assertEquals("com.hut.cwp.cwp_main_menu_img_mcar", appContext.getPackageName());
     }
 }

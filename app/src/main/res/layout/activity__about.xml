@@ -7,140 +7,194 @@
 
     <include layout="@layout/cwp_layout_title_menu" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="@dimen/x180"
+            android:layout_height="@dimen/y180"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_marginTop="@dimen/y40"
+            android:src="@mipmap/logo" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/y10"
             android:text="App名称"
             android:textColor="#404040"
-            android:textSize="20dp" />
+            android:textSize="@dimen/x24" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/y10"
             android:text="app版本号"
-            android:textColor="#8e8e8e" />
+            android:textColor="#8e8e8e"
+            android:textSize="@dimen/x18" />
     </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dip"
+        android:layout_marginTop="@dimen/y20"
         android:background="#ffffff"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="介绍"
-            android:textColor="#404040"
-            android:textSize="24dp" />
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="200dip"
-            android:layout_height="1dp"
-            android:layout_gravity="center"
-            android:background="#8e8e8e" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/y20"
+                android:layout_marginTop="@dimen/y20"
+                android:text="介绍"
+                android:textColor="#404040"
+                android:textSize="@dimen/x36" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:text="  本软件由湖南工业大学hutcwp团队开发制作,是一款为私家车及车主提供各种便捷可靠服务的工具。
+            <ImageView
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/y1"
+                android:layout_gravity="center"
+                android:background="#8e8e8e" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="@dimen/y20"
+                android:paddingTop="@dimen/y20"
+                android:text="本软件由湖南工业大学XX团队开发制作.是一款为私家车及车主提供各种便捷可靠服务的工具。
        此版本仅用于比赛使用，最终解释权归hutcwp团队所有"
-            android:textColor="#404040"
-            android:textSize="14dp" />
+                android:textColor="#404040"
+                android:textSize="@dimen/x26" />
 
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="#ffffff"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="团队"
-            android:textColor="#404040"
-            android:textSize="24dp" />
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="200dip"
-            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
             android:layout_gravity="center"
-            android:background="#8e8e8e" />
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:background="#efefef" />
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingTop="10dp"
-        android:text="UI交互设计 ：刘春杰"
-        android:textColor="#404040"
-        android:textSize="14dp" />
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:layout_gravity="center"
-            android:text="  Android及后台开发 ：蔡文鹏，曾智祺，伍安芸"
-            android:textColor="#404040"
-            android:textSize="14dp" />
+            android:background="#ffffff"
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/y20"
+                android:layout_marginTop="@dimen/y20"
+                android:text="团队"
+                android:textColor="#404040"
+                android:textSize="@dimen/x36" />
 
+            <ImageView
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/y1"
+                android:layout_gravity="center"
+                android:background="#8e8e8e" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:background="#ffffff"
-        android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingTop="@dimen/y20"
+                android:text="UI交互设计 ：刘春杰"
+                android:textColor="#404040"
+                android:textSize="@dimen/x18" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="联系"
-            android:textColor="#404040"
-            android:textSize="24dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="@dimen/y20"
+                android:text="  Android及后台开发 ：蔡文鹏，曾智祺，伍安芸"
+                android:textColor="#404040"
+                android:textSize="@dimen/x18" />
+
+        </LinearLayout>
 
         <ImageView
-            android:layout_width="200dip"
-            android:layout_height="1dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y1"
             android:layout_gravity="center"
-            android:background="#8e8e8e" />
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:background="#efefef" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="20dp"
-            android:text="  mail to hutcwp@android.com"
-            android:textColor="#404040"
-            android:textSize="14dp"
-            android:id="@+id/textView" />
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/y20"
+                android:layout_marginTop="@dimen/y20"
+                android:text="联系"
+                android:textColor="#404040"
+                android:textSize="@dimen/x36" />
+
+            <ImageView
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/y1"
+                android:layout_gravity="center"
+                android:background="#8e8e8e" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingBottom="@dimen/y20"
+                android:paddingTop="@dimen/y20">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingLeft="@dimen/y220"
+                    android:text="  mail to "
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x18" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="191131464@qq.com"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x18" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 

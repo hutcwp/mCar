@@ -30,7 +30,7 @@
             android:layout_width="@dimen/x660"
             android:layout_height="@dimen/y100"
             android:layout_marginTop="@dimen/y80"
-            android:background="@drawable/cwp_half_feedback_button"
+            android:background="@drawable/cwp_feedback_half_btn_edittext"
             android:hint="邮箱"
             android:textColor="#8e8e8e"
             android:textSize="@dimen/x24" />
@@ -40,7 +40,7 @@
             android:layout_width="@dimen/x660"
             android:layout_height="150dp"
             android:layout_marginTop="@dimen/y40"
-            android:background="@drawable/cwp_half_feedback_button"
+            android:background="@drawable/cwp_feedback_half_btn_edittext"
             android:gravity="left"
             android:hint="请输入意见或者反馈给我们"
             android:textColor="#8e8e8e"
@@ -53,7 +53,7 @@
             android:layout_gravity="right"
             android:layout_marginBottom="@dimen/y80"
             android:layout_marginTop="@dimen/y40"
-            android:background="@drawable/cwp_half_button"
+            android:background="@drawable/cwp_feedback_half_btn_commit"
             android:text="提交"
             android:textColor="#404040"
             android:textSize="@dimen/x24" />

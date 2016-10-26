@@ -14,7 +14,7 @@
         android:layout_height="@dimen/y30"
         android:layout_gravity="right"
         android:layout_marginTop="@dimen/y340"
-        android:src="@drawable/cwp_menu_close" />
+        android:src="@drawable/cwp_main_menu_img_close" />
 
     <LinearLayout
         android:id="@+id/menu_mycar"
@@ -35,7 +35,7 @@
             android:layout_height="@dimen/y40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_menu_mcar" />
+            android:src="@drawable/cwp_main_menu_img_mcar" />
 
     </LinearLayout>
 
@@ -60,7 +60,7 @@
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_menu_user" />
+            android:src="@drawable/cwp_main_menu_img_user" />
 
     </LinearLayout>
 
@@ -83,7 +83,7 @@
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_menu_refresh" />
+            android:src="@drawable/cwp_main_menu_img_refresh" />
 
     </LinearLayout>
 
@@ -107,7 +107,7 @@
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_menu_share" />
+            android:src="@drawable/cwp_main_menu_img_share" />
 
     </LinearLayout>
 
@@ -131,7 +131,7 @@
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_menu_about" />
+            android:src="@drawable/cwp_main_menu_img_about" />
 
     </LinearLayout>
 
@@ -155,7 +155,7 @@
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_feedback" />
+            android:src="@drawable/cwp_main_menu_img_feedback" />
 
     </LinearLayout>
 
@@ -179,7 +179,7 @@
             android:layout_height="@dimen/x40"
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_menu_exit" />
+            android:src="@drawable/cwp_main_menu_img_exit" />
 
     </LinearLayout>
 

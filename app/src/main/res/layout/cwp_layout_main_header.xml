@@ -3,7 +3,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/y286"
-    android:background="@drawable/cwp_main_header"
+    android:background="@drawable/cwp_main_bcg_header"
     android:orientation="vertical">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_gravity="right"
         android:layout_marginTop="@dimen/y64"
         android:paddingRight="@dimen/y30"
-        android:src="@drawable/cwp_main_menu" />
+        android:src="@drawable/cwp_main_img_menu" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
                 android:layout_height="@dimen/y30"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/x30"
-                android:src="@drawable/cwp_main_down" />
+                android:src="@drawable/cwp_main_img_down" />
 
         </LinearLayout>
 

@@ -37,7 +37,7 @@
     <application
         android:name=".base.application.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -55,20 +55,18 @@
         <activity
             android:name=".cwp.activity.BNDemoMainActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
         <activity
             android:name=".cwp.activity.BNDemoGuideActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".way.activitys.InfocarActivity" />
+
 
         <!-- Zero's -->
         <activity android:name=".zero.activity.OilCityActivity" />
@@ -76,6 +74,31 @@
         <activity android:name=".zero.activity.IllegalResultActivity" />
         <activity android:name=".zero.activity.FeedbackActivity" />
         <activity android:name=".zero.activity.FeedbackSuccessActivity"></activity>
+
+        <!--Way-->
+        <activity android:name=".way.activitys.InfocarActivity" />
+        <activity android:name=".way.activitys.InfocarActivity2" />
+        <activity android:name=".way.activitys.RepasswordActivity" />
+        <activity android:name=".way.activitys.RepasswordActivity2" />
+        <activity android:name=".way.activitys.WelcomeActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".way.activitys.LoginActivity" />
+        <activity android:name=".way.activitys.RegisterActivity" />
+        <activity android:name=".way.activitys.RegisterActivity2" />
+
+        <!--activity-->
+        <activity android:name=".cwp.activity.Activity_feedBack" />
+        <activity android:name=".cwp.activity.Activity_news" />
+        <activity android:name=".cwp.activity.Activity_User" />
+        <activity android:name=".cwp.activity.Activity_About" />
+        <activity android:name=".cwp.activity.Activity_myCar" />
+
+
     </application>
 
 </manifest>
