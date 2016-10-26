@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_margin="15dp"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <LinearLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="70dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:text="车牌号"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/tv_il_qy_car_info_lsnum"
+                android:textSize="18sp"
+                android:hint="XXXXXXX"
+                android:textColorHint="#d4d4d4"
+                android:textColor="#d4d4d4"
+                android:gravity="center_vertical|right"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <TextView
+            android:background="#c3c3c3"
+            android:layout_width="match_parent"
+            android:layout_height="2px" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:text="发动机号"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/tv_il_qy_car_info_classno"
+                android:textSize="18sp"
+                android:hint="XXXXXXXXXXXXXXXX"
+                android:textColorHint="#d4d4d4"
+                android:textColor="#d4d4d4"
+                android:gravity="center_vertical|right"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <TextView
+            android:background="#c3c3c3"
+            android:layout_width="match_parent"
+            android:layout_height="2px" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <TextView
+                android:textSize="20sp"
+                android:textColor="#000"
+                android:gravity="center_vertical"
+                android:text="车架号"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_il_qy_car_info_engineno"
+                android:textSize="18sp"
+                android:hint="XXXXXXXXXXXXXXX"
+                android:textColorHint="#d4d4d4"
+                android:textColor="#d4d4d4"
+                android:gravity="center_vertical|right"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+    <RadioButton
+        android:id="@+id/rb_il_qy_car_info_radio_box"
+        android:layout_marginRight="10dp"
+        android:layout_gravity="center_vertical|right"
+        android:background="@drawable/z_il_qy_radio_box_unselect"
+        android:button="@null"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:checked="false"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+</FrameLayout>

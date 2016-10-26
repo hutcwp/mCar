@@ -43,6 +43,8 @@ import com.hut.cwp.mcar.cwp.clazz.BaiduMapNavi;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
 import com.hut.cwp.mcar.cwp.view.HListView;
 import com.hut.cwp.mcar.way.activitys.InfocarActivity;
+import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
+import com.hut.cwp.mcar.zero.activity.IllegalQueryActivity;
 import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
 import java.util.ArrayList;
@@ -346,8 +348,8 @@ public class BNDemoMainActivity extends Activity {
 
                         break;
                     case R.id.menu_feedback:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_feedBack.class));
-
+//                        startActivity(new Intent(BNDemoMainActivity.this, Activity_feedBack.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, FeedbackActivity.class));
                         break;
                     case R.id.menu_exit:
 
@@ -427,7 +429,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.img_ticket:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, IllegalQueryActivity.class));
                         break;
 
                     default:

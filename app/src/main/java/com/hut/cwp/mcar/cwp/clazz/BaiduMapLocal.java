@@ -51,7 +51,7 @@ public class BaiduMapLocal {
 
     public void initLocation() {
 
-        Log.i("TestLocal", "######000######");
+//        Log.i("TestLocal", "######000######");
 
         mLocationClient = new LocationClient(context.getApplicationContext());     //声明LocationClient类
         mLocationClient.registerLocationListener(myListener);    //注册监听函数
@@ -73,7 +73,7 @@ public class BaiduMapLocal {
         option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤gps仿真结果，默认需要
         mLocationClient.setLocOption(option);
 
-        Log.i("TestLocal", "######010######");
+//        Log.i("TestLocal", "######010######");
 
         if (!mLocationClient.isStarted()) {
             mLocationClient.start();
@@ -88,16 +88,16 @@ public class BaiduMapLocal {
         public void onReceiveLocation(BDLocation location) {
             //一直处于中心点的状态
             centerToMyLocation(location.getLatitude(), location.getLongitude());
-            Log.i("TestLocal", "######030######");
+//            Log.i("TestLocal", "######030######");
             mCurentLatitue = location.getLatitude();
             mCurrentLongLatitue = location.getLongitude();
 
-            Log.i("TestLocal", "######set######" + location.getCity() + location.getCountry() + location.getProvince());
+//            Log.i("TestLocal", "######set######" + location.getCity() + location.getCountry() + location.getProvince());
 
             Local.setCity(location.getCity());
             Local.setProvince(location.getProvince());
 
-            Log.i("TestLocal", "#####get#######" + Local.getCity() + Local.getProvince());
+//            Log.i("TestLocal", "#####get#######" + Local.getCity() + Local.getProvince());
 
             //Receive Location
             StringBuffer sb = new StringBuffer(256);
@@ -172,7 +172,7 @@ public class BaiduMapLocal {
 
         LatLng latLng = new LatLng(mLatitue, mLongLatitue);
         MapStatusUpdate msu = MapStatusUpdateFactory.newLatLng(latLng);
-        Log.i("TestLocal", "######040######");
+//        Log.i("TestLocal", "######040######");
         mBaiduMap.animateMapStatus(msu);
     }
 

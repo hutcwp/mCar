@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:text="请输入车牌号码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:id="@+id/ll_car_license_inputbox_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:id="@+id/ll_license_input_boxes_content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <EditText
+                android:cursorVisible="false"
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+
+            <EditText
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+
+            <EditText
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+
+            <EditText
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+
+            <EditText
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+
+            <EditText
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+
+            <EditText
+                android:text=""
+                android:textColor="#000"
+                android:id="@+id/et_car_license_inputbox7"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/car_license_inputbox"
+                android:gravity="center_horizontal|center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.inputmethodservice.KeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center_horizontal"
+        android:background="#F0EFF4"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:keyBackground="@android:color/white"
+        android:keyTextColor="#5E5E5E"
+        android:keyTextSize="18sp"
+        android:labelTextSize="18sp"
+        android:paddingTop="5dp"
+        android:shadowColor="#ffffff"
+        android:shadowRadius="0.0"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_car_info_dialog_confirm"
+            android:text="确定"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bt_car_info_dialog_cancel"
+            android:text="返回"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

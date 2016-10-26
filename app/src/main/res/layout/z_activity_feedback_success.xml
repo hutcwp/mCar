@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/z_activity_feedback_success"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hut.cwp.mcar.zero.activity.FeedbackSuccessActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#75aff4">
+
+        <Button
+            android:onClick="back1"
+            android:id="@+id/bt_feedback_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/way_rigister_btn_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:text="反馈"
+            android:textColor="#ffffff"
+            android:textSize="22sp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+        <TextView
+            android:textColor="#404040"
+            android:textSize="30sp"
+            android:gravity="center_horizontal"
+            android:text="留言成功"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="25dp"
+            android:textColor="#404040"
+            android:textSize="15sp"
+            android:gravity="center_horizontal"
+            android:text="我们将尽快处理您的反馈"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:onClick="back2"
+            android:background="@drawable/z_bcg_feedback_success"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:text="好的，返回"
+            android:textSize="18sp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:onClick="again"
+            android:background="@drawable/z_bcg_feedback_success"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#fff"
+            android:text="再次留言"
+            android:textSize="18sp"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"/>
+    </LinearLayout>
+</LinearLayout>

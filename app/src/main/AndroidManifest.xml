@@ -31,7 +31,7 @@
     <!-- 摄影机 -->
     <uses-permission android:name="android.permission.CAMERA" />
 
-    <!--用于自动更新-->
+    <!-- 用于自动更新 -->
     <meta-data android:name="BMOB_CHANNEL" />
 
     <application
@@ -41,7 +41,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
 
         <!-- 用于配置百度地图 -->
         <meta-data
@@ -58,26 +57,25 @@
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".cwp.activity.BNDemoGuideActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-
-
         <activity
             android:name="cn.bmob.v3.update.UpdateDialogActivity"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".way.activitys.InfocarActivity" />
 
-        <!--Zero's-->
-        <activity android:name=".zero.activity.OilCityActivity"/>
-
-
+        <!-- Zero's -->
+        <activity android:name=".zero.activity.OilCityActivity" />
+        <activity android:name=".zero.activity.IllegalQueryActivity" />
+        <activity android:name=".zero.activity.IllegalResultActivity" />
+        <activity android:name=".zero.activity.FeedbackActivity" />
+        <activity android:name=".zero.activity.FeedbackSuccessActivity"></activity>
     </application>
 
 </manifest>

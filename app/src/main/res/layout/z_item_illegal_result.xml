@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:layout_marginTop="15dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="时间"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_illegal_result_date"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="2016-03-03 13:13:13"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="地点"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:id="@+id/tv_illegal_result_area"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="市立医院路口"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="描述"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent" />
+        <TextView
+            android:id="@+id/tv_illegal_result_act"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="驾驶机动车违反道路交通信号灯通行的"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="违章代码"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_illegal_result_code"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="XXXX"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="扣分值"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_illegal_result_fen"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="2016-03-03 13:13:13"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="罚款金额"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_illegal_result_money"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="100"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="#000"
+            android:text="状态"
+            android:textSize="20sp"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/tv_illegal_result_handled"
+            android:gravity="center|right"
+            android:padding="5dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#808080"
+            android:text="已处理"
+            android:textSize="18sp"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

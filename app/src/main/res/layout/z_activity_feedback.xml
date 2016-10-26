@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d4d4d4"
+    android:orientation="vertical"
+    tools:context=".zero.activity.FeedbackActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#75aff4">
+
+            <Button
+                android:id="@+id/bt_feedback_back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/way_rigister_btn_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:text="反馈"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:text="您好!XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:textColor="#404040"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/tv_feedback_phone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/z_bcg_feedback_content"
+                android:cursorVisible="false"
+                android:hint="手机号码"
+                android:inputType="number"
+                android:padding="7dp"
+                android:textColorHint="#8e8e8e"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/tv_feedback_content"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/z_bcg_feedback_content"
+                android:cursorVisible="false"
+                android:gravity="top"
+                android:hint="请输入意见或者反馈并提交给我们（200字以内）"
+                android:maxLength="200"
+                android:padding="7dp"
+                android:textColorHint="#8e8e8e" />
+
+            <Button
+                android:id="@+id/bt_feedback_commit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/z_bcg_feedback_commit"
+                android:text="提交"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rl_feedback_loading"
+        android:background="#35000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:layout_centerInParent="true"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+</FrameLayout>
