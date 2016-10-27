@@ -16,6 +16,10 @@ public class IllegalResultBean implements Parcelable {
     private String money;
     private String handled;
 
+    public IllegalResultBean() {
+
+    }
+
     protected IllegalResultBean(Parcel in) {
         date = in.readString();
         area = in.readString();

@@ -48,7 +48,7 @@ public class InfoCarActivity extends Activity {
         setContentView(R.layout.activity_mycar);
 
 
-//        adapter = new MycarInfoAdapter(InfocarActivity.this, R.layout.way_my_car_itme, mData);
+//        adapter = new MycarInfoAdapter(InfoCarActivity.this, R.layout.way_my_car_itme, mData);
 //        listView = (ListView) findViewById(R.id.mycar_list_view);
 //        listView.setAdapter(adapter);
 //
@@ -61,7 +61,7 @@ public class InfoCarActivity extends Activity {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //
-//                Toast.makeText(InfocarActivity.this, "" + mData.get(position).getObjectId(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(InfoCarActivity.this, "" + mData.get(position).getObjectId(), Toast.LENGTH_LONG).show();
 //
 //            }
 //        });
@@ -87,9 +87,9 @@ public class InfoCarActivity extends Activity {
 //                    listView.setAdapter(adapter);
 //                    deletein = false;
 //                } else {
-//                    adapter2 = new MycarInfoAdapter(InfocarActivity.this, R.layout.way_my_car_itme2, mData);
+//                    adapter2 = new MycarInfoAdapter(InfoCarActivity.this, R.layout.way_my_car_itme2, mData);
 //                    listView.setAdapter(adapter2);
-//                    Toast.makeText(InfocarActivity.this, "点击右上角图标即可删除", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(InfoCarActivity.this, "点击右上角图标即可删除", Toast.LENGTH_SHORT).show();
 //                    deletein = true;
 //                }
 

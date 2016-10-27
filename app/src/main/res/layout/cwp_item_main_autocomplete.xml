@@ -4,7 +4,7 @@
     style="?android:attr/dropDownItemStyle"
     android:layout_width="match_parent"
     android:layout_height="@dimen/y80"
-    android:background="#8296b7"
+    android:background="@color/cardview_light_background"
     android:ellipsize="marquee"
     android:singleLine="true"
     android:textAppearance="?android:attr/textAppearanceLargePopupMenu" />

@@ -1,10 +1,13 @@
 package com.hut.cwp.mcar.cwp.activity;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -48,6 +51,7 @@ import com.hut.cwp.mcar.way.activitys.LoginActivity;
 import com.hut.cwp.mcar.way.activitys.RepasswordActivity;
 import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
 import com.hut.cwp.mcar.zero.activity.IllegalQueryActivity;
+import com.hut.cwp.mcar.zero.activity.IllegalResultActivity;
 import com.hut.cwp.mcar.zero.activity.MoveCarActivity;
 import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
@@ -174,7 +178,7 @@ public class BNDemoMainActivity extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         log_i("004");
-        mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 400);
+        mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 420);
 
         MOVE_WIDTH = DisplayUtil.dip2px(BNDemoMainActivity.this, 5);
 
@@ -186,6 +190,7 @@ public class BNDemoMainActivity extends Activity {
 
         log_i("007");
         BmobUpdateAgent.update(this);//用于自动更新
+
         log_i("008");
     }
 
@@ -379,10 +384,10 @@ public class BNDemoMainActivity extends Activity {
                     case R.id.cwp_layout_main_b_navigation:
 
                         textItemOnClick(R.id.cwp_layout_main_b_navigation);
+                        mBaiduMap.clear();
                         break;
 
                     case R.id.cwp_layout_main_b_repair:
-
 
                         textItemOnClick(R.id.cwp_layout_main_b_repair);
                         poiSearch.boundSearch(baiduMapLocal, "修车店");
@@ -420,7 +425,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.img_safe:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, IllegalResultActivity.class));
                         break;
 
                     case R.id.img_tag:
@@ -497,8 +502,14 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.btn_search:
-                        String key = autoCompleteTextView.getText().toString();
-                        suggestionSearch("株洲", key);
+
+                        if (autoCompleteTextView.getText().toString().trim().equals("")) {
+
+                            suggestionSearch("株洲", autoCompleteTextView.getHint().toString().trim());
+                        } else {
+
+                            suggestionSearch("株洲", autoCompleteTextView.getText().toString().trim());
+                        }
                         break;
                 }
             }
@@ -538,12 +549,9 @@ public class BNDemoMainActivity extends Activity {
                     case MotionEvent.ACTION_UP:
 
                         if (Math.abs(currentX - sX) > 8) {
-
                             if (duration > 150) {
-                                int s = (int) (hListView.getScreenWidth() * (45.0 / 108.0));
 
-                                Toast.makeText(BNDemoMainActivity.this, " " + hListView.getScreenWidth(), Toast.LENGTH_SHORT).show();
-                                Toast.makeText(BNDemoMainActivity.this, " " + s, Toast.LENGTH_SHORT).show();
+                                int s = (int) (hListView.getScreenWidth() * (45.0 / 108.0));
 
                                 hListView.scroll(s);
                                 duration = s;
@@ -565,11 +573,11 @@ public class BNDemoMainActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
-                Toast.makeText(BNDemoMainActivity.this, "OnItemClickListener()选中：" + listData.get(position), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(BNDemoMainActivity.this, "前往：" + listData.get(position), Toast.LENGTH_SHORT).show();
 
-                endLatitue = suggestionInfosData.get(position).pt.latitude;
-                endLongLatitue = suggestionInfosData.get(position).pt.longitude;
-                route_go();
+                showDialog(suggestionInfosData.get(position));
+
+
                 Log.i(TAG, "*****经纬度*****" + endLatitue + endLongLatitue);
             }
         };
@@ -599,8 +607,9 @@ public class BNDemoMainActivity extends Activity {
 //                        Log.i(TAG, suggestionInfo.uid);
 //                        Log.i(TAG, suggestionInfo.pt.latitude + " " + suggestionInfo.pt.longitude);
                     }
-
+//                    Toast.makeText(BNDemoMainActivity.this, "list" + listData.size(), Toast.LENGTH_SHORT).show();
                     initAutoCompeleted();
+                    autoCompleteTextView.showDropDown();
                     printData();
                 }
             }
@@ -608,7 +617,6 @@ public class BNDemoMainActivity extends Activity {
     }
 
     private void textItemOnClick(int id) {
-
 
         for (int i = 0; i < mapItem.size(); i++) {
 
@@ -642,6 +650,36 @@ public class BNDemoMainActivity extends Activity {
             ll_main_menu.setVisibility(View.GONE);
 
         }
+    }
+
+    private void showDialog(final SuggestionResult.SuggestionInfo suggestionInfo) {
+
+        String content =
+                "名称:" + "\t\t\t\t" + suggestionInfo.district + "\n"
+                        + "地址详情:" + "" + suggestionInfo.key + "\n";
+
+        Dialog dialog = new AlertDialog.Builder(BNDemoMainActivity.this)
+                .setTitle("出发去该地")//设置标题
+                .setMessage(content)//设置提示内容
+                //确定按钮
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        endLatitue = suggestionInfo.pt.latitude;
+                        endLongLatitue = suggestionInfo.pt.longitude;
+
+                        route_go();
+                        //                        finish();
+                    }
+                })
+                //取消按钮
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .create();//创建对话框
+        dialog.show();//显示对话框
     }
 
     /**
@@ -688,13 +726,14 @@ public class BNDemoMainActivity extends Activity {
         mSuggestionSearch.setOnGetSuggestionResultListener(onGetSuggestionResultListener);
         autoCompleteTextView.setOnItemClickListener(autoCompleteTextViewOnItemClickListener);
 
+        autoCompleteTextView.addTextChangedListener(new TextWatcher_Enum());
     }
 
     private void initAutoCompeleted() {
 
         adapter = new ArrayAdapter(this, R.layout.cwp_item_main_autocomplete, listData);
         autoCompleteTextView.setAdapter(adapter);
-        autoCompleteTextView.addTextChangedListener(new TextWatcher_Enum());
+
     }
 
     /**

@@ -82,6 +82,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+
         </activity>
         <activity android:name=".way.activitys.LoginActivity" />
         <activity android:name=".way.activitys.RegisterActivity" />

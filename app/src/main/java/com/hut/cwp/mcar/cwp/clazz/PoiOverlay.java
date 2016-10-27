@@ -22,6 +22,17 @@ public class PoiOverlay extends OverlayManager {
 
     private PoiResult mPoiResult = null;
 
+    private int icon_ID;
+
+    public int getIcon_ID() {
+        return icon_ID;
+    }
+
+
+    public void setIcon_ID(int icon_ID) {
+        this.icon_ID = icon_ID;
+    }
+
     /**
      * 构造函数
      * 
@@ -57,11 +68,13 @@ public class PoiOverlay extends OverlayManager {
             markerSize++;
             Bundle bundle = new Bundle();
             bundle.putInt("index", i);
+//            markerList.add(new MarkerOptions()
+//                    .icon(BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark"
+//                            + markerSize + ".png")).extraInfo(bundle)
+//                    .position(mPoiResult.getAllPoi().get(i).location));
             markerList.add(new MarkerOptions()
-                    .icon(BitmapDescriptorFactory.fromAssetWithDpi("Icon_mark"
-                            + markerSize + ".png")).extraInfo(bundle)
+                    .icon(BitmapDescriptorFactory.fromResource(getIcon_ID())).extraInfo(bundle)
                     .position(mPoiResult.getAllPoi().get(i).location));
-            
         }
         return markerList;
     }

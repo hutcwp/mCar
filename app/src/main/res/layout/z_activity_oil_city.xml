@@ -8,263 +8,295 @@
     tools:context=".zero.activity.OilCityActivity">
 
     <ProgressBar
-        android:visibility="gone"
         android:id="@+id/pb"
+        android:layout_width="@dimen/x140"
+        android:layout_height="@dimen/x140"
         android:layout_gravity="center"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
+        android:visibility="gone" />
 
     <RelativeLayout
         android:id="@+id/rl_oil_city"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/y40">
+
         <Button
-            android:background="@drawable/way_rigister_btn_back"
-            android:layout_width="11dp"
-            android:layout_height="20dp"
-            android:layout_alignParentTop="true"
+            android:id="@+id/bt_oil_city_back"
+            android:layout_width="@dimen/x22"
+            android:layout_height="@dimen/y40"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="25dp"
-            android:id="@+id/bt_oil_city_back" />
+            android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/y22"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginTop="@dimen/y22"
+            android:background="@drawable/way_rigister_btn_back" />
 
         <TextView
-            android:text="今日油价"
-            android:textSize="23sp"
-            android:textStyle="bold"
+            android:id="@+id/tv_oil_city_youjia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tv_oil_city_youjia"
-            android:textColor="#ffffff"
+            android:layout_below="@+id/bt_oil_city_back"
             android:layout_centerHorizontal="true"
-            android:layout_below="@+id/bt_oil_city_back" />
+            android:layout_marginTop="@dimen/y32"
+            android:text="今日油价"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/x60" />
 
         <TextView
-            android:text="刷新时间：XX:XX"
-            android:textColor="#b5b5b5"
+            android:id="@+id/tv_oil_city_re_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_oil_city_youjia"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="11dp"
-            android:id="@+id/tv_oil_city_re_time" />
+            android:layout_marginTop="@dimen/y60"
+            android:text="刷新时间：XX:XX"
+            android:textColor="#b5b5b5"
+            android:textSize="@dimen/x20" />
 
         <TextView
+            android:id="@+id/tv_oil_city_place"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y80"
+            android:layout_below="@+id/tv_oil_city_re_time"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/y40"
+            android:background="@drawable/z_xml_btn_shadow_bg"
             android:gravity="center"
             android:text="地区"
-            android:textSize="20sp"
             android:textColor="#75aff4"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:background="@drawable/z_xml_btn_shadow_bg"
-            android:layout_marginTop="19dp"
-            android:id="@+id/tv_oil_city_place"
-            android:layout_below="@+id/tv_oil_city_re_time"
-            android:layout_centerHorizontal="true" />
+            android:textSize="@dimen/x36" />
 
         <TextView
-            android:visibility="gone"
-            android:paddingTop="10dp"
-            android:textSize="15sp"
-            android:textColor="#ff2929"
-            android:text="获取信息失败:网络出错或者服务器繁忙"
             android:id="@+id/tv_oil_city_failed"
-            android:layout_below="@id/tv_oil_city_place"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_oil_city_place"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/y20"
+            android:text="获取信息失败:网络出错或者服务器繁忙"
+            android:textColor="#ff2929"
+            android:textSize="@dimen/x30"
+            android:visibility="gone" />
 
         <RelativeLayout
-            android:layout_width="320dp"
-            android:layout_height="320dp"
-            android:background="@drawable/z_oil_city_white"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/tv_oil_city_failed"
-            android:layout_centerHorizontal="true">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y540"
+            android:layout_below="@+id/tv_oil_city_place"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y90"
+            android:background="@drawable/z_oil_city_white">
 
             <RelativeLayout
                 android:id="@+id/rl_oil_city_1"
-                android:layout_width="160dp"
-                android:layout_height="160dp">
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y134"
+                android:layout_marginLeft="@dimen/x75"
+                android:layout_marginTop="@dimen/y67">
+
                 <TextView
-                    android:text="#97"
                     android:id="@+id/tv_oil_city_97"
-                    android:textSize="23sp"
-                    android:textColor="#808080"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="50dp"/>
-                <TextView
-                    android:text="¥"
+                    android:text="#97"
                     android:textColor="#808080"
-                    android:textSize="20sp"
-                    android:id="@+id/tv_oil_city_¥1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/x28" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@id/tv_oil_city_97"
-                    android:paddingTop="10dp"
-                    android:layout_marginLeft="15dp"/>
-                <TextView
-                    android:id="@+id/tv_oil_city_price97"
-                    android:text="X.XX"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:paddingTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_oil_city_¥1"
-                    android:layout_below="@id/tv_oil_city_97"/>
-                <TextView
-                    android:text="元/升"
-                    android:textColor="#808080"
-                    android:paddingTop="10dp"
-                    android:textSize="20sp"
-                    android:layout_toRightOf="@id/tv_oil_city_price97"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_oil_city_97"
-                    android:layout_marginLeft="3dp"/>
+                    android:layout_marginTop="@dimen/y30">
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_¥1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_price97"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_¥1"
+                        android:text="X.XX"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x48" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_price97"
+                        android:text="元/升"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+                </LinearLayout>
+
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_oil_city_2"
-                android:layout_toRightOf="@id/rl_oil_city_1"
-                android:layout_width="160dp"
-                android:layout_height="160dp">
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y134"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/x75"
+                android:layout_marginTop="@dimen/y67">
+
                 <TextView
-                    android:text="#93"
                     android:id="@+id/tv_oil_city_93"
-                    android:textSize="23sp"
-                    android:textColor="#808080"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="50dp"/>
-                <TextView
-                    android:text="¥"
+                    android:text="#93"
                     android:textColor="#808080"
-                    android:textSize="20sp"
-                    android:id="@+id/tv_oil_city_¥2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/x28" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@id/tv_oil_city_93"
-                    android:paddingTop="10dp"
-                    android:layout_marginLeft="15dp"/>
-                <TextView
-                    android:id="@+id/tv_oil_city_price93"
-                    android:text="X.XX"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:paddingTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_oil_city_¥2"
-                    android:layout_below="@id/tv_oil_city_93"/>
-                <TextView
-                    android:text="元/升"
-                    android:textColor="#808080"
-                    android:paddingTop="10dp"
-                    android:textSize="20sp"
-                    android:layout_toRightOf="@id/tv_oil_city_price93"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_oil_city_93"
-                    android:layout_marginLeft="3dp"/>
+                    android:layout_marginTop="@dimen/y30">
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_¥2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_price93"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_¥1"
+                        android:text="X.XX"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x48" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_price97"
+                        android:text="元/升"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+                </LinearLayout>
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_oil_city_3"
-                android:layout_below="@id/rl_oil_city_1"
-                android:layout_width="160dp"
-                android:layout_height="160dp">
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y134"
+                android:layout_marginLeft="@dimen/x75"
+                android:layout_marginTop="@dimen/y337">
+
                 <TextView
-                    android:text="#90"
                     android:id="@+id/tv_oil_city_90"
-                    android:textSize="23sp"
-                    android:textColor="#808080"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"/>
-                <TextView
-                    android:text="¥"
+                    android:text="#90"
                     android:textColor="#808080"
-                    android:textSize="20sp"
-                    android:id="@+id/tv_oil_city_¥3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_oil_city_90"
-                    android:paddingTop="10dp"
-                    android:layout_marginLeft="15dp"/>
-                <TextView
-                    android:id="@+id/tv_oil_city_price90"
-                    android:text="X.XX"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:paddingTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_oil_city_¥3"
-                    android:layout_below="@id/tv_oil_city_90"/>
-                <TextView
-                    android:text="元/升"
-                    android:textColor="#808080"
-                    android:paddingTop="10dp"
-                    android:textSize="20sp"
-                    android:layout_toRightOf="@id/tv_oil_city_price90"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_oil_city_90"
-                    android:layout_marginLeft="3dp"/>
+                    android:textSize="@dimen/x28" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_oil_city_90"
+                    android:layout_marginTop="@dimen/y30">
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_¥3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_price90"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_¥1"
+                        android:text="X.XX"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x48" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_price97"
+                        android:text="元/升"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+                </LinearLayout>
             </RelativeLayout>
+
             <RelativeLayout
-                android:layout_toRightOf="@id/rl_oil_city_3"
-                android:layout_below="@id/rl_oil_city_2"
-                android:layout_width="160dp"
-                android:layout_height="160dp">
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y134"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/x75"
+                android:layout_marginTop="@dimen/y337">
+
                 <TextView
-                    android:text="#0"
                     android:id="@+id/tv_oil_city_0"
-                    android:textSize="23sp"
-                    android:textColor="#808080"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"/>
-                <TextView
-                    android:text="¥"
+                    android:text="#0"
                     android:textColor="#808080"
-                    android:textSize="20sp"
-                    android:id="@+id/tv_oil_city_¥4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_oil_city_0"
-                    android:paddingTop="10dp"
-                    android:layout_marginLeft="15dp"/>
-                <TextView
-                    android:id="@+id/tv_oil_city_price0"
-                    android:text="X.XX"
-                    android:textColor="#000000"
-                    android:textSize="28sp"
-                    android:paddingTop="3dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/tv_oil_city_¥4"
-                    android:layout_below="@id/tv_oil_city_0"/>
-                <TextView
-                    android:text="元/升"
-                    android:textColor="#808080"
-                    android:paddingTop="10dp"
-                    android:textSize="20sp"
-                    android:layout_toRightOf="@id/tv_oil_city_price0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_oil_city_0"
-                    android:layout_marginLeft="3dp"/>
+                    android:textSize="@dimen/x28" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_oil_city_0"
+                    android:layout_marginTop="@dimen/y30">
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_¥4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¥"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+
+                    <TextView
+                        android:id="@+id/tv_oil_city_price0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_¥1"
+                        android:text="X.XX"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x48" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_oil_city_97"
+                        android:layout_toRightOf="@id/tv_oil_city_price97"
+                        android:text="元/升"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x28" />
+                </LinearLayout>
+
             </RelativeLayout>
+
         </RelativeLayout>
+
     </RelativeLayout>
 
 </FrameLayout>

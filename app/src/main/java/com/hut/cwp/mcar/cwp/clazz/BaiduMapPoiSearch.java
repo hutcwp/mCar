@@ -1,5 +1,8 @@
 package com.hut.cwp.mcar.cwp.clazz;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
 import com.baidu.mapapi.map.BaiduMap;
@@ -14,6 +17,7 @@ import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
+import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
 /**
@@ -27,6 +31,11 @@ public class BaiduMapPoiSearch {
     LatLng nodeLocation;
     PoiSearch mPoiSearch;
     OnGetPoiSearchResultListener poiListener;
+
+    int icon_ID = R.drawable.cwp_main_map_tab_icon_gas;
+
+    int dialog_icon_ID = R.drawable.cwp_main_map_tab_icon_gas;
+
 
     public BaiduMapPoiSearch(BaiduMap mBaiduMap, BNDemoMainActivity context) {
 
@@ -57,12 +66,15 @@ public class BaiduMapPoiSearch {
 
                     mBaiduMap.clear();
                     MyPoiOverlay poiOverlay = new MyPoiOverlay(mBaiduMap);
+
+                    poiOverlay.setIcon_ID(icon_ID);
                     poiOverlay.setData(result);// 设置POI数据
 
                     mBaiduMap.setOnMarkerClickListener(poiOverlay);
 
                     poiOverlay.addToMap();// 将所有的overlay添加到地图上
                     poiOverlay.zoomToSpan();
+
 
                 }
             }
@@ -95,6 +107,8 @@ public class BaiduMapPoiSearch {
 
     public void boundSearch(BaiduMapLocal myLocate, String PoiKey) {
 
+        setIconByPoiKey(PoiKey);
+
         PoiBoundSearchOption boundSearchOption = new PoiBoundSearchOption();
 
         LatLng southwest = new LatLng(myLocate.getmCurentLatitue() - 0.01, myLocate.getmCurrentLongLatitue() - 0.012);// 西南
@@ -108,6 +122,30 @@ public class BaiduMapPoiSearch {
         boundSearchOption.pageNum(0);
 
         mPoiSearch.searchInBound(boundSearchOption);// 发起poi范围检索请求
+    }
+
+
+    private void setIconByPoiKey(String poiKey) {
+
+        switch (poiKey) {
+            case "加油站":
+                icon_ID = R.mipmap.icon_gas;
+                dialog_icon_ID =R.mipmap.dialog_icon_gas;
+                break;
+
+            case "修车店":
+                icon_ID = R.mipmap.icon_repair;
+                dialog_icon_ID = R.mipmap.dialog_icon_repair;
+                break;
+
+            case "停车场":
+                icon_ID = R.mipmap.icon_stop;
+                dialog_icon_ID = R.mipmap.dialog_icon_stop;
+                break;
+            default:
+                break;
+        }
+
     }
 
     class MyPoiOverlay extends PoiOverlay {
@@ -125,15 +163,40 @@ public class BaiduMapPoiSearch {
             mPoiSearch.searchPoiDetail(new PoiDetailSearchOption()
                     .poiUid(poiInfo.uid));
 
-            Toast.makeText(mContext, "结果:" + poiInfo.address + "->" + poiInfo.name + "->" + poiInfo.phoneNum + "->"
-                             + poiInfo.location.latitude + "->" + poiInfo.location.longitude,
-                    Toast.LENGTH_SHORT).show();
-
-            mContext.route_go(poiInfo.location);
+            showDialog(poiInfo);
 
             return true;
         }
     }
 
+    private void showDialog(final PoiInfo poiInfo) {
+
+        String content =
+                "名称:" + "\t\t\t\t" + poiInfo.name + "\n"
+                        + "电话:" + "\t\t\t\t" + poiInfo.phoneNum + "\n\n" +
+                        "地址详情:" + "" + poiInfo.address + "\n";
+
+        Dialog dialog = new AlertDialog.Builder(mContext)
+                .setIcon(dialog_icon_ID)
+                .setTitle("出发去该地")//设置标题
+                .setMessage(content)//设置提示内容
+                //确定按钮
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        mContext.route_go(poiInfo.location);
+//                        finish();
+                    }
+                })
+                //取消按钮
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                })
+                .create();//创建对话框
+        dialog.show();//显示对话框
+    }
 
 }

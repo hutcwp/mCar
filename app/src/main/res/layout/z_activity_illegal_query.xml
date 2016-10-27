@@ -5,12 +5,12 @@
     android:id="@+id/cl_il_qy_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IllegalQueryActivity">
+    tools:context=".zero.activity.IllegalQueryActivity">
 
     <ProgressBar
         android:id="@+id/pb_il_qy_loading"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/x100"
+        android:layout_height="@dimen/x100"
         android:layout_gravity="center" />
 
     <LinearLayout
@@ -22,67 +22,78 @@
         <RelativeLayout
             android:id="@+id/rl_il_qy_top"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
+            android:layout_height="@dimen/y380"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/z_il_qy_bcg_up">
 
-            <Button
-                android:id="@+id/bt_il_qy_back"
-                android:layout_width="15dp"
-                android:layout_height="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="22dp"
-                android:background="@drawable/way_rigister_btn_back" />
+            <RelativeLayout
+                android:id="@+id/layout_ui"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y88"
+                android:layout_marginTop="@dimen/y40">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="违章记录"
-                android:textColor="#ffffff"
-                android:textSize="26sp" />
+                <Button
+                    android:id="@+id/bt_il_qy_back"
+                    android:layout_width="@dimen/x22"
+                    android:layout_height="@dimen/x40"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginTop="@dimen/y22"
+                    android:background="@drawable/way_rigister_btn_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="违章记录"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/x40" />
+            </RelativeLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
+                android:id="@+id/layout_ui2"
+                android:layout_width="@dimen/x380"
+                android:layout_height="@dimen/y70"
+                android:layout_below="@id/layout_ui"
                 android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/y40"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/bt_il_qy_select_province"
-                    android:layout_width="90dp"
+                    android:layout_width="@dimen/x190"
                     android:layout_height="match_parent"
                     android:background="@drawable/z_bcg_select_province"
                     android:gravity="center"
                     android:text="选择地区"
                     android:textColor="#75aff4"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/x30" />
 
                 <TextView
                     android:id="@+id/tv_il_qy_dividing_line"
-                    android:layout_width="1dp"
+                    android:layout_width="@dimen/x1"
                     android:layout_height="match_parent"
                     android:background="#75aff4" />
 
                 <Button
                     android:id="@+id/bt_il_qy_select_city"
-                    android:layout_width="90dp"
+                    android:layout_width="@dimen/x190"
                     android:layout_height="match_parent"
                     android:background="@drawable/z_bcg_select_city"
                     android:gravity="center"
                     android:text="选择城市"
                     android:textColor="#75aff4"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/x30" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/layout_ui2"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="115dp"
+                android:layout_marginTop="@dimen/y40"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -90,13 +101,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="点击上方按钮可选择地区"
-                    android:textColor="#ffffff" />
+                    android:textColor="#fff"
+                    android:textSize="@dimen/x34" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="请在下方选择或手动输入车辆信息"
-                    android:textColor="#ffffff" />
+                    android:text="(请在下方选择或手动输入车辆信息)"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/x20" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -105,22 +118,30 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:divider="@null"
+            android:scrollbars="none"
             android:choiceMode="singleChoice" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#cecece"/>
 
         <LinearLayout
             android:id="@+id/ll_il_qy_query"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/y96"
             android:layout_alignParentBottom="true"
-            android:background="#838080"
+            android:background="#fff"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/bt_il_qy_query_bt"
-                android:layout_width="30dp"
-                android:layout_height="28dp"
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/y40"
                 android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/x4"
                 android:background="@drawable/z_il_qy_unquery"
                 android:clickable="false"
                 android:focusable="false" />
@@ -128,26 +149,31 @@
             <TextView
                 android:id="@+id/tv_il_qy_query_tv"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y10"
+                android:layout_marginTop="@dimen/y10"
                 android:text="查询"
                 android:textColor="#cecece"
-                android:textSize="17sp" />
+                android:textSize="@dimen/x26" />
         </LinearLayout>
     </LinearLayout>
 
     <View
         android:id="@+id/v_il_qy_black_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#60000000"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_il_qy_place_list"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="@dimen/y900"
         android:background="#ffffff"
         app:behavior_hideable="false"
         app:behavior_peekHeight="0dp"
         app:layout_behavior="@string/bottom_sheet_behavior" />
+
+
+
 </android.support.design.widget.CoordinatorLayout>

@@ -22,7 +22,7 @@
             android:gravity="center"
             android:paddingTop="@dimen/y30"
             android:text="路径导航"
-            android:textColor="#6ad865"
+            android:textColor="#7bb5ed"
             android:textSize="@dimen/x26" />
 
         <ImageView
@@ -113,6 +113,7 @@
             android:layout_marginTop="@dimen/y16"
             android:completionHint="请选择目的地"
             android:lines="1"
+            android:scrollbars="none"
             android:completionThreshold="1"
             android:dropDownHeight="@dimen/y300"
             android:gravity="left|center_vertical"

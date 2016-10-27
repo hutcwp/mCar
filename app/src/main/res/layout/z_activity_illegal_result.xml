@@ -1,61 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".IllegalResultActivity">
-    <RelativeLayout
-        android:background="#75aff4"
-        android:layout_width="match_parent"
-        android:layout_height="50dp">
-        <Button
-            android:onClick="back"
-            android:layout_centerVertical="true"
-            android:background="@drawable/way_rigister_btn_back"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="center_vertical"
-            android:layout_width="21dp"
-            android:layout_height="21dp" />
-        <TextView
-            android:textSize="22sp"
-            android:textColor="#ffffff"
-            android:layout_centerInParent="true"
-            android:text="查询结果"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
+    android:orientation="vertical"
+    tools:context=".zero.activity.IllegalResultActivity">
+
+    <include layout="@layout/cwp_layout_title_menu" />
+
 
     <LinearLayout
-        android:background="#ebebeb"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
+        android:layout_height="40dp"
+        android:background="#ebebeb"
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_marginLeft="10dp"
-            android:textColor="#6ad865"
-            android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="您好，车牌号码为“ " />
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="您好，车牌号码为“ "
+            android:textColor="#6ad865" />
+
         <TextView
             android:id="@+id/tv_il_result_lsnum"
-            android:textColor="#75aff4"
-            android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="湘AB1234" />
+            android:gravity="center_vertical"
+            android:text="湘AB1234"
+            android:textColor="#75aff4" />
+
         <TextView
-            android:textColor="#6ad865"
-            android:gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text=" ”的违章记录如下:" />
+            android:gravity="center_vertical"
+            android:text=" ”的违章记录如下:"
+            android:textColor="#6ad865" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_il_result_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ebebeb"/>
+        android:background="#ebebeb" />
 </LinearLayout>
