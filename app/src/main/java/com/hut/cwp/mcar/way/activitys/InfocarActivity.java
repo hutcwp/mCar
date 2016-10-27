@@ -45,7 +45,7 @@ public class InfoCarActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mycar);
+        setContentView(R.layout.activity_infocar);
 
 
 //        adapter = new MycarInfoAdapter(InfoCarActivity.this, R.layout.way_my_car_itme, mData);

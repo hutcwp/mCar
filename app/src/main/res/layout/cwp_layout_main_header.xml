@@ -50,7 +50,8 @@
                 android:layout_height="@dimen/y30"
                 android:layout_gravity="center"
                 android:layout_marginLeft="@dimen/x30"
-                android:src="@drawable/cwp_main_img_down" />
+                android:src="@drawable/cwp_main_img_down"
+                 />
 
         </LinearLayout>
 

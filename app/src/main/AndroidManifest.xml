@@ -90,10 +90,9 @@
         <activity android:name=".way.activitys.RegisterActivity2" />
 
         <!-- activity -->
-        <activity android:name=".cwp.activity.Activity_feedBack" />
+
         <activity android:name=".cwp.activity.Activity_news" />
         <activity android:name=".cwp.activity.Activity_About" />
-        <activity android:name=".cwp.activity.Activity_myCar" />
         <activity android:name=".zero.activity.MoveCarActivity"/>
     </application>
 

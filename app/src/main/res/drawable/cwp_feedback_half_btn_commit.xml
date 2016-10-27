@@ -8,7 +8,7 @@
     <corners android:radius="@dimen/x40"
         />
     <stroke android:color="#75aff4"
-        android:width="2dp"
+        android:width="@dimen/x1"
         />
 
     <!-- padding：Button里面的文字与Button边界的间隔 -->

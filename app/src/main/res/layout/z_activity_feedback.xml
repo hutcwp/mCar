@@ -8,103 +8,104 @@
     tools:context=".zero.activity.FeedbackActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#75aff4">
+            android:layout_height="@dimen/y128"
+            android:background="#76b0f4">
 
-            <Button
-                android:id="@+id/bt_feedback_back"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:background="@drawable/way_rigister_btn_back" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/y40"
+                android:background="#75aff4">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:text="反馈"
-                android:textColor="#ffffff"
-                android:textSize="22sp" />
-        </RelativeLayout>
+                <Button
+                    android:id="@+id/bt_feedback_back"
+                    android:layout_width="@dimen/x22"
+                    android:layout_height="@dimen/y40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:background="@drawable/way_rigister_btn_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="反馈"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/x40" />
+            </RelativeLayout>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/y20"
             android:background="#ffffff"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="25dp"
-                android:text="您好!XXXXXXXXXXXXXXXXXXXXXXXXXX"
+                android:layout_marginTop="@dimen/y80"
+                android:text="你好，感谢使用，如有紧急问题欢迎加入用户体验群1234567890."
                 android:textColor="#404040"
-                android:textSize="18sp" />
+                android:textSize="@dimen/x24" />
 
             <EditText
                 android:id="@+id/tv_feedback_phone"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/z_bcg_feedback_content"
-                android:cursorVisible="false"
+                android:layout_width="@dimen/x660"
+                android:layout_height="@dimen/y100"
+                android:layout_marginTop="@dimen/y80"
+                android:background="@drawable/cwp_feedback_half_btn_edittext"
                 android:hint="手机号码"
-                android:inputType="number"
-                android:padding="7dp"
-                android:textColorHint="#8e8e8e"
+                android:textColor="#8e8e8e"
+                android:textSize="@dimen/x24"
                 android:visibility="gone" />
 
             <EditText
                 android:id="@+id/tv_feedback_content"
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/z_bcg_feedback_content"
-                android:cursorVisible="false"
-                android:gravity="top"
+                android:layout_width="@dimen/x660"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/y40"
+                android:background="@drawable/cwp_feedback_half_btn_edittext"
+                android:gravity="left"
                 android:hint="请输入意见或者反馈并提交给我们（200字以内）"
-                android:maxLength="200"
-                android:padding="7dp"
-                android:textColorHint="#8e8e8e" />
+                android:textColor="#8e8e8e"
+                android:textColorHint="#8e8e8e"
+                android:textSize="@dimen/x24" />
 
             <Button
                 android:id="@+id/bt_feedback_commit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/x180"
+                android:layout_height="@dimen/y80"
                 android:layout_gravity="right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/z_bcg_feedback_commit"
+                android:layout_marginBottom="@dimen/y80"
+                android:layout_marginTop="@dimen/y40"
+                android:background="@drawable/cwp_feedback_half_btn_commit"
                 android:text="提交"
-                android:textSize="20sp" />
+                android:textColor="#404040"
+                android:textSize="@dimen/x24" />
         </LinearLayout>
     </LinearLayout>
+
     <RelativeLayout
-        android:visibility="gone"
         android:id="@+id/rl_feedback_loading"
-        android:background="#35000000"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#35000000"
+        android:visibility="gone">
+
         <ProgressBar
-            android:layout_centerInParent="true"
-            android:layout_width="40dp"
-            android:layout_height="40dp" />
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/x80"
+            android:layout_centerInParent="true" />
     </RelativeLayout>
 </FrameLayout>

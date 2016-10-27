@@ -7,37 +7,44 @@
 
     <TextView
         android:id="@+id/tv_car_info_dialog_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:textSize="18sp"
         android:text="请输入XXX"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textSize="18sp" />
+
     <EditText
-        android:digits="1234567890abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        android:maxLines="1"
-        android:background="@drawable/z_bcg_input_lsnum"
         android:id="@+id/et_car_info_dialog_input"
-        android:gravity="center"
-        android:text=""
-        android:textColor="#000000"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="50dp"
+        android:background="@drawable/z_bcg_input_lsnum"
+        android:digits="1234567890abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text=""
+        android:textColor="#000000" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/bt_car_info_dialog_confirm"
-            android:text="确定"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:background="#ebebeb"
+            android:textColor="#000"
+            android:text="确定" />
+
         <Button
             android:id="@+id/bt_car_info_dialog_cancel"
-            android:text="返回"
             android:layout_width="0dp"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:background="#ebebeb"
+            android:text="返回" />
     </LinearLayout>
 </LinearLayout>

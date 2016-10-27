@@ -118,12 +118,16 @@
         <Button
             android:id="@+id/bt_car_info_dialog_confirm"
             android:text="确定"
+            android:background="#ebebeb"
             android:layout_width="0dp"
+            android:textColor="#000"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/bt_car_info_dialog_cancel"
             android:text="返回"
+            android:background="#ebebeb"
+            android:textColor="#000"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content" />

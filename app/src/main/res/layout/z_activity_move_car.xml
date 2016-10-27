@@ -11,33 +11,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="@dimen/y128"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="@dimen/x22"
-                android:layout_height="@dimen/y40"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/x30"
-                android:onClick="back"
-                android:src="@drawable/way_login_btn_back" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/y40">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:text="通知移车"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/x40" />
-        </RelativeLayout>
+                <ImageView
+                    android:layout_width="@dimen/x22"
+                    android:layout_height="@dimen/y40"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:onClick="back"
+                    android:src="@drawable/way_login_btn_back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="通知移车"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/x40" />
+            </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:layout_marginTop="@dimen/y60"
             android:background="#fff"
             android:orientation="vertical">
 
@@ -45,16 +52,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/y30"
+                android:textSize="@dimen/x20"
                 android:text="点击下方文本输入需移车牌号"
                 android:textColor="#c2c2c2" />
 
             <TextView
                 android:id="@+id/tv_move_car_phone"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/x340"
+                android:layout_height="@dimen/y80"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/y30"
                 android:background="@drawable/z_bcg_feedback_commit"
                 android:gravity="center"
                 android:text="" />
@@ -64,33 +72,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="@dimen/y60"
+                android:textSize="@dimen/x24"
                 android:text="请选择联系车主或返回继续等待"
                 android:textColor="#c2c2c2" />
 
             <Button
                 android:id="@+id/bt_move_car_call"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/x240"
+                android:layout_height="@dimen/y80"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginBottom="@dimen/y30"
+                android:layout_marginTop="@dimen/y30"
                 android:background="@drawable/z_bcg_feedback_success"
                 android:text="拨号"
                 android:textColor="#fff" />
         </LinearLayout>
     </LinearLayout>
+
     <FrameLayout
-        android:visibility="gone"
         android:id="@+id/rl_move_car_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#20b7b7b7">
+        android:background="#20b7b7b7"
+        android:visibility="gone">
 
         <ProgressBar
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/y80"
             android:layout_gravity="top|center_horizontal"
-            android:layout_marginTop="40dp" />
+            android:layout_marginTop="@dimen/y100" />
     </FrameLayout>
 </FrameLayout>

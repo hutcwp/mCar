@@ -488,12 +488,14 @@ public class BNDemoMainActivity extends Activity {
 
                         if (isMapShow) {
 
+                            img_btn_down.setImageResource(R.drawable.cwp_main_img_down);
                             if (isAsycMoveBtnFinish && isAsycMoveFinish) {
                                 new AsynMoveBtn().execute(new Integer[]{-MOVE_WIDTH});// 正数收缩,向上
                                 isMapShow = false;
                             }
                         } else {
 
+                            img_btn_down.setImageResource(R.drawable.cwp_main_img_up);
                             if (isAsycMoveBtnFinish && isAsycMoveFinish) {
                                 new AsynMoveBtn().execute(new Integer[]{MOVE_WIDTH});// 正数展开,向下
                                 isMapShow = true;
