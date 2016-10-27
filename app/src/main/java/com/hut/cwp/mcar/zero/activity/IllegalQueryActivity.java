@@ -1,6 +1,7 @@
 package com.hut.cwp.mcar.zero.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
@@ -101,11 +102,12 @@ public class IllegalQueryActivity extends AppCompatActivity {
     private void setQueryState(boolean canQuery) {
         if (canQuery) {
             mBtQuery_.setBackgroundResource(R.drawable.z_il_qy_query);
-            mTvQuery_.setTextColor(getResources().getColor(R.color.z_colorCanQuery));
+            mTvQuery_.setTextColor(Color.parseColor("#404040"));
             mLlAll.setClickable(true);
         } else {
             mBtQuery_.setBackgroundResource(R.drawable.z_il_qy_unquery);
-            mTvQuery_.setTextColor(getResources().getColor(R.color.z_colorUnQuery));
+            mTvQuery_.setTextColor(Color.parseColor("#cecece"));
+
             mLlAll.setClickable(false);
         }
     }

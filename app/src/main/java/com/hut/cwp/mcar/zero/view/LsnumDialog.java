@@ -22,7 +22,7 @@ public class LsnumDialog extends BaseBottomDialog {
     private KeyboardView keyboardView;
     private Keyboard k1;// 省份简称键盘
     private Keyboard k2;// 数字字母键盘
-    private EditText[] edits;
+    private EditText[] edits = new EditText[7];
     private Button confirm,cancel;
 
     private ICompleted mCompletedListener;
@@ -42,7 +42,6 @@ public class LsnumDialog extends BaseBottomDialog {
     public LsnumDialog(Context context) {
         super();
         this.mContext = context;
-        edits = new EditText[7];
         k1 = new Keyboard(mContext, R.xml.province_short_keyboard);
         k2 = new Keyboard(mContext, R.xml.lettersanddigit_keyboard);
     }

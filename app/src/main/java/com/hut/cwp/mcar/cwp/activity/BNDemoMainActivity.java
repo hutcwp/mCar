@@ -48,6 +48,7 @@ import com.hut.cwp.mcar.way.activitys.LoginActivity;
 import com.hut.cwp.mcar.way.activitys.RepasswordActivity;
 import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
 import com.hut.cwp.mcar.zero.activity.IllegalQueryActivity;
+import com.hut.cwp.mcar.zero.activity.MoveCarActivity;
 import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
 import java.util.ArrayList;
@@ -415,7 +416,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.img_notice:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, MoveCarActivity.class));
                         break;
 
                     case R.id.img_safe:
