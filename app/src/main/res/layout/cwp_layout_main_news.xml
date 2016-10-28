@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:paddingTop="@dimen/y100"
-                android:text="电动机与内燃机:不存在真正的可比性"
+                android:text="西雅特将停产MPV车型"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/x28" />
 
@@ -88,8 +88,8 @@
                 android:id="@+id/article_one"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|left"
-                android:text="  国产smart:虽大通小异，却也精彩绝伦"
+                android:gravity="center"
+                android:text="现代全新雅尊官图发布"
                 android:textColor="#808080"
                 android:textSize="@dimen/x26" />
 
@@ -107,8 +107,8 @@
                 android:id="@+id/article_two"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|left"
-                android:text="   国产smart:虽大通小异，却也精彩绝伦"
+                android:gravity="center"
+                android:text="新宝马5系海外售价公布"
                 android:textColor="#808080"
                 android:textSize="@dimen/x26" />
 
@@ -127,8 +127,8 @@
                 android:id="@+id/article_three"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|left"
-                android:text="   国产smart:虽大通小异，却也精彩绝伦"
+                android:gravity="center"
+                android:text="雷凌1.2T 11月1日首发"
                 android:textColor="#808080"
                 android:textSize="@dimen/x26" />
 

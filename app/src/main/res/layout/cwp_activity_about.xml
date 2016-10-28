@@ -26,7 +26,7 @@
             android:layout_marginTop="@dimen/y10"
             android:text="App名称"
             android:textColor="#404040"
-            android:textSize="@dimen/x24" />
+            android:textSize="@dimen/x30" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_marginTop="@dimen/y10"
             android:text="app版本号"
             android:textColor="#8e8e8e"
-            android:textSize="@dimen/x18" />
+            android:textSize="@dimen/x24" />
     </LinearLayout>
 
 
@@ -61,7 +61,7 @@
                 android:layout_marginTop="@dimen/y20"
                 android:text="介绍"
                 android:textColor="#404040"
-                android:textSize="@dimen/x36" />
+                android:textSize="@dimen/x42" />
 
             <ImageView
                 android:layout_width="@dimen/x150"
@@ -70,15 +70,15 @@
                 android:background="#8e8e8e" />
 
             <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:paddingBottom="@dimen/y20"
                 android:paddingTop="@dimen/y20"
-                android:text="本软件由湖南工业大学XX团队开发制作.是一款为私家车及车主提供各种便捷可靠服务的工具。
-       此版本仅用于比赛使用，最终解释权归hutcwp团队所有"
+                android:text="本软件由湖南工业大学hutcwp团队开发制作.是一款为私家车及车主提供各种便捷可靠服务的工具。此版本仅用于比赛使用，最终解释权归hutcwp团队所有"
                 android:textColor="#404040"
-                android:textSize="@dimen/x26" />
+                android:textSize="@dimen/x24" />
 
         </LinearLayout>
 
@@ -119,7 +119,7 @@
                 android:paddingTop="@dimen/y20"
                 android:text="UI交互设计 ：刘春杰"
                 android:textColor="#404040"
-                android:textSize="@dimen/x18" />
+                android:textSize="@dimen/x24" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
                 android:paddingBottom="@dimen/y20"
                 android:text="  Android及后台开发 ：蔡文鹏，曾智祺，伍安芸"
                 android:textColor="#404040"
-                android:textSize="@dimen/x18" />
+                android:textSize="@dimen/x24" />
 
         </LinearLayout>
 
@@ -173,22 +173,23 @@
 
                 <TextView
                     android:id="@+id/textView"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:paddingLeft="@dimen/y220"
+                    android:layout_weight="1"
+                    android:gravity="right"
                     android:text="  mail to "
                     android:textColor="#404040"
-                    android:textSize="@dimen/x18" />
+                    android:textSize="@dimen/x24" />
 
                 <TextView
                     android:id="@+id/email"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_weight="2"
                     android:text="191131464@qq.com"
                     android:textColor="#75aff4"
-                    android:textSize="@dimen/x18" />
+                    android:textSize="@dimen/x24" />
 
             </LinearLayout>
 

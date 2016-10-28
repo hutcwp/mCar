@@ -4,9 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <WebView
+    <com.hut.cwp.mcar.cwp.view.ProgressWebView
         android:id="@+id/webview"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        android:layout_height="fill_parent"
+        />
 
 </LinearLayout>

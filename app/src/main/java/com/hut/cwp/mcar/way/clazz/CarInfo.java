@@ -7,6 +7,10 @@ import cn.bmob.v3.BmobObject;
  */
 public class CarInfo extends BmobObject {
 
+    /**
+     * 包括车主的名字，用于存储车辆信息总
+     *
+     */
     private String licensePlate;
 
     private String username;
@@ -14,7 +18,6 @@ public class CarInfo extends BmobObject {
     private String engine;
 
     private String vin;
-
 
 
     public String getUsername() {
@@ -49,7 +52,6 @@ public class CarInfo extends BmobObject {
     }
 
 
-
     public String getVin() {
 
         return vin;
@@ -59,8 +61,6 @@ public class CarInfo extends BmobObject {
 
         this.vin = vin;
     }
-
-
 
 
 }

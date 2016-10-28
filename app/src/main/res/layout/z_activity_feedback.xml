@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/y80"
-                android:text="你好，感谢使用，如有紧急问题欢迎加入用户体验群1234567890."
+                android:text="你好，感谢使用，如有紧急问题欢迎加入用户QQ体验群586785973."
                 android:textColor="#404040"
                 android:textSize="@dimen/x24" />
 

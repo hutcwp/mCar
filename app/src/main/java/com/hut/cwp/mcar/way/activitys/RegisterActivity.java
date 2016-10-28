@@ -5,150 +5,86 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.application.MyApplication;
+import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
-import cn.bmob.sms.BmobSMS;
-import cn.bmob.sms.exception.BmobException;
-import cn.bmob.sms.listener.RequestSMSCodeListener;
-import cn.bmob.sms.listener.VerifySMSCodeListener;
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.SaveListener;
+
 
 public class RegisterActivity extends Activity {
 
     private ImageButton returnon;
 
-    private ImageButton registergo;
+    private ImageButton registerfinish;
 
-    private Button putmassage;
+    private EditText passwordEdit;
 
-    private EditText massageEdit;
-
-    private EditText telEdit;
-
+    private EditText password2Edit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.way_layout_rigister);
+        setContentView(R.layout.way_activity_rigister);
 
-        BmobSMS.initialize(this, "2a2398211c95ae98184d1bc6570a1b40");
+        returnon = (ImageButton) findViewById(R.id.bu_return3);
+        registerfinish = (ImageButton) findViewById(R.id.bu_register_finish);
+        passwordEdit = (EditText) findViewById(R.id.password_rigister_Text);
+        password2Edit = (EditText) findViewById(R.id.password2_rigister_Text);
 
-        returnon = (ImageButton) findViewById(R.id.bu_return2);
-        registergo =  (ImageButton) findViewById(R.id.bu_register_go);
-        putmassage= (Button) findViewById(R.id.bu_massage);
-        massageEdit = (EditText) findViewById(R.id.massage_rigister_Text);
-        telEdit = (EditText) findViewById(R.id.tel_rigister_Text);
-
-
-        registergo.setOnClickListener(new View.OnClickListener() {
+        registerfinish.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String massage = massageEdit.getText().toString();
-                final String tel = telEdit.getText().toString();
+                String password = passwordEdit.getText().toString();
+                String password2 = password2Edit.getText().toString();
 
+                if (password.equals("") || password2.equals("")) {
+                    Toast.makeText(RegisterActivity.this, "内容不能为空", Toast.LENGTH_SHORT).show();
+                } else if (password.length() < 6) {
+                    Toast.makeText(RegisterActivity.this, "密码长度不能小于六个字符", Toast.LENGTH_SHORT).show();
 
-                if (massage.equals("") || tel.equals("") || tel.length()!=11) {
-                    Toast.makeText(RegisterActivity.this, "手机或验证码输入不合法", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //判断验证码是否正确、
-                    BmobSMS.verifySmsCode(RegisterActivity.this, tel, massage, new VerifySMSCodeListener() {
+                } else if (password.equals(password2)) {
+                    final String username = getIntent().getStringExtra("account");
+                    BmobUser bu = new BmobUser();
+                    bu.setUsername(username);
+                    bu.setPassword(password);
+                    //注意：不能用save方法进行注册
+                    bu.signUp(new SaveListener<BmobUser>() {
                         @Override
-                        public void done(BmobException ex) {
-                            if (ex == null) {
-
-                                Toast.makeText(RegisterActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, RegisterActivity2.class);
-                                intent.putExtra("account",tel);
-                                startActivity(intent);
+                        public void done(BmobUser s, BmobException e) {
+                            if (e == null) {
+                                Toast.makeText(RegisterActivity.this, "注册成功：" + s.toString() + "\n自动登录", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(RegisterActivity.this, BNDemoMainActivity.class));
+                                MyApplication.setLandState(MyApplication.HAD_LANDED);
+                                MyApplication.setUsername(username);
                                 finish();
-                            }
-                            else {
-                                Toast.makeText(RegisterActivity.this, "验证码错误", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(RegisterActivity.this, "注册失败：" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         }
-
                     });
-
-
+                } else {
+                    Toast.makeText(RegisterActivity.this, "两次输入密码不符合", Toast.LENGTH_SHORT).show();
                 }
 
 
             }
 
 
-        });
-
-        putmassage.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                String tel = telEdit.getText().toString();
-
-                BmobSMS.requestSMSCode(RegisterActivity.this, tel, "BmobSMS.initialize(this, \"ab032408ad55b67fa3e389c959b482cf\");",new RequestSMSCodeListener() {
-
-                    @Override
-                    public void done(Integer smsId,BmobException ex) {
-                        // TODO Auto-generated method stub
-                        if(ex==null){//验证码发送成功
-                            Toast.makeText(RegisterActivity.this, "短信发送成功，短信id："+smsId, Toast.LENGTH_SHORT).show();
-                        }
-                        else{
-                            Toast.makeText(RegisterActivity.this, "errorCode = "+ex.getErrorCode()+",errorMsg = "+ex.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
-                //发送验证码
-                //SimpleDateFormat format =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                //String sendTime = format.format(new Date());
-                /*BmobSMS.requestSMS(RegisterActivity.this, tel, "BmobSMS.initialize(this, \"ab032408ad55b67fa3e389c959b482cf\");",null,new RequestSMSCodeListener() {
-
-                    @Override
-                    public void done(Integer smsId, BmobException ex) {
-                        // TODO Auto-generated method stub
-                        if(ex==null){//
-                            //Log.i("bmob","短信发送成功，短信id："+smsId);
-                            Toast.makeText(RegisterActivity.this, "短信发送成功，短信id："+smsId, Toast.LENGTH_SHORT).show();
-                            //用于查询本次短信发送详情
-                            /*putmassage.setClickable(false);
-                            putmassage.setBackgroundColor(Color.GRAY);
-
-                            new CountDownTimer(60000, 1000) {
-                                @Override
-                                public void onTick(long millisUntilFinished) {
-                                    //putmassage.setBackgroundResource(R.drawable.button_shape02);
-                                    putmassage.setText(millisUntilFinished / 1000 + "秒");
-                                }
-
-                                @Override
-                                public void onFinish() {
-                                    putmassage.setClickable(true);
-                                    //putmassage.setBackgroundResource(R.drawable.button_shape);
-                                    putmassage.setText("重新发送");
-                                }
-                            }.start();*/
-                        /*}else{
-                            Log.i("bmob","errorCode = "+ex.getErrorCode()+",errorMsg = "+ex.getLocalizedMessage());
-                            Toast.makeText(RegisterActivity.this, "errorCode = "+ex.getErrorCode()+",errorMsg = "+ex.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });*/
-
-            }
         });
 
         returnon.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(RegisterActivity.this,WelcomeActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, WelcomeActivity.class);
                 startActivity(intent);
                 finish();
             }
