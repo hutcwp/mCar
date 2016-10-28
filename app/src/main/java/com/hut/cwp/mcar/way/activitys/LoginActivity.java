@@ -3,7 +3,9 @@ package com.hut.cwp.mcar.way.activitys;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -29,6 +31,9 @@ public class LoginActivity extends Activity {
 
     private ImageButton returnon;
 
+    private SharedPreferences pref;
+    private SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -41,13 +46,20 @@ public class LoginActivity extends Activity {
         login = (ImageButton) findViewById(R.id.bu_login_in);
         returnon =  (ImageButton) findViewById(R.id.bu_return1);
 
+        pref= PreferenceManager.getDefaultSharedPreferences(this);
+        String username=pref.getString("username","");
+        if (!TextUtils.isEmpty(username)) {
+            String password=pref.getString("password","");
+            accountEdit.setText(username);
+            passwordEdit.setText(password);
+        }
 
         login.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 final String account2 = accountEdit.getText().toString().trim();
-                String password2 = passwordEdit.getText().toString().trim();
+                final String password2 = passwordEdit.getText().toString().trim();
                 if (TextUtils.isEmpty(account2)||TextUtils.isEmpty(password2)) {
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
@@ -68,6 +80,10 @@ public class LoginActivity extends Activity {
                                 } catch (NullPointerException e1) {
                                     e1.printStackTrace();
                                 }
+                                editor=pref.edit();
+                                editor.putString("username",account2);
+                                editor.putString("password",password2);
+                                editor.commit();
                                 MyApplication.setLandState(MyApplication.HAD_LANDED);
                                 MyApplication.setUsername(account2);
                                 finish();
