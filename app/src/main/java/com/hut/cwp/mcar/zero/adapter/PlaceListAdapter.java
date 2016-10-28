@@ -63,7 +63,6 @@ public class PlaceListAdapter<T> extends RecyclerView.Adapter<PlaceListAdapter.V
                 Log.d("Test","The member variable-mPlaceGrade of PlaceListAdapter is error!");
         }
         holder.tv.setText(str);
-        Log.d("测试","+++++++"+str);
         holder.tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

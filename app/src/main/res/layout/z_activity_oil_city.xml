@@ -66,18 +66,6 @@
             android:textColor="#75aff4"
             android:textSize="@dimen/x36" />
 
-        <TextView
-            android:id="@+id/tv_oil_city_failed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_oil_city_place"
-            android:layout_centerHorizontal="true"
-            android:paddingTop="@dimen/y20"
-            android:text="获取信息失败:网络出错或者服务器繁忙"
-            android:textColor="#ff2929"
-            android:textSize="@dimen/x30"
-            android:visibility="gone" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/y540"
@@ -298,5 +286,9 @@
         </RelativeLayout>
 
     </RelativeLayout>
+
+    <include
+        android:visibility="gone"
+        layout="@layout/z_layout_loading_failed"/>
 
 </FrameLayout>

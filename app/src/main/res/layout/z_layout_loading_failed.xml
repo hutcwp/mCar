@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_failed_loading"
+    android:background="#ffffff"
+    android:gravity="center_horizontal">
+    <ImageView
+        android:layout_marginTop="100dp"
+        android:src="@drawable/loading_failed"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+    <TextView
+        android:gravity="center"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:text="获取服务数据失败\n可能网络出错或服务器正在维护\n请稍后再试~"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_layout_failed_loading_retry"
+        android:textColor="#838181"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/z_bcg_feedback_commit"
+        android:text="重新加载"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/bt_layout_failed_loading_back"
+        android:textColor="#838181"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/z_bcg_feedback_commit"
+        android:text="返回"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

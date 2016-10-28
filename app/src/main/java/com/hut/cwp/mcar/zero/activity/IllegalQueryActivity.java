@@ -3,6 +3,8 @@ package com.hut.cwp.mcar.zero.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -29,7 +31,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.application.MyApplication;
 import com.hut.cwp.mcar.base.utils.Local;
+import com.hut.cwp.mcar.way.clazz.CarInfo;
 import com.hut.cwp.mcar.zero.adapter.PlaceListAdapter;
 import com.hut.cwp.mcar.zero.bean.CarInfoBean;
 import com.hut.cwp.mcar.zero.bean.CityBean;
@@ -44,6 +48,9 @@ import com.zhy.http.okhttp.OkHttpUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import okhttp3.Call;
 
 /**
@@ -63,6 +70,10 @@ public class IllegalQueryActivity extends AppCompatActivity {
     private ProgressBar mPbLoading;
     private LinearLayout mLlAll;
 
+    private LinearLayout mLlFailedLoading;
+    private Button mLayoutBtBack;
+    private Button mLayoutBtRetry;
+
     private BottomSheetBehavior mBehavior;
     private View mBlackView;
     private RecyclerView mRvPlaceList;
@@ -71,7 +82,7 @@ public class IllegalQueryActivity extends AppCompatActivity {
     private int mSelectedCarInfo = -1;
 
     private CarsInfoAdapter mCarsInfoAdapter;
-    private List<CarInfoBean> mCarInfoBeanList;
+    private List<CarInfoBean> mCarInfoBeanList = new ArrayList<>();
 
     //用于记录当前的省和市
     //初始化需要在获取地理位置之后
@@ -82,6 +93,8 @@ public class IllegalQueryActivity extends AppCompatActivity {
     private String tempLsnum;
     private String tempClassno;
     private String tempEngineno;
+
+    private Handler mHandler = new Handler(Looper.getMainLooper());
 
     //用于判断当前的状态，是正在选择省、市、还是未操作
     private static int SELECT_STATE_NULL = 0;
@@ -104,6 +117,7 @@ public class IllegalQueryActivity extends AppCompatActivity {
     }
 
     private void setQueryState(boolean canQuery) {
+        mLlQuery.setTag(canQuery);
         if (canQuery) {
             mBtQuery_.setBackgroundResource(R.drawable.z_il_qy_query);
             mTvQuery_.setTextColor(Color.parseColor("#404040"));
@@ -117,28 +131,90 @@ public class IllegalQueryActivity extends AppCompatActivity {
     }
 
     private void init() {
+        mLlFailedLoading= (LinearLayout) findViewById(R.id.layout_failed_loading);
+        mLayoutBtBack= (Button) findViewById(R.id.bt_layout_failed_loading_back);
+        mLayoutBtRetry= (Button) findViewById(R.id.bt_layout_failed_loading_retry);
+
         mPbLoading = (ProgressBar) findViewById(R.id.pb_il_qy_loading);
         mLlAll = (LinearLayout) findViewById(R.id.ll_il_qy_all);
+
+        loading();
+
+        mLayoutBtBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        mLayoutBtRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loading();
+            }
+        });
+    }
+
+    private void loading() {
         mLlAll.setVisibility(View.GONE);
+        mLlFailedLoading.setVisibility(View.GONE);
         mPbLoading.setVisibility(View.VISIBLE);
 
         //加载数据
         OkHttpUtils.get().url(URL_FOR_PLACE).build().execute(new IllegalCityCallBack() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(IllegalQueryActivity.this, "获取服务数据失败！\n可能网络出错或服务器正在维护！\n请稍后再试~", Toast.LENGTH_SHORT).show();
-                try {
-                    Thread.sleep(1500);
-                } catch (InterruptedException e2) {
-                    e.printStackTrace();
-                } finally {
-                    finish();
-                }
+                mLlFailedLoading.setVisibility(View.VISIBLE);
+                mPbLoading.setVisibility(View.GONE);
             }
 
             @Override
             public void onResponse(final List<ProvinceBean> response, int id) {
                 if (response.size() != 0) {
+                    //从服务器获取用户已经添加的汽车信息
+                    mLvCarInfo = (ListView) findViewById(R.id.lv_il_qy_car_info);
+                    if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                BmobQuery<CarInfo> carInfoBmobQuery = new BmobQuery<>();
+                                carInfoBmobQuery.addWhereEqualTo("username", MyApplication.getUsername());
+                                carInfoBmobQuery.findObjects(new FindListener<CarInfo>() {
+                                    @Override
+                                    public void done(List<CarInfo> list, final BmobException e) {
+                                        if (e == null && list.size() > 0) {
+                                            for (CarInfo carInfo : list) {
+                                                CarInfoBean tempBean = new CarInfoBean();
+                                                tempBean.setLsnum(carInfo.getLicensePlate());
+                                                tempBean.setEngineno(carInfo.getEngine());
+                                                tempBean.setClassno(carInfo.getVin());
+                                                mCarInfoBeanList.add(tempBean);
+                                            }
+                                        }
+                                        CarInfoBean tempBean2 = new CarInfoBean();
+                                        tempBean2.setLsnum("点击输入车牌号");
+                                        tempBean2.setClassno("点击输入车架号");
+                                        tempBean2.setEngineno("点击输入发动机号");
+                                        mCarInfoBeanList.add(tempBean2);
+                                        mHandler.post(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                mCarsInfoAdapter = new CarsInfoAdapter();
+                                                mLvCarInfo.setAdapter(mCarsInfoAdapter);
+                                                mLvCarInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                                    @Override
+                                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                                        mSelectedCarInfo = position;
+                                                        mCarsInfoAdapter.notifyDataSetChanged();
+                                                    }
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        }).start();
+                    }
+
                     mBtBack = (Button) findViewById(R.id.bt_il_qy_back);
                     mBtSelectProvince = (Button) findViewById(R.id.bt_il_qy_select_province);
                     mBtSelectCity = (Button) findViewById(R.id.bt_il_qy_select_city);
@@ -208,11 +284,6 @@ public class IllegalQueryActivity extends AppCompatActivity {
                                     @Override
                                     public void onItemClick(int pos) {
                                         mCurrentCity = mCurrentProvince.getCities().get(pos);
-                                        try {
-                                            Log.d("测试+++++++++","classa="+mCurrentCity.getClassa());
-                                        } catch (Exception e) {
-                                            e.printStackTrace();
-                                        }
                                         Toast.makeText(IllegalQueryActivity.this, "您选择了" + mCurrentCity.getCity_name(), Toast.LENGTH_SHORT).show();
                                         mCurrentSelectState = SELECT_STATE_NULL;
                                         mBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -241,52 +312,46 @@ public class IllegalQueryActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
 
-                            //显示正在查询的ProcessBar+++++++++++++++++
+                            if ((boolean) mLlQuery.getTag()) {
+                                //显示正在查询的ProcessBar
 
-                            String engnine = ("1".equals(mCurrentCity.getEngine())) ?
-                                    ("0".equals(mCurrentCity.getEngineno()) ? mNeedsCarInfo.getEngineno() : mNeedsCarInfo.getEngineno().substring(0, Integer.parseInt(mCurrentCity.getEngineno()))) :
-                                    null;
+                                mPbLoading.setVisibility(View.VISIBLE);
 
-                            String classno = ("1".equals(mCurrentCity.getClassa())) ? ("0".equals(mCurrentCity.getClassno()) ? mNeedsCarInfo.getClassno() : mNeedsCarInfo.getClassno().substring(0, Integer.parseInt(mCurrentCity.getClassno()))) : null;
-                            String url = getUrlForIllegal(mCurrentCity.getCity_code(),
-                                    mNeedsCarInfo.getLsnum(), classno, engnine);
+                                String engnine = ("1".equals(mCurrentCity.getEngine())) ?
+                                        ("0".equals(mCurrentCity.getEngineno()) ? mNeedsCarInfo.getEngineno() : mNeedsCarInfo.getEngineno().substring(0, Integer.parseInt(mCurrentCity.getEngineno()))) :
+                                        null;
 
-                            OkHttpUtils.get().url(url).build().execute(new IllegalResultCallback() {
-                                @Override
-                                public void onError(Call call, Exception e, int id) {
-                                    //关闭正在查询的ProcessBar+++++++++++++++++
-                                    Toast.makeText(IllegalQueryActivity.this, "查询失败！\n" + e.toString(), Toast.LENGTH_SHORT).show();
-                                }
+                                String classno = ("1".equals(mCurrentCity.getClassa())) ? ("0".equals(mCurrentCity.getClassno()) ? mNeedsCarInfo.getClassno() : mNeedsCarInfo.getClassno().substring(0, Integer.parseInt(mCurrentCity.getClassno()))) : null;
 
-                                @Override
-                                public void onResponse(List<IllegalResultBean> response, int id) {
-                                    if (response.size() != 0) {
-                                        Intent intent = new Intent(IllegalQueryActivity.this, IllegalQueryActivity.class);
-                                        intent.putExtra("lsnum", mNeedsCarInfo.getLsnum());
-                                        Bundle bundle = new Bundle();
-                                        bundle.putParcelableArrayList("result", (ArrayList<? extends Parcelable>) response);
-                                        intent.putExtras(bundle);
-                                        startActivity(intent);
-                                    } else {
-                                        Toast.makeText(IllegalQueryActivity.this, "所查地区未有违章记录!", Toast.LENGTH_SHORT).show();
+                                String url = getUrlForIllegal(mCurrentCity.getCity_code(),
+                                        mNeedsCarInfo.getLsnum(), classno, engnine);
+                                Log.d("测试","url="+url+",Thread="+Thread.currentThread());
+
+                                OkHttpUtils.get().url(url).build().execute(new IllegalResultCallback() {
+                                    @Override
+                                    public void onError(Call call, Exception e, int id) {
+                                        //关闭正在查询的ProcessBar+++++++++++++++++
+                                        mPbLoading.setVisibility(View.GONE);
+                                        Toast.makeText(IllegalQueryActivity.this, "查询失败！\n" + e.toString(), Toast.LENGTH_SHORT).show();
                                     }
-                                    //关闭正在查询的ProcessBar+++++++++++++++++
-                                }
-                            });
-                        }
-                    });
 
-                    mLvCarInfo = (ListView) findViewById(R.id.lv_il_qy_car_info);
-
-                    //TODO 应该需要开启一个子线程
-                    mCarInfoBeanList = getUserCarInfo();
-                    mCarsInfoAdapter = new CarsInfoAdapter();
-                    mLvCarInfo.setAdapter(mCarsInfoAdapter);
-                    mLvCarInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            mSelectedCarInfo = position;
-                            mCarsInfoAdapter.notifyDataSetChanged();
+                                    @Override
+                                    public void onResponse(List<IllegalResultBean> response, int id) {
+                                        if (response.size() != 0) {
+                                            Intent intent = new Intent(IllegalQueryActivity.this, IllegalQueryActivity.class);
+                                            intent.putExtra("lsnum", mNeedsCarInfo.getLsnum());
+                                            Bundle bundle = new Bundle();
+                                            bundle.putParcelableArrayList("result", (ArrayList<? extends Parcelable>) response);
+                                            intent.putExtras(bundle);
+                                            mPbLoading.setVisibility(View.GONE);
+                                            startActivity(intent);
+                                        } else {
+                                            mPbLoading.setVisibility(View.GONE);
+                                            Toast.makeText(IllegalQueryActivity.this, "所查地区没有有违章记录!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
                         }
                     });
 
@@ -321,14 +386,8 @@ public class IllegalQueryActivity extends AppCompatActivity {
                         Toast.makeText(IllegalQueryActivity.this, "当前城市不支持查询违章服务!", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(IllegalQueryActivity.this, "获取服务数据失败!请稍后再试", Toast.LENGTH_SHORT).show();
-                    try {
-                        Thread.sleep(1500);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } finally {
-                        finish();
-                    }
+                    mLlFailedLoading.setVisibility(View.VISIBLE);
+                    mPbLoading.setVisibility(View.GONE);
                 }
             }
         });
@@ -345,10 +404,10 @@ public class IllegalQueryActivity extends AppCompatActivity {
     }
 
     private String getUrlForIllegal(String city, @Nullable String lsnum, @Nullable String classno, @Nullable String engineno) {
-        String url = URL_FOR_ILLEGAL_PART + "&city" + city;
+        String url = URL_FOR_ILLEGAL_PART + "&city=" + city;
         if (!TextUtils.isEmpty(lsnum)) url += "&lsnum=" + lsnum;
-        if (!TextUtils.isEmpty(classno)) url += "&classno==" + classno;
-        if (!TextUtils.isEmpty(engineno)) url += "&engineno" + engineno;
+        if (!TextUtils.isEmpty(classno)) url += "&classno=" + classno;
+        if (!TextUtils.isEmpty(engineno)) url += "&engineno=" + engineno;
         return url;
     }
 
@@ -360,28 +419,6 @@ public class IllegalQueryActivity extends AppCompatActivity {
         return Local.getCity();
     }
 
-    private List<CarInfoBean> getUserCarInfo() {
-        //TODO 需要真实的情况
-
-        List<CarInfoBean> list = new ArrayList<CarInfoBean>();
-        CarInfoBean tempBean = new CarInfoBean();
-        tempBean.setLsnum("湘A383838");
-        tempBean.setClassno("123456");
-        tempBean.setEngineno("123456");
-        list.add(tempBean);
-        CarInfoBean tempBean1 = new CarInfoBean();
-        tempBean1.setLsnum("湘A88888");
-        tempBean1.setClassno("123456");
-        tempBean1.setEngineno("123456");
-        list.add(tempBean1);
-        CarInfoBean tempBean2 = new CarInfoBean();
-        tempBean2.setLsnum("点击输入车牌号");
-        tempBean2.setClassno("点击输入车架号");
-        tempBean2.setEngineno("点击输入发动机号");
-        list.add(tempBean2);
-        return list;
-    }
-
     /**
      * 动态设置手动输入车架号和发动机号时的位数，此时存有汽车的信息的的List必需存在
      */
@@ -391,21 +428,20 @@ public class IllegalQueryActivity extends AppCompatActivity {
         if ("0".equals(mCurrentCity.getClassa())) {//0表示不需要车架号
             tempCarInfoBean.setClassno("不需要车架号");
         } else if ("1".equals(mCurrentCity.getClassa())) {
-            tempCarInfoBean.setClassno("点击输入" + ("0".equals(mCurrentCity.getClassno())?"全部":"后"+mCurrentCity.getClassno()+"位") + "车架号");
+            tempCarInfoBean.setClassno("点击输入" + ("0".equals(mCurrentCity.getClassno()) ? "全部" : "后" + mCurrentCity.getClassno() + "位") + "车架号");
         }
         if ("0".equals(mCurrentCity.getEngine())) {
             tempCarInfoBean.setEngineno("不需要发动机号");
         } else if ("1".equals(mCurrentCity.getEngine())) {
-            tempCarInfoBean.setEngineno("点击输入" + ("0".equals(mCurrentCity.getEngineno())?"全部":"后"+mCurrentCity.getClassno()+"位") + "发动机号");
+            tempCarInfoBean.setEngineno("点击输入" + ("0".equals(mCurrentCity.getEngineno()) ? "全部" : "后" + mCurrentCity.getClassno() + "位") + "发动机号");
         }
-        Log.d("测试++++++",mCarInfoBeanList.get(mCarInfoBeanList.size() - 1).getClassno());
         mCarsInfoAdapter.notifyDataSetChanged();
     }
 
     public class CarsInfoAdapter extends BaseAdapter {
         private LayoutInflater mInflater;
 
-        public CarsInfoAdapter() {
+        CarsInfoAdapter() {
             mInflater = LayoutInflater.from(IllegalQueryActivity.this);
         }
 
@@ -483,6 +519,8 @@ public class IllegalQueryActivity extends AppCompatActivity {
                             dialog.show(getSupportFragmentManager());
                         }
                     });
+                } else {
+                    holder.tvClassno.setClickable(false);
                 }
                 if (!tempCarInfoBean.getEngineno().equals("不需要发动机号")) {
                     holder.tvEngineno.setOnClickListener(new View.OnClickListener() {
@@ -499,6 +537,8 @@ public class IllegalQueryActivity extends AppCompatActivity {
                             dialog.show(getSupportFragmentManager());
                         }
                     });
+                } else {
+                    holder.tvEngineno.setClickable(false);
                 }
             }
             if (mSelectedCarInfo == position) {
@@ -506,7 +546,11 @@ public class IllegalQueryActivity extends AppCompatActivity {
                 holder.rbSelect.setBackgroundResource(R.drawable.z_il_qy_radio_box_selected);
                 if (position != mCarInfoBeanList.size() - 1) {
                     mNeedsCarInfo = mCarInfoBeanList.get(position);
-                    setQueryState(true);
+                    if (mCurrentCity != null) setQueryState(true);
+                    else {
+                        Toast.makeText(IllegalQueryActivity.this, "请先选择查询城市", Toast.LENGTH_SHORT).show();
+                        setQueryState(false);
+                    }
                 } else {
                     if (!TextUtils.isEmpty(tempLsnum) && !TextUtils.isEmpty(tempClassno) && !TextUtils.isEmpty(tempEngineno)) {
                         CarInfoBean bean = new CarInfoBean();

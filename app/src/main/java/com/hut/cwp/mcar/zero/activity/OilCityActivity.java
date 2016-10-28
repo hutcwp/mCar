@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,11 +28,13 @@ public class OilCityActivity extends Activity {
     private TextView mTv0;
     private TextView mReTime;
     private TextView mPlace;
-    private TextView mFailed;
     private ProgressBar mPb;
     private RelativeLayout mRlOilCity;
     private Button mBack;
     private static String URL_PART = "http://api.avatardata.cn/OilPrice/LookUp?key=3e4fe1f9e2ff4cbc84339018aebe1061&prov=";  //阿凡达平台（免费）  需要直接键入省级区域名
+    private LinearLayout mLlFailedLoading;
+    private Button mLayoutBtBack;
+    private Button mLayoutBtRetry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,12 @@ public class OilCityActivity extends Activity {
 
         init();
 
+        loading();
+
+    }
+
+    private void loading() {
+        mLlFailedLoading.setVisibility(View.GONE);
         mRlOilCity.setVisibility(View.INVISIBLE);
         mPb.setVisibility(View.VISIBLE);
 
@@ -53,15 +62,15 @@ public class OilCityActivity extends Activity {
                 @Override
                 public void onError(okhttp3.Call call, Exception e, int id) {
                     Toast.makeText(OilCityActivity.this,"获取失败-1"+e.toString(),Toast.LENGTH_SHORT).show();
-                    mRlOilCity.setVisibility(View.VISIBLE);
-                    mFailed.setVisibility(View.VISIBLE);
+                    mRlOilCity.setVisibility(View.GONE);
+                    mLlFailedLoading.setVisibility(View.VISIBLE);
                     mPb.setVisibility(View.GONE);
                 }
 
                 @Override
                 public void onResponse(Bundle response, int id) {
-                    mRlOilCity.setVisibility(View.VISIBLE);
                     if("0".equals(response.getString("error_code"))) {
+                        mRlOilCity.setVisibility(View.VISIBLE);
                         mTv97.setText(response.getString("p97"));
                         mTv93.setText(response.getString("p93"));
                         mTv90.setText(response.getString("p90"));
@@ -70,17 +79,17 @@ public class OilCityActivity extends Activity {
                         mPlace.setText(currentProvince);
                     } else {
                         Toast.makeText(OilCityActivity.this,"获取失败-2",Toast.LENGTH_SHORT).show();
-                        mFailed.setVisibility(View.VISIBLE);
+                        mRlOilCity.setVisibility(View.GONE);
+                        mLlFailedLoading.setVisibility(View.VISIBLE);
                     }
                     mPb.setVisibility(View.GONE);
                 }
             });
         } else {
-            mRlOilCity.setVisibility(View.VISIBLE);
-            mFailed.setVisibility(View.VISIBLE);
+            mRlOilCity.setVisibility(View.GONE);
+            mLlFailedLoading.setVisibility(View.VISIBLE);
             mPb.setVisibility(View.GONE);
         }
-
     }
 
     private void init() {
@@ -92,13 +101,29 @@ public class OilCityActivity extends Activity {
         mTv0= (TextView) findViewById(R.id.tv_oil_city_price0);
         mReTime= (TextView) findViewById(R.id.tv_oil_city_re_time);
         mPlace= (TextView) findViewById(R.id.tv_oil_city_place);
-        mFailed= (TextView) findViewById(R.id.tv_oil_city_failed);
         mRlOilCity= (RelativeLayout) findViewById(R.id.rl_oil_city);
 
         mBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+
+        mLlFailedLoading= (LinearLayout) findViewById(R.id.layout_failed_loading);
+        mLayoutBtBack= (Button) findViewById(R.id.bt_layout_failed_loading_back);
+        mLayoutBtRetry= (Button) findViewById(R.id.bt_layout_failed_loading_retry);
+        
+        mLayoutBtBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        mLayoutBtRetry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loading();
             }
         });
     }

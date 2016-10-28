@@ -7,12 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".zero.activity.IllegalQueryActivity">
 
-    <ProgressBar
-        android:id="@+id/pb_il_qy_loading"
-        android:layout_width="@dimen/x100"
-        android:layout_height="@dimen/x100"
-        android:layout_gravity="center" />
-
     <LinearLayout
         android:id="@+id/ll_il_qy_all"
         android:layout_width="match_parent"
@@ -174,6 +168,13 @@
         app:behavior_peekHeight="0dp"
         app:layout_behavior="@string/bottom_sheet_behavior" />
 
+    <ProgressBar
+        android:background="#b7b7b7"
+        android:id="@+id/pb_il_qy_loading"
+        android:layout_width="@dimen/x100"
+        android:layout_height="@dimen/x100"
+        android:layout_gravity="center" />
 
-
+    <include
+        layout="@layout/z_layout_loading_failed"/>
 </android.support.design.widget.CoordinatorLayout>
