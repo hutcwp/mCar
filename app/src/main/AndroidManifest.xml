@@ -55,7 +55,7 @@
 
         <activity
             android:name=".cwp.activity.BNDemoMainActivity"
-            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden" />
         <activity
             android:name=".cwp.activity.BNDemoGuideActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
@@ -73,27 +73,26 @@
 
         <!-- Way -->
         <activity android:name=".way.activitys.InfoCarActivity" />
-        <activity android:name=".way.activitys.InfoCarActivity2" />
-        <activity android:name=".way.activitys.RepasswordActivity" />
-        <activity android:name=".way.activitys.RePasswordActivity2" />
+        <activity android:name=".way.activitys.AddCarActivity" />
+        <activity android:name=".way.activitys.UserActivity" />
+        <activity android:name=".way.activitys.RePasswordActivity" />
         <activity android:name=".way.activitys.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity android:name=".way.activitys.LoginActivity" />
+        <activity android:name=".way.activitys.RegisterSMSActivity" />
         <activity android:name=".way.activitys.RegisterActivity" />
-        <activity android:name=".way.activitys.RegisterActivity2" />
 
         <!-- activity -->
 
-        <activity android:name=".cwp.activity.Activity_news" />
-        <activity android:name=".cwp.activity.Activity_About" />
-        <activity android:name=".zero.activity.MoveCarActivity"/>
+        <activity android:name=".cwp.activity.AboutActivity" />
+        <activity android:name=".zero.activity.MoveCarActivity" />
+        <activity android:name=".cwp.activity.SafeActivity" />
+        <activity android:name=".cwp.activity.WebViewContentActivity" />
     </application>
 
 </manifest>

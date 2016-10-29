@@ -24,7 +24,7 @@ public class WelcomeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.way_layout_welcome);
+        setContentView(R.layout.way_activity_welcome);
 
         register =  (Button) findViewById(R.id.bu_register);
         login =  (Button) findViewById(R.id.bu_login);
@@ -33,7 +33,7 @@ public class WelcomeActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this,RegisterSMSActivity.class);
                 startActivity(intent);
                 finish();
             }

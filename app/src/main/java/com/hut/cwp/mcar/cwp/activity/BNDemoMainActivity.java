@@ -19,7 +19,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -48,10 +47,9 @@ import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
 import com.hut.cwp.mcar.cwp.view.HListView;
 import com.hut.cwp.mcar.way.activitys.InfoCarActivity;
 import com.hut.cwp.mcar.way.activitys.LoginActivity;
-import com.hut.cwp.mcar.way.activitys.RepasswordActivity;
+import com.hut.cwp.mcar.way.activitys.UserActivity;
 import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
 import com.hut.cwp.mcar.zero.activity.IllegalQueryActivity;
-import com.hut.cwp.mcar.zero.activity.IllegalResultActivity;
 import com.hut.cwp.mcar.zero.activity.MoveCarActivity;
 import com.hut.cwp.mcar.zero.activity.OilCityActivity;
 
@@ -59,7 +57,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.bmob.v3.listener.BmobUpdateListener;
 import cn.bmob.v3.update.BmobUpdateAgent;
+import cn.bmob.v3.update.UpdateResponse;
+import cn.bmob.v3.update.UpdateStatus;
 
 
 public class BNDemoMainActivity extends Activity {
@@ -135,7 +136,9 @@ public class BNDemoMainActivity extends Activity {
     private OnGetSuggestionResultListener onGetSuggestionResultListener;
 
     //**********下滑条************
-    private ImageButton btn;
+
+    private View btn_drop_header;
+
     boolean isAsycMoveBtnFinish = true;
     boolean isAsycMoveFinish = true;
 
@@ -171,7 +174,7 @@ public class BNDemoMainActivity extends Activity {
         log_i("001");
         activityList.add(this);
         log_i("002");
-        setContentView(R.layout.cwp_layout_main);
+        setContentView(R.layout.cwp_activity_main);
         log_i("0030");
 
         //透明状态栏
@@ -181,7 +184,6 @@ public class BNDemoMainActivity extends Activity {
         mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 420);
 
         MOVE_WIDTH = DisplayUtil.dip2px(BNDemoMainActivity.this, 5);
-
 
         log_i("005");
         initMap();
@@ -328,31 +330,52 @@ public class BNDemoMainActivity extends Activity {
                         menuClose();
                         break;
                     case R.id.menu_mycar:
-                        if (MyApplication.getLandState()==MyApplication.HAD_LANDED) {
+                        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
                             startActivity(new Intent(BNDemoMainActivity.this, InfoCarActivity.class));
-                        } else if (MyApplication.getLandState()==MyApplication.NO_LAND){
-                            Intent intent=new Intent(BNDemoMainActivity.this, LoginActivity.class);
-                            intent.putExtra("TAG","FROM_BNDemoMainActivity");
+                        } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
+                            Intent intent = new Intent(BNDemoMainActivity.this, LoginActivity.class);
+                            intent.putExtra("TAG", "FROM_BNDemoMainActivity");
                             startActivity(intent);
                         }
                         break;
 
                     case R.id.menu_user:
-                        if (MyApplication.getLandState()==MyApplication.HAD_LANDED) {
-                            startActivity(new Intent(BNDemoMainActivity.this, RepasswordActivity.class));
-                        } else if (MyApplication.getLandState()==MyApplication.NO_LAND){
-                            Intent intent=new Intent(BNDemoMainActivity.this, LoginActivity.class);
-                            intent.putExtra("TAG","FROM_BNDemoMainActivity");
+                        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
+                            startActivity(new Intent(BNDemoMainActivity.this, UserActivity.class));
+                        } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
+                            Intent intent = new Intent(BNDemoMainActivity.this, LoginActivity.class);
+                            intent.putExtra("TAG", "FROM_BNDemoMainActivity");
                             startActivity(intent);
                         }
                         break;
 
                     case R.id.menu_update:
-                        BmobUpdateAgent.update(BNDemoMainActivity.this);//用于自动更新
+
+                        BmobUpdateAgent.forceUpdate(BNDemoMainActivity.this);//用于自动更新
+                        BmobUpdateAgent.setUpdateListener(new BmobUpdateListener() {
+
+                            @Override
+                            public void onUpdateReturned(int updateStatus, UpdateResponse updateInfo) {
+                                // TODO Auto-generated method stub
+                                if (updateStatus == UpdateStatus.Yes) {//版本有更新
+
+                                } else if (updateStatus == UpdateStatus.No) {
+                                    Toast.makeText(BNDemoMainActivity.this, "版本无更新", Toast.LENGTH_SHORT).show();
+                                } else if (updateStatus == UpdateStatus.EmptyField) {//此提示只是提醒开发者关注那些必填项，测试成功后，无需对用户提示
+                                    Toast.makeText(BNDemoMainActivity.this, "请检查你AppVersion表的必填项，1、target_size（文件大小）是否填写；2、path或者android_url两者必填其中一项。", Toast.LENGTH_SHORT).show();
+                                } else if (updateStatus == UpdateStatus.IGNORED) {
+                                    Toast.makeText(BNDemoMainActivity.this, "该版本已被忽略更新", Toast.LENGTH_SHORT).show();
+                                } else if (updateStatus == UpdateStatus.ErrorSizeFormat) {
+                                    Toast.makeText(BNDemoMainActivity.this, "请检查target_size填写的格式，请使用file.length()方法获取apk大小。", Toast.LENGTH_SHORT).show();
+                                } else if (updateStatus == UpdateStatus.TimeOut) {
+                                    Toast.makeText(BNDemoMainActivity.this, "查询出错或查询超时", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
                         break;
 
                     case R.id.menu_about:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_About.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, AboutActivity.class));
                         break;
                     case R.id.menu_share:
                         onClickShare(menu_share);
@@ -361,13 +384,13 @@ public class BNDemoMainActivity extends Activity {
                         startActivity(new Intent(BNDemoMainActivity.this, FeedbackActivity.class));
                         break;
                     case R.id.menu_exit://退出当前账号
-                        if (MyApplication.getLandState()==MyApplication.HAD_LANDED) {
+                        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
                             MyApplication.setLandState(MyApplication.NO_LAND);
                             MyApplication.setUsername("");
                             menuClose();
                             Toast.makeText(BNDemoMainActivity.this, "已经退出当前账号", Toast.LENGTH_SHORT).show();
-                            Log.d("测试","已经退出当前账号");
-                        } else if(MyApplication.getLandState()==MyApplication.NO_LAND) {
+                            Log.d("测试", "已经退出当前账号");
+                        } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
                             Toast.makeText(BNDemoMainActivity.this, "请先登录", Toast.LENGTH_SHORT).show();
                         }
                         break;
@@ -417,7 +440,7 @@ public class BNDemoMainActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.img_check:
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, WebViewContentActivity.class));
                         break;
 
                     case R.id.img_notice:
@@ -425,7 +448,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.img_safe:
-                        startActivity(new Intent(BNDemoMainActivity.this, IllegalResultActivity.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, SafeActivity.class));
                         break;
 
                     case R.id.img_tag:
@@ -449,22 +472,23 @@ public class BNDemoMainActivity extends Activity {
                 switch (v.getId()) {
                     case R.id.article_title:
 
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
+                        startActivityWithUrl("http://m.autohome.com.cn/news/201610/894807.html#pvareaid=2028166");
+
                         break;
 
                     case R.id.article_one:
+                        startActivityWithUrl("http://m.autohome.com.cn/news/201610/894799.html#pvareaid=2028166");
 
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     case R.id.article_two:
+                        startActivityWithUrl("http://m.autohome.com.cn/news/201610/894791.html#pvareaid=2028166");
 
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     case R.id.article_three:
+                        startActivityWithUrl("http://m.autohome.com.cn/news/201610/894789.html#pvareaid=2028166");
 
-                        startActivity(new Intent(BNDemoMainActivity.this, Activity_news.class));
                         break;
 
                     default:
@@ -485,7 +509,6 @@ public class BNDemoMainActivity extends Activity {
                         break;
 
                     case R.id.down:
-
                         if (isMapShow) {
 
                             img_btn_down.setImageResource(R.drawable.cwp_main_img_down);
@@ -576,9 +599,7 @@ public class BNDemoMainActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
 //                Toast.makeText(BNDemoMainActivity.this, "前往：" + listData.get(position), Toast.LENGTH_SHORT).show();
-
                 showDialog(suggestionInfosData.get(position));
-
 
                 Log.i(TAG, "*****经纬度*****" + endLatitue + endLongLatitue);
             }
@@ -653,6 +674,14 @@ public class BNDemoMainActivity extends Activity {
 
         }
     }
+
+    private void startActivityWithUrl(String url) {
+
+        Intent intent = new Intent(BNDemoMainActivity.this, WebViewContentActivity.class);
+        intent.putExtra("URL", url);
+        startActivity(intent);
+    }
+
 
     private void showDialog(final SuggestionResult.SuggestionInfo suggestionInfo) {
 
@@ -848,13 +877,16 @@ public class BNDemoMainActivity extends Activity {
      */
     public void initPanel() {
 
-        btn = (ImageButton) findViewById(R.id.btn_dropdown);
+//        btn = (ImageButton) findViewById(R.id.btn_dropdown);
+
+        btn_drop_header = findViewById(R.id.view_drop_header);
 
         layout = (LinearLayout) findViewById(R.id.layout_slidable_slidingdown);
 
         lp = (LinearLayout.LayoutParams) layout.getLayoutParams();
 
-        btn.setOnTouchListener(new View.OnTouchListener() {
+
+        btn_drop_header.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent event) {
                 switch (event.getAction()) {
@@ -891,15 +923,62 @@ public class BNDemoMainActivity extends Activity {
                                 isMapShow = false;
 
                             }
-                            return true;
+                            return false;
                         }
 
                         break;
                 }
                 return false;
-
             }
         });
+
+        btn_drop_header.setClickable(true);
+//        btn.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent event) {
+//                switch (event.getAction()) {
+//                    case MotionEvent.ACTION_DOWN:
+//                        Log.e("MOVE", "***************************");
+//                        slidingDownStartY = event.getRawY();
+//                        slidingDownSY = slidingDownStartY;
+//                        Log.e("MOVE", "**slidingDownStartY**" + slidingDownStartY);
+//                        break;
+//
+//                    case MotionEvent.ACTION_MOVE:
+//
+//                        slidingDownCurrentY = event.getRawY();
+//                        Log.e("MOVE", "**slidingDownCurrentY**" + slidingDownCurrentY + "**slidingDownStartY**" + slidingDownStartY);
+//                        float dy = slidingDownCurrentY - slidingDownStartY;
+//
+//                        scroll(dy);
+//
+//                        slidingDownStartY = slidingDownCurrentY;
+//
+//                        Log.e("MOVE", "**dy**" + dy + "**slidingDownCurrentY**" + slidingDownCurrentY + "**slidingDownStartY**" + slidingDownStartY);
+//                        break;
+//                    case MotionEvent.ACTION_UP:
+//
+//                        if (Math.abs(slidingDownCurrentY - slidingDownSY) > 8) {
+//                            if (mTopMargin < mMaxTopMargin && mTopMargin > (mMaxTopMargin / 2)) {
+//                                //下滑
+//                                new AsynMove().execute(new Integer[]{MOVE_WIDTH});// 正数展开,向下
+//                                isMapShow = true;
+//
+//                            } else if ((mTopMargin > 0 && mTopMargin <= (mMaxTopMargin / 2))) {
+//                                //上滑
+//                                new AsynMove().execute(new Integer[]{-MOVE_WIDTH});// 正数展开,向下
+//                                isMapShow = false;
+//
+//                            }
+//                            return true;
+//                        }
+//
+//                        break;
+//                }
+//                return false;
+//
+//            }
+//        });
 
     }
 

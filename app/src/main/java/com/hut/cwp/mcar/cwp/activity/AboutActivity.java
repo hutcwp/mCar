@@ -9,7 +9,8 @@ import android.widget.TextView;
 
 import com.hut.cwp.mcar.R;
 
-public class Activity_About extends Activity {
+
+public class AboutActivity extends Activity {
 
     private ImageView btn_back;
     private TextView text_content;
@@ -17,7 +18,7 @@ public class Activity_About extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity__about);
+        setContentView(R.layout.cwp_activity_about);
 
         init();
 

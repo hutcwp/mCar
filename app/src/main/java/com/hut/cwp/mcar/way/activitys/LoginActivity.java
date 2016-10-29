@@ -38,7 +38,7 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.way_layout_login);
+        setContentView(R.layout.way_activity_login);
 
 
         accountEdit = (EditText) findViewById(R.id.login_account);

@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/way_bcg_login"
+    android:background="@drawable/way_bcg_sign_in"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y40">
+        android:layout_marginTop="@dimen/y100">
 
         <ImageButton
-            android:id="@+id/bu_return10"
+            android:id="@+id/bu_return2"
             android:layout_width="@dimen/x16"
             android:layout_height="@dimen/y30"
             android:layout_centerVertical="true"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
-            android:text="重置密码"
+            android:text="注册"
             android:textColor="#ffffff"
             android:textSize="@dimen/x48" />
 
@@ -34,19 +34,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/x120"
-        android:layout_marginRight="@dimen/x160"
+        android:layout_marginRight="@dimen/x120"
         android:layout_marginTop="@dimen/y80"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="旧密码"
+            android:text="手机号码"
             android:textColor="#ffffff"
             android:textSize="@dimen/x30" />
 
         <EditText
-            android:id="@+id/oldpassword_repassword_Text"
+            android:inputType="phone"
+            android:id="@+id/tel_rigister_Text"
             android:layout_width="@dimen/x400"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x40"
@@ -55,40 +56,45 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="新密码"
+            android:text="验证码"
             android:textColor="#ffffff"
             android:textSize="@dimen/x30" />
 
-        <EditText
-            android:id="@+id/newpassword_repassword_Text"
-            android:layout_width="@dimen/x400"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x40"
-            android:layout_marginTop="@dimen/y20" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="验证新密码"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x30" />
+            <Button
+                android:id="@+id/bu_massage"
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/y60"
+                android:layout_marginLeft="@dimen/x40"
+                android:background="@drawable/way_xml_btn_cricle_half"
+                android:text="发送"
+                android:textColor="#6bd866"
+                android:textSize="@dimen/x24" />
 
-        <EditText
-            android:id="@+id/newpassword2_repassword_Text"
-            android:layout_width="@dimen/x400"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x40"
-            android:layout_marginTop="@dimen/y20" />
+            <EditText
+                android:id="@+id/massage_rigister_Text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x30" />
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/bu_repassword_finish"
+        android:id="@+id/bu_register_go"
         android:layout_width="@dimen/x140"
-        android:layout_height="@dimen/x140"
+        android:layout_height="@dimen/y140"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/y40"
+        android:layout_marginTop="@dimen/x40"
         android:background="@drawable/way_xml_btn_circle_full"
-        android:src="@drawable/way_login_btn_login" />
+        android:src="@drawable/way_rigister_btn_go" />
+
 
 </LinearLayout>
