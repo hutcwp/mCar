@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorHeaderSelected">#76b0f4</color>
+    <color name="colorHeaderNormal">#e7e7e7</color>
+
+
+    <color name="editTextWhite" >#fff</color>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#ed3371</color>
+    <color name="colorAccent">#7bb5ed</color>
 </resources>

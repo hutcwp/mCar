@@ -171,7 +171,6 @@
         app:layout_behavior="@string/bottom_sheet_behavior" />
 
     <ProgressBar
-        android:indeterminateDrawable="@drawable/z_color_progressbar"
         android:id="@+id/pb_il_qy_loading"
         android:layout_width="@dimen/x100"
         android:layout_height="@dimen/x100"

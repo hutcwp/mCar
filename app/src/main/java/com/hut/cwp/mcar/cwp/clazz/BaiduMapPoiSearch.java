@@ -18,6 +18,7 @@ import com.baidu.mapapi.search.poi.PoiIndoorResult;
 import com.baidu.mapapi.search.poi.PoiResult;
 import com.baidu.mapapi.search.poi.PoiSearch;
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
 /**
@@ -75,6 +76,7 @@ public class BaiduMapPoiSearch {
                     poiOverlay.addToMap();// 将所有的overlay添加到地图上
                     poiOverlay.zoomToSpan();
 
+                    ProxyLodingProgress.hide();
 
                 }
             }
@@ -107,6 +109,9 @@ public class BaiduMapPoiSearch {
 
     public void boundSearch(BaiduMapLocal myLocate, String PoiKey) {
 
+        ProxyLodingProgress.show(mContext);
+
+
         setIconByPoiKey(PoiKey);
 
         PoiBoundSearchOption boundSearchOption = new PoiBoundSearchOption();
@@ -130,7 +135,7 @@ public class BaiduMapPoiSearch {
         switch (poiKey) {
             case "加油站":
                 icon_ID = R.mipmap.icon_gas;
-                dialog_icon_ID =R.mipmap.dialog_icon_gas;
+                dialog_icon_ID = R.mipmap.dialog_icon_gas;
                 break;
 
             case "修车店":

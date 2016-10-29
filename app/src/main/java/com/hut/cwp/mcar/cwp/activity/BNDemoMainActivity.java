@@ -41,6 +41,7 @@ import com.baidu.navisdk.adapter.BaiduNaviManager.RoutePlanListener;
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.application.MyApplication;
 import com.hut.cwp.mcar.base.utils.DisplayUtil;
+import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapLocal;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapNavi;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
@@ -440,7 +441,7 @@ public class BNDemoMainActivity extends Activity {
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.img_check:
-                        startActivity(new Intent(BNDemoMainActivity.this, WebViewContentActivity.class));
+                        startActivity(new Intent(BNDemoMainActivity.this, CheckActivity.class));
                         break;
 
                     case R.id.img_notice:
@@ -528,6 +529,8 @@ public class BNDemoMainActivity extends Activity {
 
                     case R.id.btn_search:
 
+                        ProxyLodingProgress.show(BNDemoMainActivity.this);
+
                         if (autoCompleteTextView.getText().toString().trim().equals("")) {
 
                             suggestionSearch("株洲", autoCompleteTextView.getHint().toString().trim());
@@ -611,6 +614,8 @@ public class BNDemoMainActivity extends Activity {
                     if (res == null) {
                     } else if (res.getAllSuggestions() == null) {
                     }
+
+                    ProxyLodingProgress.hide();
                     //未找到相关结果
                     Log.i(TAG, "*****未找到相关结果*****");
                     return;
@@ -632,8 +637,10 @@ public class BNDemoMainActivity extends Activity {
                     }
 //                    Toast.makeText(BNDemoMainActivity.this, "list" + listData.size(), Toast.LENGTH_SHORT).show();
                     initAutoCompeleted();
+                    ProxyLodingProgress.hide();
                     autoCompleteTextView.showDropDown();
-                    printData();
+//                    printData();
+
                 }
             }
         };
@@ -815,6 +822,8 @@ public class BNDemoMainActivity extends Activity {
         mMapView.onDestroy();
         mSuggestionSearch.destroy();
 
+        ProxyLodingProgress.destroy();
+
     }
 
     @Override
@@ -846,6 +855,7 @@ public class BNDemoMainActivity extends Activity {
         super.onStop();
         //关闭定位
         mBaiduMap.setMyLocationEnabled(false);
+        ProxyLodingProgress.destroy();
 //        mLocationClient.stop();
     }
 
@@ -855,6 +865,9 @@ public class BNDemoMainActivity extends Activity {
      */
     @Override
     public void onBackPressed() {
+
+        ProxyLodingProgress.hide();
+
         if (ll_main_menu.getVisibility() == View.VISIBLE) {
 
             ll_main_menu.setVisibility(View.GONE);

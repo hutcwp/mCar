@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.application.MyApplication;
+import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.way.clazz.CarInfo;
 import com.hut.cwp.mcar.way.clazz.MyCarInfoAdapter;
 
@@ -74,6 +75,8 @@ public class InfoCarActivity extends Activity {
         count = (TextView) findViewById(R.id.count_mycar);
 
         listView = (ListView) findViewById(R.id.mycar_list_view);
+
+        ProxyLodingProgress.show(InfoCarActivity.this);
     }
 
     private void initListData() {
@@ -99,6 +102,8 @@ public class InfoCarActivity extends Activity {
                     }
                     initAdapter(R.layout.way_item_mycar);
                     count.setText(myCarInfoList.size() + "");
+                    ProxyLodingProgress.hide();
+
                 } else {
                     Log.i("bmob", "失败：" + e.getMessage() + "," + e.getErrorCode());
                 }
@@ -177,6 +182,14 @@ public class InfoCarActivity extends Activity {
         } else {
             super.onBackPressed();
         }
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        ProxyLodingProgress.destroy();
     }
 }
 

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.application.MyApplication;
+import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.way.clazz.CarInfo;
 import com.hut.cwp.mcar.zero.view.LsnumDialog;
 
@@ -85,6 +86,8 @@ public class AddCarActivity extends AppCompatActivity {
                 } else if (licensePlate.length() != 7 || vin.length() != 17) {
                     Toast.makeText(AddCarActivity.this, "某项内容不合法", Toast.LENGTH_SHORT).show();
                 } else {
+
+                    ProxyLodingProgress.show(AddCarActivity.this);
                     //加入信息
                     CarInfo carInfo = new CarInfo();
                     carInfo.setUsername(MyApplication.getUsername());
@@ -108,6 +111,7 @@ public class AddCarActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(AddCarActivity.this, "添加失败：" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
+                            ProxyLodingProgress.hide();
                         }
                     });
                 }
@@ -145,4 +149,10 @@ public class AddCarActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        ProxyLodingProgress.destroy();
+    }
 }

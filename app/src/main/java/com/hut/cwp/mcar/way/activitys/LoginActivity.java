@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.application.MyApplication;
+import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.cwp.activity.BNDemoMainActivity;
 
 import cn.bmob.v3.BmobUser;
@@ -36,20 +38,23 @@ public class LoginActivity extends Activity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.way_activity_login);
+
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
 
         accountEdit = (EditText) findViewById(R.id.login_account);
         passwordEdit = (EditText) findViewById(R.id.login_password);
         login = (ImageButton) findViewById(R.id.bu_login_in);
-        returnon =  (ImageButton) findViewById(R.id.bu_return1);
+        returnon = (ImageButton) findViewById(R.id.bu_return1);
 
-        pref= PreferenceManager.getDefaultSharedPreferences(this);
-        String username=pref.getString("username","");
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
+        String username = pref.getString("username", "");
         if (!TextUtils.isEmpty(username)) {
-            String password=pref.getString("password","");
+            String password = pref.getString("password", "");
             accountEdit.setText(username);
             passwordEdit.setText(password);
         }
@@ -60,37 +65,42 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 final String account2 = accountEdit.getText().toString().trim();
                 final String password2 = passwordEdit.getText().toString().trim();
-                if (TextUtils.isEmpty(account2)||TextUtils.isEmpty(password2)) {
+                if (TextUtils.isEmpty(account2) || TextUtils.isEmpty(password2)) {
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
                     BmobUser bu2 = new BmobUser();
                     bu2.setUsername(account2);
                     bu2.setPassword(password2);
 
+                    ProxyLodingProgress.show(LoginActivity.this);
+
                     bu2.login(new SaveListener<BmobUser>() {
 
                         @Override
                         public void done(BmobUser bmobUser, BmobException e) {
 
-                            if(e==null){
+                            if (e == null) {
                                 try {
                                     if (!"FROM_BNDemoMainActivity".equals(getIntent().getStringExtra("TAG"))) {
-                                        startActivity(new Intent(LoginActivity.this,BNDemoMainActivity.class));
+                                        startActivity(new Intent(LoginActivity.this, BNDemoMainActivity.class));
+
                                     }
                                 } catch (NullPointerException e1) {
                                     e1.printStackTrace();
                                 }
-                                editor=pref.edit();
-                                editor.putString("username",account2);
-                                editor.putString("password",password2);
+                                editor = pref.edit();
+                                editor.putString("username", account2);
+                                editor.putString("password", password2);
                                 editor.commit();
                                 MyApplication.setLandState(MyApplication.HAD_LANDED);
                                 MyApplication.setUsername(account2);
                                 finish();
+                            } else {
+
+                                Toast.makeText(LoginActivity.this, "登录失败" + e, Toast.LENGTH_SHORT).show();
                             }
-                            else {
-                                Toast.makeText(LoginActivity.this, "账号或密码错误", Toast.LENGTH_SHORT).show();
-                            }
+
+                            ProxyLodingProgress.hide();
                         }
                     });
 
@@ -105,7 +115,7 @@ public class LoginActivity extends Activity {
             public void onClick(View v) {
                 try {
                     if (!"FROM_BNDemoMainActivity".equals(getIntent().getStringExtra("TAG"))) {
-                        Intent intent = new Intent(LoginActivity.this,WelcomeActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, WelcomeActivity.class);
                         startActivity(intent);
                     }
                 } catch (NullPointerException e) {
@@ -116,6 +126,13 @@ public class LoginActivity extends Activity {
         });
     }
 
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        ProxyLodingProgress.destroy();
+    }
 }
 
 

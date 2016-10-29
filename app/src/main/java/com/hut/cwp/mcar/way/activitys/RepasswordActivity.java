@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -34,11 +36,14 @@ public class RePasswordActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.way_activity_repassword);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+
+
         oldpasswordEdit = (EditText) findViewById(R.id.oldpassword_repassword_Text);
         newpasswordEdit = (EditText) findViewById(R.id.newpassword_repassword_Text);
         newpassword2Edit = (EditText) findViewById(R.id.newpassword2_repassword_Text);
         repassword = (ImageButton) findViewById(R.id.bu_repassword_finish);
-        returnon =  (ImageButton) findViewById(R.id.bu_return10);
+        returnon = (ImageButton) findViewById(R.id.bu_return10);
 
         repassword.setOnClickListener(new View.OnClickListener() {
 
@@ -49,13 +54,13 @@ public class RePasswordActivity extends Activity {
                 String newpassword = newpasswordEdit.getText().toString().trim();
                 String newpassword2 = newpassword2Edit.getText().toString().trim();
 
-                if (TextUtils.isEmpty(oldpassword)||TextUtils.isEmpty(newpassword)||TextUtils.isEmpty(newpassword2)) {
+                if (TextUtils.isEmpty(oldpassword) || TextUtils.isEmpty(newpassword) || TextUtils.isEmpty(newpassword2)) {
                     Toast.makeText(RePasswordActivity.this, "内容不能为空", Toast.LENGTH_SHORT).show();
-                }
-                else if(newpassword.length()<6){
+                } else if (newpassword.length() < 6) {
                     Toast.makeText(RePasswordActivity.this, "密码长度不能小于六个字符", Toast.LENGTH_SHORT).show();
-                }
-                else if (newpassword.equals(newpassword2)){
+                } else if (newpassword.equals(newpassword2)) {
+
+                    ProxyLodingProgress.show(RePasswordActivity.this);
 
                     BmobUser.updateCurrentUserPassword(oldpassword, newpassword, new UpdateListener() {
 
@@ -69,14 +74,14 @@ public class RePasswordActivity extends Activity {
                                 finish();
                             } else {
                                 //toast("失败:" + e.getMessage());
-                                Toast.makeText(RePasswordActivity.this, "密码修改失败"+ e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RePasswordActivity.this, "密码修改失败" + e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
+                            ProxyLodingProgress.hide();
                         }
 
                     });
 
-                }
-                else{
+                } else {
                     Toast.makeText(RePasswordActivity.this, "两次输入新密码不符合", Toast.LENGTH_SHORT).show();
                 }
 
@@ -89,7 +94,7 @@ public class RePasswordActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(RePasswordActivity.this,UserActivity.class);
+                Intent intent = new Intent(RePasswordActivity.this, UserActivity.class);
                 startActivity(intent);
                 finish();
 
@@ -97,7 +102,11 @@ public class RePasswordActivity extends Activity {
         });
 
 
+    }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ProxyLodingProgress.destroy();
     }
 }

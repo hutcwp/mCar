@@ -1,12 +1,18 @@
 <resources>
 
+
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#7bb5ed</item>
-        <item name="colorPrimaryDark">#7bb5ed</item>
-        <!--自定义AlertDialog-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
         <item name="alertDialogTheme">@style/Theme.AppCompat.Light.Dialog.Alert.Self</item>
+
+        <item name="editTextColor" > @color/editTextWhite</item>
+
     </style>
 
     <style name="Theme.AppCompat.Light.Dialog.Alert.Self" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
@@ -14,8 +20,10 @@
         <item name="colorAccent">#7bb5ed</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--&lt;!&ndash;<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />&ndash;&gt;-->
 
 </resources>

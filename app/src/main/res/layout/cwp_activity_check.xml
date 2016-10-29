@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hut.cwp.mcar.cwp.view.CircleProgressBar
+        android:id="@+id/circleProgressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        cp:radius="80dp"
+        cp:ringColor="#ff0000"
+        cp:strokeWidth="10dp"
+        cp:textColor="#0000ff" />
+
+
+</RelativeLayout>

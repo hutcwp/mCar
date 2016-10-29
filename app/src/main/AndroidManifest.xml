@@ -93,6 +93,7 @@
         <activity android:name=".zero.activity.MoveCarActivity" />
         <activity android:name=".cwp.activity.SafeActivity" />
         <activity android:name=".cwp.activity.WebViewContentActivity" />
+        <activity android:name=".cwp.activity.CheckActivity"></activity>
     </application>
 
 </manifest>

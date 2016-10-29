@@ -16,7 +16,6 @@ public class SafeActivity extends Activity {
     private TextView text_content;
     private Intent intent;
 
-    private View.OnClickListener onClickListener;
 
     private View item_one, item_two, item_three, item_four, item_five;
 
@@ -26,6 +25,7 @@ public class SafeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cwp_activity_safe);
+
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
