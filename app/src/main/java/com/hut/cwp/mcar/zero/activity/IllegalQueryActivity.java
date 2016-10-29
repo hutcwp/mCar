@@ -15,7 +15,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -172,6 +171,10 @@ public class IllegalQueryActivity extends AppCompatActivity {
                 if (response.size() != 0) {
                     //从服务器获取用户已经添加的汽车信息
                     mLvCarInfo = (ListView) findViewById(R.id.lv_il_qy_car_info);
+                    final CarInfoBean tempBean2 = new CarInfoBean();
+                    tempBean2.setLsnum("点击输入车牌号");
+                    tempBean2.setClassno("点击输入车架号");
+                    tempBean2.setEngineno("点击输入发动机号");
                     if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
                         new Thread(new Runnable() {
                             @Override
@@ -190,29 +193,21 @@ public class IllegalQueryActivity extends AppCompatActivity {
                                                 mCarInfoBeanList.add(tempBean);
                                             }
                                         }
-                                        CarInfoBean tempBean2 = new CarInfoBean();
-                                        tempBean2.setLsnum("点击输入车牌号");
-                                        tempBean2.setClassno("点击输入车架号");
-                                        tempBean2.setEngineno("点击输入发动机号");
                                         mCarInfoBeanList.add(tempBean2);
+
                                         mHandler.post(new Runnable() {
                                             @Override
                                             public void run() {
-                                                mCarsInfoAdapter = new CarsInfoAdapter();
-                                                mLvCarInfo.setAdapter(mCarsInfoAdapter);
-                                                mLvCarInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                                                    @Override
-                                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                                                        mSelectedCarInfo = position;
-                                                        mCarsInfoAdapter.notifyDataSetChanged();
-                                                    }
-                                                });
+                                                initCarInfoList();
                                             }
                                         });
                                     }
                                 });
                             }
                         }).start();
+                    } else {
+                        mCarInfoBeanList.add(tempBean2);
+                        initCarInfoList();
                     }
 
                     mBtBack = (Button) findViewById(R.id.bt_il_qy_back);
@@ -325,7 +320,6 @@ public class IllegalQueryActivity extends AppCompatActivity {
 
                                 String url = getUrlForIllegal(mCurrentCity.getCity_code(),
                                         mNeedsCarInfo.getLsnum(), classno, engnine);
-                                Log.d("测试","url="+url+",Thread="+Thread.currentThread());
 
                                 OkHttpUtils.get().url(url).build().execute(new IllegalResultCallback() {
                                     @Override
@@ -389,6 +383,18 @@ public class IllegalQueryActivity extends AppCompatActivity {
                     mLlFailedLoading.setVisibility(View.VISIBLE);
                     mPbLoading.setVisibility(View.GONE);
                 }
+            }
+        });
+    }
+
+    private void initCarInfoList() {
+        mCarsInfoAdapter = new CarsInfoAdapter();
+        mLvCarInfo.setAdapter(mCarsInfoAdapter);
+        mLvCarInfo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mSelectedCarInfo = position;
+                mCarsInfoAdapter.notifyDataSetChanged();
             }
         });
     }

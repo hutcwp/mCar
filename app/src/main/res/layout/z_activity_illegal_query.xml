@@ -5,9 +5,11 @@
     android:id="@+id/cl_il_qy_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#b7b7b7"
     tools:context=".zero.activity.IllegalQueryActivity">
 
     <LinearLayout
+        android:background="#e8e8e8"
         android:id="@+id/ll_il_qy_all"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -118,8 +120,8 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#cecece"/>
+            android:layout_height="2px"
+            android:background="#040000"/>
 
         <LinearLayout
             android:id="@+id/ll_il_qy_query"
@@ -169,12 +171,13 @@
         app:layout_behavior="@string/bottom_sheet_behavior" />
 
     <ProgressBar
-        android:background="#b7b7b7"
+        android:indeterminateDrawable="@drawable/z_color_progressbar"
         android:id="@+id/pb_il_qy_loading"
         android:layout_width="@dimen/x100"
         android:layout_height="@dimen/x100"
         android:layout_gravity="center" />
 
     <include
+        android:visibility="gone"
         layout="@layout/z_layout_loading_failed"/>
 </android.support.design.widget.CoordinatorLayout>

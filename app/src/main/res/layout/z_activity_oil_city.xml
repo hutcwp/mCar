@@ -8,6 +8,7 @@
     tools:context=".zero.activity.OilCityActivity">
 
     <ProgressBar
+        android:indeterminateDrawable="@drawable/z_color_progressbar"
         android:id="@+id/pb"
         android:layout_width="@dimen/x140"
         android:layout_height="@dimen/x140"
