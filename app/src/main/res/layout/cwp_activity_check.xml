@@ -1,18 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cp="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <com.hut.cwp.mcar.cwp.view.CircleProgressBar
-        android:id="@+id/circleProgressbar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        cp:radius="80dp"
-        cp:ringColor="#ff0000"
-        cp:strokeWidth="10dp"
-        cp:textColor="#0000ff" />
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
-</RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y800"
+        android:background="@color/colorAccent">
+
+        <RelativeLayout
+            android:id="@+id/layout_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/cwp_check_img_ok" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="@dimen/y80"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="车辆各个指标均达标"
+                android:textColor="#fff"
+                android:textSize="@dimen/x48" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/layout_check"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y800"
+            android:visibility="gone">
+
+            <com.hut.cwp.mcar.cwp.view.CircleProgressBar
+                android:id="@+id/circleProgressbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                cp:radius="80dp"
+                cp:ringColor="#6ad865"
+                cp:strokeWidth="10dp"
+                cp:textColor="#fff" />
+
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_touch_result"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_check_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/cwp_activity_check_result_press" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/y10"
+                android:text="车辆状态"
+                android:textColor="#404040" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_touch_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/cwp_acticity_check" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/y10"
+                android:text="一键体检"
+                android:textColor="#404040" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

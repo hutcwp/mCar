@@ -16,21 +16,20 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/img_safe"
+            android:id="@+id/img_notice"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_img_insurance" />
+            android:src="@drawable/cwp_main_item_img_notice" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/y24"
-            android:text="车辆保险"
+            android:text="通知移车"
             android:textColor="#404040"
             android:textSize="@dimen/x26" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -85,24 +84,26 @@
         android:layout_width="@dimen/x186"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/y48"
+
         android:layout_marginTop="@dimen/y48"
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/img_notice"
+            android:id="@+id/img_safe"
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:src="@drawable/cwp_main_item_img_notice" />
+            android:src="@drawable/cwp_main_item_img_insurance" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="@dimen/y24"
-            android:text="通知移车"
+            android:text="车辆保险"
             android:textColor="#404040"
             android:textSize="@dimen/x26" />
+
     </LinearLayout>
 
     <LinearLayout

@@ -6,11 +6,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -128,7 +130,7 @@ public class BNDemoMainActivity extends Activity {
 
     private HListView hListView;
     private ImageView img_btn_down, img_btn_menu;
-    private LinearLayout ll_main_menu;
+    private LinearLayout ll_main_menu ,layout_down;
     private FrameLayout ll_map;
 
     //全能地图点击事件二级菜单监听
@@ -172,29 +174,18 @@ public class BNDemoMainActivity extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        log_i("001");
+
         activityList.add(this);
-        log_i("002");
+
         setContentView(R.layout.cwp_activity_main);
-        log_i("0030");
 
-        //透明状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-        log_i("004");
-        mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 420);
-
-        MOVE_WIDTH = DisplayUtil.dip2px(BNDemoMainActivity.this, 5);
-
-        log_i("005");
         initMap();
-        log_i("006");
+
         initPanel();
 
-        log_i("007");
         BmobUpdateAgent.update(this);//用于自动更新
 
-        log_i("008");
     }
 
     /**
@@ -229,6 +220,26 @@ public class BNDemoMainActivity extends Activity {
 
         initAutoCompeleted();
         baiduMapLocal.initLocation();
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 420);
+        } else {
+
+            mMaxTopMargin = DisplayUtil.dip2px(BNDemoMainActivity.this, 400);
+        }
+
+        if (getMetrics() > 2000) {
+
+
+            MOVE_WIDTH = DisplayUtil.dip2px(BNDemoMainActivity.this, 20);
+        } else {
+
+            MOVE_WIDTH = DisplayUtil.dip2px(BNDemoMainActivity.this, 10);
+        }
+
 
 
         mapItem.add(navi);
@@ -288,9 +299,11 @@ public class BNDemoMainActivity extends Activity {
 
         ll_main_menu = (LinearLayout) findViewById(R.id.layout_main_menu);
         ll_map = (FrameLayout) findViewById(R.id.ll_map);
+        layout_down= (LinearLayout) findViewById(R.id.layout_down);
+
 
         btn_search = (Button) findViewById(R.id.btn_search);
-        img_btn_down = (ImageView) findViewById(R.id.down);
+        img_btn_down = (ImageView) findViewById(R.id.img_down);
         img_btn_menu = (ImageView) findViewById(R.id.menu);
 
         article_title = (TextView) findViewById(R.id.article_title);
@@ -509,7 +522,7 @@ public class BNDemoMainActivity extends Activity {
                         menuOpen();
                         break;
 
-                    case R.id.down:
+                    case R.id.layout_down:
                         if (isMapShow) {
 
                             img_btn_down.setImageResource(R.drawable.cwp_main_img_down);
@@ -721,14 +734,28 @@ public class BNDemoMainActivity extends Activity {
     }
 
     /**
+     * 得到屏幕分辨率 取长度
+     *
+     * @return height
+     */
+    public float getMetrics() {
+        WindowManager windowManager = getWindowManager();
+        Display display = windowManager.getDefaultDisplay();
+//        int screenWidth  = display.getWidth();
+        int screenHeight   = display.getHeight();
+
+        return screenHeight;
+    }
+
+
+    /**
      * 为控件设置Listener
      */
     private void initSetListener() {
 
         btn_search.setOnClickListener(onClickListener);
-
+        layout_down.setOnClickListener(onClickListener);
         img_btn_menu.setOnClickListener(onClickListener);
-        img_btn_down.setOnClickListener(onClickListener);
 
         article_title.setOnClickListener(article_OnClickListener);
         article_one.setOnClickListener(article_OnClickListener);
@@ -794,22 +821,6 @@ public class BNDemoMainActivity extends Activity {
         }
     }
 
-    /**
-     * 用于测试 的Log方法
-     */
-    private void printData() {
-
-        for (String s : listData) {
-
-            Log.i(TAG, "Data数据 : " + s);
-        }
-
-    }
-
-    private void log_i(String error) {
-
-        Log.i("test", error);
-    }
 
     /**
      * 以下几个方法均为

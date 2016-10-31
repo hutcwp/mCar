@@ -31,7 +31,6 @@
             android:background="#7bb5ed"
             android:orientation="vertical">
 
-
             <LinearLayout
                 android:id="@+id/view_drop_header"
                 android:layout_width="match_parent"

@@ -1,6 +1,5 @@
 package com.hut.cwp.mcar.way.activitys;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -82,9 +81,7 @@ public class RegisterSMSActivity extends Activity {
 
                     });
 
-
                 }
-
 
             }
 
@@ -104,14 +101,13 @@ public class RegisterSMSActivity extends Activity {
                     public void done(Integer smsId, BmobException ex) {
                         // TODO Auto-generated method stub
                         if (ex == null) {//验证码发送成功
-                            Toast.makeText(RegisterSMSActivity.this, "短信发送成功，短信id：" + smsId, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterSMSActivity.this, "短信发送成功", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(RegisterSMSActivity.this, "短信发送失败，请检查输入信息或重试！", Toast.LENGTH_SHORT).show();
 //                            Toast.makeText(RegisterSMSActivity.this, "错误码 = "+ex.getErrorCode()+",errorMsg = "+ex.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
-
 
             }
         });

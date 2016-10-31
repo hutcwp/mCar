@@ -31,6 +31,7 @@
 
 
         <LinearLayout
+            android:id="@+id/layout_down"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/x60"
@@ -45,7 +46,7 @@
                 android:textSize="@dimen/x42" />
 
             <ImageView
-                android:id="@+id/down"
+                android:id="@+id/img_down"
                 android:layout_width="@dimen/x30"
                 android:layout_height="@dimen/y30"
                 android:layout_gravity="center"

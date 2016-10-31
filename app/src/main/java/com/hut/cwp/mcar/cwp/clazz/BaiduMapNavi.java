@@ -73,23 +73,23 @@ public class BaiduMapNavi {
 
                     @Override
                     public void run() {
-                        Toast.makeText(activity, authinfo, Toast.LENGTH_LONG).show();
+//                        Toast.makeText(activity, authinfo, Toast.LENGTH_LONG).show();
                     }
                 });
             }
 
             public void initSuccess() {
-                Toast.makeText(activity, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "导航引擎初始化成功", Toast.LENGTH_SHORT).show();
                 initSetting();
 
             }
 
             public void initStart() {
-                Toast.makeText(activity, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "导航引擎初始化开始", Toast.LENGTH_SHORT).show();
             }
 
             public void initFailed() {
-                Toast.makeText(activity, "百度导航引擎初始化失败", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "导航引擎初始化失败", Toast.LENGTH_SHORT).show();
             }
 
         }, null, ttsHandler, ttsPlayStateListener);
@@ -108,11 +108,11 @@ public class BaiduMapNavi {
             int type = msg.what;
             switch (type) {
                 case BaiduNaviManager.TTSPlayMsgType.PLAY_START_MSG: {
-                    showToastMsg("Handler : TTS play start");
+                    showToastMsg("TTS语音开启");
                     break;
                 }
                 case BaiduNaviManager.TTSPlayMsgType.PLAY_END_MSG: {
-                    showToastMsg("Handler : TTS play end");
+                    showToastMsg("TTS语音关闭");
                     break;
                 }
                 default:
@@ -128,12 +128,12 @@ public class BaiduMapNavi {
 
         @Override
         public void playEnd() {
-            showToastMsg("TTSPlayStateListener : 语音播放结束");
+            showToastMsg("语音播放结束");
         }
 
         @Override
         public void playStart() {
-            showToastMsg("TTSPlayStateListener : 语音播放开始");
+            showToastMsg("语音播放开始");
         }
     };
 

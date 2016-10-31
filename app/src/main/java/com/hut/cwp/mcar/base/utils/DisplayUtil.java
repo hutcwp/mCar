@@ -1,6 +1,10 @@
 package com.hut.cwp.mcar.base.utils;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.widget.TextView;
+
+import com.hut.cwp.mcar.R;
 
 /**
  * Created by Adminis on 2016/10/19.
@@ -33,5 +37,8 @@ public class DisplayUtil {
         return (int) (pxValue / scale + 0.5f);
 
     }
+
+
+
 
 }
