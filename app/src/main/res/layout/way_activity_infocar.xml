@@ -67,8 +67,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/y80"
-                android:layout_alignParentBottom="true"
                 android:background="#ffffff" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ebebeb" />
+
         </LinearLayout>
 
         <FrameLayout

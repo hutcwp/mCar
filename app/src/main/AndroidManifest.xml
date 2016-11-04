@@ -73,13 +73,11 @@
 
         <!-- Way -->
         <activity android:name=".way.activitys.InfoCarActivity" />
-        <activity android:name=".way.activitys.AddCarActivity" />
         <activity android:name=".way.activitys.UserActivity" />
         <activity android:name=".way.activitys.RePasswordActivity" />
         <activity android:name=".way.activitys.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -88,12 +86,12 @@
         <activity android:name=".way.activitys.RegisterActivity" />
 
         <!-- activity -->
-
         <activity android:name=".cwp.activity.AboutActivity" />
         <activity android:name=".zero.activity.MoveCarActivity" />
         <activity android:name=".cwp.activity.SafeActivity" />
         <activity android:name=".cwp.activity.WebViewContentActivity" />
-        <activity android:name=".cwp.activity.CheckActivity"></activity>
+        <activity android:name=".cwp.activity.CheckActivity"/>
+
     </application>
 
 </manifest>

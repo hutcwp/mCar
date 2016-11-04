@@ -11,13 +11,13 @@ public class CarInfo extends BmobObject {
      * 包括车主的名字，用于存储车辆信息总
      *
      */
-    private String licensePlate;
+    private String licensePlate="";
 
-    private String username;
+    private String username="";
 
-    private String engine;
+    private String engine="";
 
-    private String vin;
+    private String vin="";
 
 
     public String getUsername() {

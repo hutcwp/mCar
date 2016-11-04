@@ -1,8 +1,7 @@
 package com.hut.cwp.mcar.way.activitys;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -27,7 +26,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 
-public class InfoCarActivity extends Activity {
+public class InfoCarActivity extends AppCompatActivity {
 
     private ImageView addCar;
     private ImageView deleteCar;
@@ -44,6 +43,8 @@ public class InfoCarActivity extends Activity {
 
     private boolean deletedable = false;
 
+    private boolean addedable = true;
+
     private List<CarInfo> myCarInfoList = new ArrayList<>();
 
 
@@ -52,6 +53,7 @@ public class InfoCarActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.way_activity_infocar);
 
+        getSupportActionBar().hide();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
         initFindViewById();
@@ -81,7 +83,10 @@ public class InfoCarActivity extends Activity {
 
     private void initListData() {
 
-        myCarInfoList= new ArrayList<>();
+        deletedable = false;
+        addedable = true;
+
+        myCarInfoList = new ArrayList<>();
         BmobQuery<CarInfo> query = new BmobQuery<>();
 
         //查询playerName叫“13874939742”的数据
@@ -146,9 +151,15 @@ public class InfoCarActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(InfoCarActivity.this, AddCarActivity.class);
-                startActivity(intent);
-                finish();
+                if (addedable) {
+                    myCarInfoList.add(new CarInfo());
+                    initAdapter(R.layout.way_item_mycar);
+                    addedable = false;
+                }
+
+//                Intent intent = new Intent(InfoCarActivity.this, AddCarActivity.class);
+//                startActivity(intent);
+//                finish();
 
             }
         });
@@ -161,17 +172,17 @@ public class InfoCarActivity extends Activity {
                 deletedable = true;
                 initAdapter(R.layout.way_item_mycar_deleted);
 
-
             }
 
         });
     }
 
 
-    public void refreshData(){
+    public void refreshData() {
 
         initListData();
     }
+
     @Override
     public void onBackPressed() {
 
