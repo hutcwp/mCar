@@ -48,7 +48,7 @@ import com.hut.cwp.mcar.cwp.clazz.BaiduMapLocal;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapNavi;
 import com.hut.cwp.mcar.cwp.clazz.BaiduMapPoiSearch;
 import com.hut.cwp.mcar.cwp.view.HListView;
-import com.hut.cwp.mcar.way.activitys.InfoCarActivity;
+import com.hut.cwp.mcar.way.activitys.InfocarActivity;
 import com.hut.cwp.mcar.way.activitys.LoginActivity;
 import com.hut.cwp.mcar.way.activitys.UserActivity;
 import com.hut.cwp.mcar.zero.activity.FeedbackActivity;
@@ -345,7 +345,7 @@ public class BNDemoMainActivity extends Activity {
                         break;
                     case R.id.menu_mycar:
                         if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
-                            startActivity(new Intent(BNDemoMainActivity.this, InfoCarActivity.class));
+                            startActivity(new Intent(BNDemoMainActivity.this, InfocarActivity.class));
                         } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
                             Intent intent = new Intent(BNDemoMainActivity.this, LoginActivity.class);
                             intent.putExtra("TAG", "FROM_BNDemoMainActivity");

@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.application.MyApplication;
 import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
-import com.hut.cwp.mcar.way.activitys.InfoCarActivity;
+import com.hut.cwp.mcar.way.activitys.InfocarActivity;
 import com.hut.cwp.mcar.zero.view.LsnumDialog;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
-public class MyCarInfoAdapter extends ArrayAdapter<CarInfo> {
+public class MycarInfoAdapter extends ArrayAdapter<CarInfo> {
 
     private int resourceId;
 
@@ -39,17 +39,17 @@ public class MyCarInfoAdapter extends ArrayAdapter<CarInfo> {
 
     private List<CarInfo> mData = new ArrayList<>();
 
-    private InfoCarActivity infoCarActivity;
+    private InfocarActivity infoCarActivity;
 
     private View view = null;
     private TextView licensePlateInfo;
     private TextView engineInfo;
     private TextView frameInfo;
 
-    public MyCarInfoAdapter(Context context, int textViewResourceId, List<CarInfo> objects) {
+    public MycarInfoAdapter(Context context, int textViewResourceId, List<CarInfo> objects) {
         super(context, textViewResourceId, objects);
 
-        this.infoCarActivity = (InfoCarActivity) context;
+        this.infoCarActivity = (InfocarActivity) context;
         this.mContext = context;
         this.resourceId = textViewResourceId;
         this.mData = objects;

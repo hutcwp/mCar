@@ -15,7 +15,7 @@ import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.application.MyApplication;
 import com.hut.cwp.mcar.base.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.way.clazz.CarInfo;
-import com.hut.cwp.mcar.way.clazz.MyCarInfoAdapter;
+import com.hut.cwp.mcar.way.clazz.MycarInfoAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
 
-public class InfoCarActivity extends AppCompatActivity {
+public class InfocarActivity extends AppCompatActivity {
 
     private ImageView addCar;
     private ImageView deleteCar;
@@ -39,7 +39,7 @@ public class InfoCarActivity extends AppCompatActivity {
 
     private List<Map<String, Object>> datalist;
 
-    private MyCarInfoAdapter adapter;
+    private MycarInfoAdapter adapter;
 
     private boolean deletedable = false;
 
@@ -78,7 +78,7 @@ public class InfoCarActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.mycar_list_view);
 
-        ProxyLodingProgress.show(InfoCarActivity.this);
+        ProxyLodingProgress.show(InfocarActivity.this);
     }
 
     private void initListData() {
@@ -100,7 +100,7 @@ public class InfoCarActivity extends AppCompatActivity {
             @Override
             public void done(List<CarInfo> object, BmobException e) {
                 if (e == null) {
-                    Toast.makeText(InfoCarActivity.this, "查询成功：共" + object.size() + "条数据。", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InfocarActivity.this, "查询成功：共" + object.size() + "条数据。", Toast.LENGTH_SHORT).show();
                     for (CarInfo carInfo : object) {
 
                         myCarInfoList.add(carInfo);
@@ -121,7 +121,7 @@ public class InfoCarActivity extends AppCompatActivity {
 
     private void initAdapter(int item_res_id) {
 
-        adapter = new MyCarInfoAdapter(InfoCarActivity.this, item_res_id, myCarInfoList);
+        adapter = new MycarInfoAdapter(InfocarActivity.this, item_res_id, myCarInfoList);
         listView.setAdapter(adapter);
     }
 
@@ -140,7 +140,7 @@ public class InfoCarActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(InfoCarActivity.this, "用户名 : " + myCarInfoList.get(position).getUsername(), Toast.LENGTH_LONG).show();
+                Toast.makeText(InfocarActivity.this, "用户名 : " + myCarInfoList.get(position).getUsername(), Toast.LENGTH_LONG).show();
 
             }
         });

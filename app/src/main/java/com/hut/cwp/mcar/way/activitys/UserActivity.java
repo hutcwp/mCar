@@ -36,7 +36,7 @@ public class UserActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserActivity.this,RePasswordActivity.class);
+                Intent intent = new Intent(UserActivity.this,RepasswordActivity.class);
                 startActivity(intent);
                 finish();
             }

@@ -72,9 +72,9 @@
         <activity android:name=".zero.activity.FeedbackSuccessActivity" />
 
         <!-- Way -->
-        <activity android:name=".way.activitys.InfoCarActivity" />
+        <activity android:name=".way.activitys.InfocarActivity" />
         <activity android:name=".way.activitys.UserActivity" />
-        <activity android:name=".way.activitys.RePasswordActivity" />
+        <activity android:name=".way.activitys.RepasswordActivity" />
         <activity android:name=".way.activitys.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
