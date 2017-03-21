@@ -37,7 +37,6 @@
    
    车辆体检：通过硬件接口通信获得车辆实时信息（由于硬件方面的问题，只提供了模拟的效果演示）。
     
-    <img src="https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-16-42-27.png" width="50%" height="50%" />
     
     ![欢迎界面](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-16-42-27.png)
     ![首页](https://https://github.com/hutcwp/img-floder/blob/master/Screenshot_2017-03-21-21-16-50-76.png)
