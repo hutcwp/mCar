@@ -37,3 +37,11 @@
    
    车辆体检：通过硬件接口通信获得车辆实时信息（由于硬件方面的问题，只提供了模拟的效果演示）。
     
+    
+    ![Image text](https://github.com/hutcwp/img-floder/blob/master/Screenshot_2017-03-21-21-16-42-27.png)
+    ![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+    ![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+    ![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+    ![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+    ![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
+    ![Image text](https://raw.github.com/yourName/repositpry/master/yourprojectName/img-folder/test.jpg)
