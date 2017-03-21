@@ -42,29 +42,24 @@
  功能演示图：
  
    ![欢迎界面](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E6%AC%A2%E8%BF%8E%E7%95%8C%E9%9D%A2.png)
-   
-    欢迎界面
-    ![首页](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E9%A6%96%E9%A1%B5.png)
-    
-    首页
+   ![首页](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E9%A6%96%E9%A1%B5.png)
+    欢迎界面                                    首页
+    
     ![全能地图](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E5%85%A8%E8%83%BD%E5%9C%B0%E5%9B%BE.png)
-    
-    全能地图
-    ![周边服务点](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E5%91%A8%E8%BE%B9%E6%9C%8D%E5%8A%A1%E7%82%B9.png)
-    
-    周边服务点
+    ![周边服务点](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E5%91%A8%E8%BE%B9%E6%9C%8D%E5%8A%A1%E7%82%B9.png)
+   
+    全能地图                                   周边服务点
+
     ![菜单](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E8%8F%9C%E5%8D%95.png)
+    ![通知移车](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E9%80%9A%E7%9F%A5%E7%A7%BB%E8%BD%A6.png)
     
-    菜单
-    ![通知移车](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E9%80%9A%E7%9F%A5%E7%A7%BB%E8%BD%A6.png)
+    菜单                                       通知移车
     
-    通知移车
     ![车辆保险](https://github.com/hutcwp/img-floder/blob/master/%E8%BD%A6%E8%BE%86%E4%BF%9D%E9%99%A9.png?raw=true)
-    
-    车辆保险
-    ![汽车资讯](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E6%B1%BD%E8%BD%A6%E8%B5%84%E8%AE%AF.png)
-    
-    汽车资讯
+    ![汽车资讯](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E6%B1%BD%E8%BD%A6%E8%B5%84%E8%AE%AF.png)
+   
+    车辆保险                                   汽车资讯
+     
     ![车辆体检](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E8%BD%A6%E8%BE%86%E4%BD%93%E6%A3%80.png)
     
     车辆体检
