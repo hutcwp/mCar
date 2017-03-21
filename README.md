@@ -38,12 +38,14 @@
    车辆体检：通过硬件接口通信获得车辆实时信息（由于硬件方面的问题，只提供了模拟的效果演示）。
     
     
-    ![欢迎界面](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-16-42-27.png)
-    ![首页](https://https://github.com/hutcwp/img-floder/blob/master/Screenshot_2017-03-21-21-16-50-76.png)
-    ![全能地图](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-16-55-85.png)
-    ![周边服务点](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-17-04-71.png)
-    ![菜单](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-17-13-91.png)
-    ![通知移车](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-17-44-17.png)
-    ![车辆保险](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-17-59-31.png)
-    ![汽车资讯](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-18-32-33.png)
-    ![车辆体检](https://raw.githubusercontent.com/hutcwp/img-floder/master/Screenshot_2017-03-21-21-18-08-27.png)
+ 功能演示图：
+ 
+    ![欢迎界面](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E6%AC%A2%E8%BF%8E%E7%95%8C%E9%9D%A2.png)
+    ![首页](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E9%A6%96%E9%A1%B5.png)
+    ![全能地图](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E5%85%A8%E8%83%BD%E5%9C%B0%E5%9B%BE.png)
+    ![周边服务点](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E5%91%A8%E8%BE%B9%E6%9C%8D%E5%8A%A1%E7%82%B9.png)
+    ![菜单](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E8%8F%9C%E5%8D%95.png)
+    ![通知移车](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E9%80%9A%E7%9F%A5%E7%A7%BB%E8%BD%A6.png)
+    ![车辆保险](https://github.com/hutcwp/img-floder/blob/master/%E8%BD%A6%E8%BE%86%E4%BF%9D%E9%99%A9.png?raw=true)
+    ![汽车资讯](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E6%B1%BD%E8%BD%A6%E8%B5%84%E8%AE%AF.png)
+    ![车辆体检](https://raw.githubusercontent.com/hutcwp/img-floder/master/%E8%BD%A6%E8%BE%86%E4%BD%93%E6%A3%80.png)
