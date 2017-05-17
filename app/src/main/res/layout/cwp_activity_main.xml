@@ -1,82 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#efefef"
-    android:orientation="vertical">
+<layout>
+    <data>
 
-    <LinearLayout
-        android:id="@+id/layout_hiden_map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/y148"
-        android:layout_marginTop="@dimen/y286">
+    </data>
 
-        <include layout="@layout/cwp_layout_main_map" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_show"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#efefef"
         android:orientation="vertical">
 
-        <include layout="@layout/cwp_layout_main_header" />
+        <LinearLayout
+            android:id="@+id/layout_hidden_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/y148"
+            android:layout_marginTop="@dimen/y340">
 
+            <include layout="@layout/cwp_layout_main_map" android:id="@+id/ly_main_map"/>
+        </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_slidable_slidingdown"
+            android:id="@+id/layout_show"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#7bb5ed"
             android:orientation="vertical">
 
+            <include layout="@layout/cwp_layout_main_header" android:id="@+id/ly_header" />
+
+
             <LinearLayout
-                android:id="@+id/view_drop_header"
+                android:id="@+id/ly_slidable_slidingdown"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y44"
-                android:background="@drawable/cwp_selector_drop_header"
+                android:layout_height="match_parent"
+                android:background="#7bb5ed"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/x60"
-                    android:layout_height="2px"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/y10"
-                    android:background="#000" />
+                <LinearLayout
+                    android:id="@+id/view_drop_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y44"
+                    android:background="@drawable/cwp_selector_drop_header"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="@dimen/x60"
-                    android:layout_height="2px"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/y10"
-                    android:background="#000" />
+                    <ImageView
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="2px"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/y10"
+                        android:background="#000" />
 
-                <ImageView
-                    android:layout_width="@dimen/x60"
-                    android:layout_height="2px"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/y10"
-                    android:background="#000" />
+                    <ImageView
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="2px"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/y10"
+                        android:background="#000" />
+
+                    <ImageView
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="2px"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/y10"
+                        android:background="#000" />
 
 
-                <!--<ImageButton-->
-                    <!--android:id="@+id/btn_dropdown"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="@dimen/y44"-->
-                    <!--android:background="#e7e7e7"-->
-                    <!--android:src="@drawable/cwp_main_img_dropdown" />-->
+                </LinearLayout>
 
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/h_recycler_view"
+                    android:background="#fff"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <include layout="@layout/cwp_layout_main_news" android:id="@+id/ly_news"/>
 
             </LinearLayout>
 
-            <include layout="@layout/cwp_layout_main_h_listview" />
-
-            <include layout="@layout/cwp_layout_main_news" />
-
         </LinearLayout>
 
-    </LinearLayout>
+        <include layout="@layout/cwp_layout_main_menu" android:id="@+id/ly_menu"/>
 
-    <include layout="@layout/cwp_layout_main_menu" />
-</FrameLayout>
+    </FrameLayout>
+
+</layout>

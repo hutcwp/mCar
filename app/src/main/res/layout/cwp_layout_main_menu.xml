@@ -1,181 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/layout_main_menu"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#b4000000"
-    android:orientation="vertical"
-    android:paddingRight="@dimen/x60"
-    android:visibility="gone">
+<layout>
+    <data>
 
-    <ImageView
-        android:id="@+id/menu_close"
-        android:layout_width="@dimen/x30"
-        android:layout_height="@dimen/y30"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y340"
-        android:src="@drawable/cwp_main_menu_img_close" />
-
-    <LinearLayout
-        android:id="@+id/menu_mycar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我的私家车"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ly_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b4000000"
+        android:orientation="vertical"
+        android:paddingRight="@dimen/x60"
+        android:visibility="gone">
 
         <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/y40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_mcar" />
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/x30"
+            android:layout_height="@dimen/y30"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y340"
+            android:src="@drawable/cwp_main_menu_img_close" />
+
+        <LinearLayout
+            android:id="@+id/ly_mycar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的私家车"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/y40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_mcar" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/ly_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="帐号"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_user" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更新"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_refresh" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分享"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_share" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="关于"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_about" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_feedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="反馈"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_feedback" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ly_login_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y60">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="退出当前账号"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/x32" />
+
+            <ImageView
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@drawable/cwp_main_menu_img_exit" />
+        </LinearLayout>
 
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/menu_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="帐号"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
-
-        <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_user" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/menu_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更新"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
-
-        <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_refresh" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/menu_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="分享"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
-
-        <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_share" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/menu_about"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="关于"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
-
-        <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_about" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/menu_feedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="反馈"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
-
-        <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_feedback" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/menu_exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y60">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="退出当前账号"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x32" />
-
-        <ImageView
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x20"
-            android:src="@drawable/cwp_main_menu_img_exit" />
-    </LinearLayout>
-
-
-</LinearLayout>
+</layout>

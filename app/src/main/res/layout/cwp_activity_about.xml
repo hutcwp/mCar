@@ -1,203 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#efefef"
-    android:orientation="vertical">
+<layout>
+    <data >
 
-    <include layout="@layout/cwp_layout_title_menu" />
+    </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="#efefef"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="@dimen/x180"
-            android:layout_height="@dimen/y180"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/y40"
-            android:src="@mipmap/logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/y10"
-            android:text="App名称"
-            android:textColor="#404040"
-            android:textSize="@dimen/x30" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="@dimen/y10"
-            android:text="app版本号"
-            android:textColor="#8e8e8e"
-            android:textSize="@dimen/x24" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y20"
-        android:background="#ffffff"
-        android:orientation="vertical">
+        <include layout="@layout/ly_title" android:id="@+id/ly_title"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/y20"
-                android:layout_marginTop="@dimen/y20"
-                android:text="介绍"
-                android:textColor="#404040"
-                android:textSize="@dimen/x42" />
-
             <ImageView
-                android:layout_width="@dimen/x150"
-                android:layout_height="@dimen/y1"
+                android:layout_width="@dimen/x180"
+                android:layout_height="@dimen/y180"
                 android:layout_gravity="center"
-                android:background="#8e8e8e" />
+                android:layout_marginTop="@dimen/y40"
+                android:src="@mipmap/logo" />
 
             <TextView
-                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:paddingBottom="@dimen/y20"
-                android:paddingTop="@dimen/y20"
-                android:text="本软件由湖南工业大学hutcwp团队开发制作.是一款为私家车及车主提供各种便捷可靠服务的工具。此版本仅用于比赛使用，最终解释权归hutcwp团队所有"
+                android:layout_marginTop="@dimen/y10"
+                android:text="@string/app_name"
                 android:textColor="#404040"
-                android:textSize="@dimen/x24" />
+                android:textSize="@dimen/x30" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/y10"
+                android:text="@string/app_version"
+                android:textColor="#8e8e8e"
+                android:textSize="@dimen/x24" />
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/y1"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#efefef" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y20"
             android:background="#ffffff"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/y20"
-                android:layout_marginTop="@dimen/y20"
-                android:text="团队"
-                android:textColor="#404040"
-                android:textSize="@dimen/x36" />
-
-            <ImageView
-                android:layout_width="@dimen/x150"
-                android:layout_height="@dimen/y1"
-                android:layout_gravity="center"
-                android:background="#8e8e8e" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingTop="@dimen/y20"
-                android:text="UI交互设计 ：刘春杰"
-                android:textColor="#404040"
-                android:textSize="@dimen/x24" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:paddingBottom="@dimen/y20"
-                android:text="  Android及后台开发 ：蔡文鹏，曾智祺，伍安芸"
-                android:textColor="#404040"
-                android:textSize="@dimen/x24" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/y1"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#efefef" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#ffffff"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/y20"
-                android:layout_marginTop="@dimen/y20"
-                android:text="联系"
-                android:textColor="#404040"
-                android:textSize="@dimen/x36" />
-
-            <ImageView
-                android:layout_width="@dimen/x150"
-                android:layout_height="@dimen/y1"
-                android:layout_gravity="center"
-                android:background="#8e8e8e" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingBottom="@dimen/y20"
-                android:paddingTop="@dimen/y20">
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="  mail to "
-                    android:textColor="#404040"
-                    android:textSize="@dimen/x24" />
-
-                <TextView
-                    android:id="@+id/email"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_weight="2"
-                    android:text="191131464@qq.com"
-                    android:textColor="#75aff4"
+                    android:layout_marginBottom="@dimen/y20"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="@string/team_info"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x42" />
+
+                <ImageView
+                    android:layout_width="@dimen/x150"
+                    android:layout_height="@dimen/y1"
+                    android:layout_gravity="center"
+                    android:background="#8e8e8e" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="@dimen/y20"
+                    android:paddingTop="@dimen/y20"
+                    android:text="@string/tean_info_content"
+                    android:textColor="#404040"
                     android:textSize="@dimen/x24" />
 
             </LinearLayout>
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#efefef" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/y20"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="@string/team"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x36" />
+
+                <ImageView
+                    android:layout_width="@dimen/x150"
+                    android:layout_height="@dimen/y1"
+                    android:layout_gravity="center"
+                    android:background="#8e8e8e" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="@dimen/y20"
+                    android:text="@string/ui_designer"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x24" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="@dimen/y20"
+                    android:text="@string/android_developers"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x24" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#efefef" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/y20"
+                    android:layout_marginTop="@dimen/y20"
+                    android:text="@string/contact"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x36" />
+
+                <ImageView
+                    android:layout_width="@dimen/x150"
+                    android:layout_height="@dimen/y1"
+                    android:layout_gravity="center"
+                    android:background="#8e8e8e" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="@dimen/y20"
+                    android:paddingTop="@dimen/y20">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/mail_to"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x24" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:text="@string/email_address"
+                        android:textColor="#75aff4"
+                        android:textSize="@dimen/x24" />
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
-
     </LinearLayout>
 
-
-</LinearLayout>
+</layout>

@@ -1,123 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <FrameLayout
+<layout>
+    <data>
+
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y20"
-        android:background="#fff">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x140"
-            android:background="@drawable/way_car_info_click"
-            android:orientation="vertical">
+            android:layout_marginTop="@dimen/y20"
+            android:background="#fff">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y88">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="车牌号"
-                    android:textColor="#404040"
-                    android:textSize="@dimen/x30" />
-
-                <TextView
-                    android:id="@+id/way_itme_licensePlate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="陕A948S9"
-                    android:textColor="#808080"
-                    android:textSize="@dimen/x26" />
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="@dimen/x660"
-                android:layout_height="1px"
-                android:layout_gravity="center_horizontal"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x140"
+                android:background="@drawable/way_car_info_click"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y88">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="车牌号"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x30" />
+
+                    <TextView
+                        android:id="@+id/way_itme_licensePlate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="陕A948S9"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x26" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/x660"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30"
+                    android:background="#ebebeb" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y88">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="发动机号"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x30" />
+
+                    <TextView
+                        android:id="@+id/way_itme_engine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="27297531734208"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x26" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/x660"
+                    android:layout_height="1px"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30"
+                    android:background="#ebebeb" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y88">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="车架号"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x30" />
+
+                    <TextView
+                        android:id="@+id/way_itme_frame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="WDDNG8HB8BA375689"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x26" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/way_btn_delete"
+                android:layout_width="@dimen/x50"
+                android:layout_height="@dimen/y50"
+                android:layout_gravity="center_vertical|right"
                 android:layout_marginRight="@dimen/x30"
-                android:background="#ebebeb" />
+                android:background="@drawable/way_mycar_delete"
+                />
+        </FrameLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y88">
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="发动机号"
-                    android:textColor="#404040"
-                    android:textSize="@dimen/x30" />
-
-                <TextView
-                    android:id="@+id/way_itme_engine"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="27297531734208"
-                    android:textColor="#808080"
-                    android:textSize="@dimen/x26" />
-
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="@dimen/x660"
-                android:layout_height="1px"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginRight="@dimen/x30"
-                android:background="#ebebeb" />
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y88">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="车架号"
-                    android:textColor="#404040"
-                    android:textSize="@dimen/x30" />
-
-                <TextView
-                    android:id="@+id/way_itme_frame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:gravity="center"
-                    android:text="WDDNG8HB8BA375689"
-                    android:textColor="#808080"
-                    android:textSize="@dimen/x26" />
-
-            </RelativeLayout>
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/way_btn_delete"
-            android:layout_width="@dimen/x50"
-            android:layout_height="@dimen/y50"
-            android:layout_gravity="center_vertical|right"
-            android:layout_marginRight="@dimen/x30"
-            android:background="@drawable/way_mycar_delete"
-            />
-    </FrameLayout>
-
-</LinearLayout>
+</layout>

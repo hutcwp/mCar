@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 24
-    buildToolsVersion '24.0.2'
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.hut.cwp.cwp_main_menu_img_mcar"
         minSdkVersion 15
@@ -10,7 +10,20 @@ android {
         versionCode 1
         versionName '1.0'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions.enabled = true;
+
     }
+    //开启Lambda表达式
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -31,22 +44,22 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //    compile 'com.android.support:appcompat-v7:23.3.0'
+    //bmob-sms ：Bmob单独为短信服务提供的包
+    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+    // compile 'io.reactivex:rxjava:1.1.0'
+    // compile 'io.reactivex:rxandroid:1.1.0'
+    compile files('libs/BmobSMS_V1.0.1_20150710.jar')
+    compile files('libs/weizhang_sdk.jar')
     compile 'com.android.support:appcompat-v7:24.2.1'
-    testCompile 'junit:junit:4.12'
-    compile files('libs/BaiduLBS_Android.jar')
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.google.code.gson:gson:2.7'
     compile 'cn.bmob.android:bmob-sdk:3.5.0'
-    //    compile 'cn.bmob.android:http-legacy:1.0'
-    //    compile 'com.android.support:design:23.3.0'
     compile 'com.android.support:design:24.2.1'
-    //    compile 'com.android.support:cardview-v7:23.3.0'
     compile 'com.android.support:cardview-v7:24.2.1'
+    compile 'com.google.code.gson:gson:2.7'
     compile 'me.shaohui:bottomdialog:1.1.9'
-    //bmob-sms ：Bmob单独为短信服务提供的包
     compile 'cn.bmob.android:bmob-sms:1.0.1'
-    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
     compile 'cn.bmob.android:http-legacy:1.0'
-    compile files('libs/BmobSMS_V1.0.1_20150710.jar')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
 }

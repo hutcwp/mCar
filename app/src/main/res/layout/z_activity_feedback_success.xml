@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.hut.cwp.mcar.zero.activity.FeedbackSuccessActivity">
+    tools:context="com.hut.cwp.mcar.activitys.other.FeedbackSuccessActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,19 +19,19 @@
             android:background="#75aff4">
 
             <Button
-                android:id="@+id/bt_feedback_back"
+                android:id="@+id/btn_back"
                 android:layout_width="@dimen/x22"
                 android:layout_height="@dimen/y40"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/x30"
                 android:background="@drawable/way_rigister_btn_back"
-                android:onClick="back1" />
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="反馈"
+                android:text="@string/feedback"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/x40" />
         </RelativeLayout>
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/y80"
-            android:text="留言成功"
+            android:text="@string/feedbak_success"
             android:textColor="#404040"
             android:textSize="@dimen/x36" />
 
@@ -58,31 +58,31 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/y80"
-            android:text="我们会在一个工作日内联系你"
+            android:text="@string/feedbak_success_tip"
             android:textColor="#404040"
             android:textSize="@dimen/x18" />
 
         <Button
+            android:id="@+id/btn_return"
             android:layout_width="@dimen/x400"
             android:layout_height="@dimen/y100"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/y80"
             android:background="@drawable/cwp_feedback_result_half_btn"
-            android:onClick="back2"
-            android:text="好的，返回"
+            android:text="@string/ok_return"
             android:textColor="#ffffff"
             android:textSize="@dimen/x24" />
 
 
         <Button
+            android:id="@+id/btn_feedback_again"
             android:layout_width="@dimen/x400"
             android:layout_height="@dimen/y100"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/y80"
             android:layout_marginTop="@dimen/y40"
             android:background="@drawable/cwp_feedback_result_half_btn"
-            android:onClick="again"
-            android:text="再次留言"
+            android:text="@string/feedback_again"
             android:textColor="#ffffff"
             android:textSize="@dimen/x24" />
 

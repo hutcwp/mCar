@@ -1,62 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/y286"
-    android:background="@drawable/cwp_main_bcg_header"
-    android:orientation="vertical">
+<layout>
 
-    <ImageView
-        android:id="@+id/menu"
-        android:layout_width="@dimen/x42"
-        android:layout_height="@dimen/y42"
-        android:layout_gravity="right"
-        android:layout_marginTop="@dimen/y64"
-        android:paddingRight="@dimen/y30"
-        android:src="@drawable/cwp_main_img_menu" />
+    <data>
 
-    <LinearLayout
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/y286"
+        android:layout_height="@dimen/y340"
+        android:background="@drawable/cwp_main_bcg_header"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/text_tip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/x60"
-            android:paddingTop="@dimen/y152"
-            android:text="加油站 / 修车点 / 停车场 / 路径导航"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/x22" />
-
+        <ImageView
+            android:id="@+id/iv_menu"
+            android:layout_width="@dimen/x42"
+            android:layout_height="@dimen/y42"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/y64"
+            android:paddingRight="@dimen/y30"
+            android:src="@drawable/cwp_main_img_menu" />
 
         <LinearLayout
-            android:id="@+id/layout_down"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x60"
-            android:paddingTop="@dimen/y24">
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y286"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/map_full"
+                android:id="@+id/tv_tip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="全能地图"
+                android:paddingLeft="@dimen/x60"
+                android:paddingTop="@dimen/y152"
+                android:text="@string/map_tip"
                 android:textColor="@android:color/white"
-                android:textSize="@dimen/x42" />
+                android:textSize="@dimen/x22" />
 
-            <ImageView
-                android:id="@+id/img_down"
-                android:layout_width="@dimen/x30"
-                android:layout_height="@dimen/y30"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/x30"
-                android:src="@drawable/cwp_main_img_down"
-                 />
+
+            <LinearLayout
+                android:id="@+id/ly_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x60"
+                android:paddingTop="@dimen/y24">
+
+                <TextView
+                    android:id="@+id/tv_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all_powerful_map"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/x42" />
+
+                <ImageView
+                    android:id="@+id/img_down"
+                    android:layout_width="@dimen/x30"
+                    android:layout_height="@dimen/y30"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:src="@drawable/cwp_main_img_down"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
-</FrameLayout>
 
+</layout>

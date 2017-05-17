@@ -1,182 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cl_il_qy_root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#b7b7b7"
-    tools:context=".zero.activity.IllegalQueryActivity">
+<layout>
+    <data>
 
-    <LinearLayout
-        android:background="#e8e8e8"
-        android:id="@+id/ll_il_qy_all"
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/cl_il_qy_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/rl_il_qy_top"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/y380"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/z_il_qy_bcg_up">
-
-            <RelativeLayout
-                android:id="@+id/layout_ui"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y88"
-                android:layout_marginTop="@dimen/y40">
-
-                <Button
-                    android:id="@+id/bt_il_qy_back"
-                    android:layout_width="@dimen/x22"
-                    android:layout_height="@dimen/x40"
-                    android:layout_marginLeft="@dimen/x30"
-                    android:layout_marginTop="@dimen/y22"
-                    android:background="@drawable/way_rigister_btn_back" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true"
-                    android:text="违章记录"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/x40" />
-            </RelativeLayout>
-
-            <LinearLayout
-                android:id="@+id/layout_ui2"
-                android:layout_width="@dimen/x380"
-                android:layout_height="@dimen/y70"
-                android:layout_below="@id/layout_ui"
-                android:layout_centerInParent="true"
-                android:layout_marginTop="@dimen/y40"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/bt_il_qy_select_province"
-                    android:layout_width="@dimen/x190"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/z_bcg_select_province"
-                    android:gravity="center"
-                    android:text="选择地区"
-                    android:textColor="#75aff4"
-                    android:textSize="@dimen/x30" />
-
-                <TextView
-                    android:id="@+id/tv_il_qy_dividing_line"
-                    android:layout_width="@dimen/x1"
-                    android:layout_height="match_parent"
-                    android:background="#75aff4" />
-
-                <Button
-                    android:id="@+id/bt_il_qy_select_city"
-                    android:layout_width="@dimen/x190"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/z_bcg_select_city"
-                    android:gravity="center"
-                    android:text="选择城市"
-                    android:textColor="#75aff4"
-                    android:textSize="@dimen/x30" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout_ui2"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/y40"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="点击上方按钮可选择地区"
-                    android:textColor="#fff"
-                    android:textSize="@dimen/x34" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="(请在下方选择或手动输入车辆信息)"
-                    android:textColor="#fff"
-                    android:textSize="@dimen/x20" />
-            </LinearLayout>
-        </RelativeLayout>
-
-        <ListView
-            android:id="@+id/lv_il_qy_car_info"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:divider="@null"
-            android:scrollbars="none"
-            android:choiceMode="singleChoice" />
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#040000"/>
+        android:background="#b7b7b7"
+        tools:context=".activitys.business.IllegalQueryActivity">
 
         <LinearLayout
-            android:id="@+id/ll_il_qy_query"
+            android:background="#e8e8e8"
+            android:id="@+id/ll_il_qy_all"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y96"
-            android:layout_alignParentBottom="true"
-            android:background="#fff"
-            android:gravity="center_horizontal"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/bt_il_qy_query_bt"
-                android:layout_width="@dimen/x40"
-                android:layout_height="@dimen/y40"
+            <RelativeLayout
+                android:id="@+id/rl_il_qy_top"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y380"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/z_il_qy_bcg_up">
+
+                <RelativeLayout
+                    android:id="@+id/layout_ui"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y88"
+                    android:layout_marginTop="@dimen/y40">
+
+                    <Button
+                        android:id="@+id/btn_back"
+                        android:layout_width="@dimen/x22"
+                        android:layout_height="@dimen/x40"
+                        android:layout_marginLeft="@dimen/x30"
+                        android:layout_marginTop="@dimen/y22"
+                        android:background="@drawable/way_rigister_btn_back" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="违章记录"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/x40" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_ui2"
+                    android:layout_width="@dimen/x380"
+                    android:layout_height="@dimen/y70"
+                    android:layout_below="@id/layout_ui"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/y40"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_select_province"
+                        android:layout_width="@dimen/x190"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/z_bcg_select_province"
+                        android:gravity="center"
+                        android:text="选择地区"
+                        android:textColor="#75aff4"
+                        android:textSize="@dimen/x30" />
+
+                    <TextView
+                        android:id="@+id/tv_il_qy_dividing_line"
+                        android:layout_width="@dimen/x1"
+                        android:layout_height="match_parent"
+                        android:background="#75aff4" />
+
+                    <Button
+                        android:id="@+id/btn_select_city"
+                        android:layout_width="@dimen/x190"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/z_bcg_select_city"
+                        android:gravity="center"
+                        android:text="选择城市"
+                        android:textColor="#75aff4"
+                        android:textSize="@dimen/x30" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/layout_ui2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/y40"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="点击上方按钮可选择地区"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/x34" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(请在下方选择或手动输入车辆信息)"
+                        android:textColor="#fff"
+                        android:textSize="@dimen/x20" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/lv_car_indo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@null"
+                android:scrollbars="none"
+
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#040000"/>
+
+            <LinearLayout
+                android:id="@+id/ll_il_qy_query"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y96"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="@dimen/x4"
-                android:background="@drawable/z_il_qy_unquery"
-                android:clickable="false"
-                android:focusable="false" />
+                android:background="#fff"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_il_qy_query_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/y10"
-                android:layout_marginTop="@dimen/y10"
-                android:text="查询"
-                android:textColor="#cecece"
-                android:textSize="@dimen/x26" />
+                <Button
+                    android:id="@+id/btn_query"
+                    android:layout_width="@dimen/x40"
+                    android:layout_height="@dimen/y40"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/x4"
+                    android:background="@drawable/z_il_qy_unquery"
+                     />
+
+                <TextView
+                    android:id="@+id/tv_il_qy_query"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/y10"
+                    android:layout_marginTop="@dimen/y10"
+                    android:text="查询"
+                    android:textColor="#cecece"
+                    android:textSize="@dimen/x26" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-    <View
-        android:id="@+id/v_il_qy_black_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#60000000"
-        android:visibility="gone" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_il_qy_place_list"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y900"
-        android:background="#ffffff"
-        app:behavior_hideable="false"
-        app:behavior_peekHeight="0dp"
-        app:layout_behavior="@string/bottom_sheet_behavior" />
+        <include
+            android:visibility="gone"
+            layout="@layout/z_layout_loading_failed"/>
+    </android.support.design.widget.CoordinatorLayout>
 
-    <ProgressBar
-        android:id="@+id/pb_il_qy_loading"
-        android:layout_width="@dimen/x100"
-        android:layout_height="@dimen/x100"
-        android:layout_gravity="center" />
-
-    <include
-        android:visibility="gone"
-        layout="@layout/z_layout_loading_failed"/>
-</android.support.design.widget.CoordinatorLayout>
+</layout>

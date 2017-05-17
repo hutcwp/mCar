@@ -1,47 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".zero.activity.IllegalResultActivity">
+<layout>
+    <data>
 
-    <include layout="@layout/cwp_layout_title_menu" />
+    </data>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#ebebeb"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:gravity="center_vertical"
-            android:text="您好，车牌号码为“ "
-            android:textColor="#6ad865" />
-
-        <TextView
-            android:id="@+id/tv_il_result_lsnum"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="湘AB1234"
-            android:textColor="#75aff4" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text=" ”的违章记录如下:"
-            android:textColor="#6ad865" />
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_il_result_list"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ebebeb" />
-</LinearLayout>
+        android:orientation="vertical"
+        tools:context=".activitys.business.IllegalResultActivity">
+
+        <include layout="@layout/ly_title" android:id="@+id/title" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#ebebeb"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:text="您好，车牌号码为“ "
+                android:textColor="#6ad865" />
+
+            <TextView
+                android:id="@+id/tv_il_result_lsnum"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="湘AB1234"
+                android:textColor="#75aff4" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text=" ”的违章记录如下:"
+                android:textColor="#6ad865" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_il_result_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ebebeb" />
+
+    </LinearLayout>
+
+</layout>

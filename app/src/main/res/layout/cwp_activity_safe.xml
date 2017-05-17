@@ -1,444 +1,452 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/activity__share"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout >
+    <data >
 
-    <include layout="@layout/cwp_layout_title_menu" />
+    </data>
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activity__share"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
+        android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <include layout="@layout/ly_title" android:id="@+id/ly_title"  />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x100"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:text="推荐保险公司"
+                    android:textColor="#404040"
+                    android:textSize="@dimen/x26" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/x30"
+                    android:text="专业.实惠.保障"
+                    android:textColor="#f78f08"
+                    android:textSize="@dimen/x26" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:background="#ebebeb" />
+
+            <LinearLayout
+                android:id="@+id/item_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y160"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30">
+
+                    <ImageView
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/icon_cpip"
+                        android:id="@+id/imageView2" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x70"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="太平洋"
+                            android:textColor="#404040"
+                            android:textSize="@dimen/x30" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/y10"
+                            android:text="投保省15%,最高立减1000元"
+                            android:textColor="#808080"
+                            android:textSize="@dimen/x26" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="@dimen/x660"
+                android:layout_height="2px"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#ebebeb" />
+
+
+            <LinearLayout
+                android:id="@+id/item_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y160"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30">
+
+                    <ImageView
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/icon_picc" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x70"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="人民保险"
+                            android:textColor="#404040"
+                            android:textSize="@dimen/x30" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/y10"
+                            android:text="车险在线支付，立享双重好礼"
+                            android:textColor="#808080"
+                            android:textSize="@dimen/x26" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/x660"
+                android:layout_height="2px"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#ebebeb" />
+
+            <LinearLayout
+                android:id="@+id/item_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y160"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30">
+
+                    <ImageView
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/icon_api" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x70"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="亚太财产"
+                            android:textColor="#404040"
+                            android:textSize="@dimen/x30" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/y10"
+                            android:text="买保险放心开，投保多省15%"
+                            android:textColor="#808080"
+                            android:textSize="@dimen/x26"
+                            android:id="@+id/textView3" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/x660"
+                android:layout_height="2px"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#ebebeb" />
+
+            <LinearLayout
+                android:id="@+id/item_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y160"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30">
+
+                    <ImageView
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/icon_sun" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x70"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="阳光车险"
+                            android:textColor="#404040"
+                            android:textSize="@dimen/x30" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/y10"
+                            android:text="保费满3500，再享VIP大礼包"
+                            android:textColor="#808080"
+                            android:textSize="@dimen/x26" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/x660"
+                android:layout_height="2px"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:background="#ebebeb" />
+
+            <LinearLayout
+                android:id="@+id/item_five"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y160"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x30">
+
+                    <ImageView
+                        android:layout_width="@dimen/x50"
+                        android:layout_height="@dimen/y50"
+                        android:layout_gravity="center_vertical"
+                        android:src="@mipmap/icon_china" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/x70"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="中华车险"
+                            android:textColor="#404040"
+                            android:textSize="@dimen/x30" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/y10"
+                            android:text="投保最高省千元，省到停不下"
+                            android:textColor="#808080"
+                            android:textSize="@dimen/x26" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="#ebebeb" />
+
+        </LinearLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x100"
-            android:background="#fff">
+            android:layout_height="match_parent">
 
-            <TextView
+
+            <LinearLayout
+                android:id="@+id/layout_cnter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最优价"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="无中介费"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x18" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/left_img"
+                android:layout_width="@dimen/x1"
+                android:layout_height="@dimen/y30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_toLeftOf="@id/layout_cnter"
+                android:background="#75aff4" />
+
+            <ImageView
+                android:id="@+id/right_img"
+                android:layout_width="@dimen/x1"
+                android:layout_height="@dimen/y30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x10"
+                android:layout_toRightOf="@id/layout_cnter"
+                android:background="#75aff4" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_toLeftOf="@id/left_img"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="官方推荐"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="理赔有保障"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x18" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/x30"
-                android:text="推荐保险公司"
-                android:textColor="#404040"
-                android:textSize="@dimen/x26" />
+                android:layout_toRightOf="@id/right_img"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/x30"
-                android:text="专业.实惠.保障"
-                android:textColor="#f78f08"
-                android:textSize="@dimen/x26" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支付安全"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x22"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="官方验证"
+                    android:textColor="#75aff4"
+                    android:textSize="@dimen/x18" />
+            </LinearLayout>
+
         </RelativeLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/y1"
-            android:background="#ebebeb" />
-
-        <LinearLayout
-            android:id="@+id/item_one"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y160"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginRight="@dimen/x30">
-
-                <ImageView
-                    android:layout_width="@dimen/x50"
-                    android:layout_height="@dimen/y50"
-                    android:layout_gravity="center_vertical"
-                    android:src="@mipmap/icon_cpip"
-                    android:id="@+id/imageView2" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/x70"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="太平洋"
-                        android:textColor="#404040"
-                        android:textSize="@dimen/x30" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/y10"
-                        android:text="投保省15%,最高立减1000元"
-                        android:textColor="#808080"
-                        android:textSize="@dimen/x26" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-
-        <ImageView
-            android:layout_width="@dimen/x660"
-            android:layout_height="2px"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#ebebeb" />
-
-
-        <LinearLayout
-            android:id="@+id/item_two"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y160"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginRight="@dimen/x30">
-
-                <ImageView
-                    android:layout_width="@dimen/x50"
-                    android:layout_height="@dimen/y50"
-                    android:layout_gravity="center_vertical"
-                    android:src="@mipmap/icon_picc" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/x70"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="人民保险"
-                        android:textColor="#404040"
-                        android:textSize="@dimen/x30" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/y10"
-                        android:text="车险在线支付，立享双重好礼"
-                        android:textColor="#808080"
-                        android:textSize="@dimen/x26" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="@dimen/x660"
-            android:layout_height="2px"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#ebebeb" />
-
-        <LinearLayout
-            android:id="@+id/item_three"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y160"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginRight="@dimen/x30">
-
-                <ImageView
-                    android:layout_width="@dimen/x50"
-                    android:layout_height="@dimen/y50"
-                    android:layout_gravity="center_vertical"
-                    android:src="@mipmap/icon_api" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/x70"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="亚太财产"
-                        android:textColor="#404040"
-                        android:textSize="@dimen/x30" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/y10"
-                        android:text="买保险放心开，投保多省15%"
-                        android:textColor="#808080"
-                        android:textSize="@dimen/x26"
-                        android:id="@+id/textView3" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="@dimen/x660"
-            android:layout_height="2px"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#ebebeb" />
-
-        <LinearLayout
-            android:id="@+id/item_four"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y160"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginRight="@dimen/x30">
-
-                <ImageView
-                    android:layout_width="@dimen/x50"
-                    android:layout_height="@dimen/y50"
-                    android:layout_gravity="center_vertical"
-                    android:src="@mipmap/icon_sun" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/x70"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="阳光车险"
-                        android:textColor="#404040"
-                        android:textSize="@dimen/x30" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/y10"
-                        android:text="保费满3500，再享VIP大礼包"
-                        android:textColor="#808080"
-                        android:textSize="@dimen/x26" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="@dimen/x660"
-            android:layout_height="2px"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
-            android:background="#ebebeb" />
-
-        <LinearLayout
-            android:id="@+id/item_five"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#fff"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y160"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_marginRight="@dimen/x30">
-
-                <ImageView
-                    android:layout_width="@dimen/x50"
-                    android:layout_height="@dimen/y50"
-                    android:layout_gravity="center_vertical"
-                    android:src="@mipmap/icon_china" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/x70"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="中华车险"
-                        android:textColor="#404040"
-                        android:textSize="@dimen/x30" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginTop="@dimen/y10"
-                        android:text="投保最高省千元，省到停不下"
-                        android:textColor="#808080"
-                        android:textSize="@dimen/x26" />
-
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="#ebebeb" />
 
     </LinearLayout>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <LinearLayout
-            android:id="@+id/layout_cnter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="最优价"
-                android:textColor="#75aff4"
-                android:textSize="@dimen/x22"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="无中介费"
-                android:textColor="#75aff4"
-                android:textSize="@dimen/x18" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/left_img"
-            android:layout_width="@dimen/x1"
-            android:layout_height="@dimen/y30"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/x10"
-            android:layout_marginRight="@dimen/x10"
-            android:layout_toLeftOf="@id/layout_cnter"
-            android:background="#75aff4" />
-
-        <ImageView
-            android:id="@+id/right_img"
-            android:layout_width="@dimen/x1"
-            android:layout_height="@dimen/y30"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/x10"
-            android:layout_marginRight="@dimen/x10"
-            android:layout_toRightOf="@id/layout_cnter"
-            android:background="#75aff4" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_toLeftOf="@id/left_img"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="官方推荐"
-                android:textColor="#75aff4"
-                android:textSize="@dimen/x22"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="理赔有保障"
-                android:textColor="#75aff4"
-                android:textSize="@dimen/x18" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/right_img"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="支付安全"
-                android:textColor="#75aff4"
-                android:textSize="@dimen/x22"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="官方验证"
-                android:textColor="#75aff4"
-                android:textSize="@dimen/x18" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-
-</LinearLayout>
+</layout>
 

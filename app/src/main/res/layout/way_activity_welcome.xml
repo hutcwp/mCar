@@ -1,64 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/way_bcg_welcome"
-    android:orientation="vertical">
+<layout>
 
-    <RelativeLayout
+    <data>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y880"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:background="@drawable/way_bcg_welcome"
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bu_login"
-            android:layout_width="@dimen/x220"
-            android:layout_height="@dimen/y100"
-            android:layout_marginLeft="@dimen/x86"
-            android:background="@drawable/way_xml_btn_cricle_half"
-            android:text="登录"
-            android:textColor="#75aff4"
-            android:textSize="@dimen/x38" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y880"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/bu_register"
-            android:layout_width="@dimen/x220"
-            android:layout_height="@dimen/y100"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/x86"
-            android:background="@drawable/way_xml_btn_cricle_half"
-            android:text="注册"
-            android:textColor="#6ad865"
-            android:textSize="@dimen/x38" />
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="@dimen/x220"
+                android:layout_height="@dimen/y100"
+                android:layout_marginLeft="@dimen/x86"
+                android:background="@drawable/way_xml_btn_cricle_half"
+                android:text="登录"
+                android:textColor="#75aff4"
+                android:textSize="@dimen/x38" />
 
-    </RelativeLayout>
+            <Button
+                android:id="@+id/btn_register"
+                android:layout_width="@dimen/x220"
+                android:layout_height="@dimen/y100"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/x86"
+                android:background="@drawable/way_xml_btn_cricle_half"
+                android:text="注册"
+                android:textColor="#6ad865"
+                android:textSize="@dimen/x38" />
 
-    <LinearLayout
-        android:gravity="center"
-        android:onClick="kankan"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/y80"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        </RelativeLayout>
 
-        <!--android:layout_gravity="center_horizontal"
-            android:layout_marginTop="@dimen/y80"-->
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="随便看看"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x24" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/y80"
+            android:gravity="center"
+            android:onClick="broswer"
+            android:orientation="vertical">
 
-        <!--android:layout_gravity="center_horizontal"-->
-        <ImageView
-            android:layout_width="@dimen/x30"
-            android:layout_height="@dimen/y16"
-            android:layout_marginTop="30px"
-            android:src="@drawable/way_welcome_down" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="随便看看"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x24" />
+
+
+            <ImageView
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y16"
+                android:layout_marginTop="30px"
+                android:src="@drawable/way_welcome_down" />
+        </LinearLayout>
+
     </LinearLayout>
 
-
-</LinearLayout>
+</layout>

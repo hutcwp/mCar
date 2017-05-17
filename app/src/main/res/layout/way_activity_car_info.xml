@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ebebeb"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/ly_title"
+            layout="@layout/ly_title" />
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/ly_top"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y300"
+                            android:background="@drawable/cwp_mycar_banner"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:id="@+id/tv_car_count"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/x60"
+                                android:text="0"
+                                android:textColor="#fff"
+                                android:textSize="@dimen/x120" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/x10"
+                                    android:paddingTop="@dimen/y10"
+                                    android:text="辆车"
+                                    android:textColor="#ffffff"
+                                    android:textSize="@dimen/x26" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_marginLeft="@dimen/x10"
+                                    android:layout_marginTop="@dimen/y10"
+                                    android:text="@string/inRecord"
+                                    android:textColor="#ffffff"
+                                    android:textSize="@dimen/x26" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y80"
+                            android:background="#ffffff" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1px"
+                            android:background="#ebebeb" />
+
+                    </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/y260"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:id="@+id/iv_add_car"
+                            android:layout_width="@dimen/x164"
+                            android:layout_height="@dimen/y365"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="@dimen/x160"
+                            android:src="@drawable/cwp_mycar_img_add" />
+
+                        <ImageView
+                            android:id="@+id/iv_delete_car"
+                            android:layout_width="@dimen/x154"
+                            android:layout_height="@dimen/y365"
+                            android:layout_gravity="right"
+                            android:layout_marginRight="@dimen/x32"
+                            android:src="@drawable/cwp_mycar_img_sub" />
+
+                    </FrameLayout>
+
+                </FrameLayout>
+
+
+                <ListView
+                    android:id="@+id/listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fadeScrollbars="false"
+                    android:fastScrollEnabled="false"
+                    android:scrollbars="none" />
+            </LinearLayout>
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+
+    </LinearLayout>
+
+</layout>
+
+

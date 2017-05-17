@@ -103,13 +103,13 @@
 
         </LinearLayout>
 
-        <RadioButton
+        <Button
             android:id="@+id/rb_il_qy_car_info_radio_box"
             android:layout_width="@dimen/x50"
             android:layout_height="@dimen/y50"
             android:layout_gravity="center_vertical|right"
             android:layout_marginRight="@dimen/x30"
-            android:background="@drawable/z_il_qy_radio_box_unselect"
+            android:background="@drawable/z_il_qy_radio_box_selected"
             android:button="@null"
             android:checked="false"
             android:clickable="false"

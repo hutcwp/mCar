@@ -1,127 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_map"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/cwp_main_map_bcg_map"
-    android:visibility="visible">
+    <data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y104"
-        android:layout_marginLeft="@dimen/x30"
-        android:layout_marginRight="@dimen/x30"
-        android:background="@drawable/cwp_main_map_bcg_items">
+    </data>
 
-        <TextView
-            android:id="@+id/cwp_layout_main_b_navigation"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:paddingTop="@dimen/y30"
-            android:text="路径导航"
-            android:textColor="#7bb5ed"
-            android:textSize="@dimen/x26" />
-
-        <ImageView
-            android:layout_width="@dimen/x1"
-            android:layout_height="@dimen/y48"
-            android:layout_marginTop="@dimen/y20"
-            android:background="#6ad865" />
-
-        <TextView
-            android:id="@+id/cwp_layout_main_b_gas"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="加油站"
-            android:textColor="#6ad865"
-            android:textSize="@dimen/x26" />
-
-        <ImageView
-            android:layout_width="@dimen/x1"
-            android:layout_height="@dimen/y48"
-            android:layout_marginTop="@dimen/y20"
-            android:background="#6ad865" />
-
-        <TextView
-            android:id="@+id/cwp_layout_main_b_repair"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="修车店"
-            android:textColor="#6ad865"
-            android:textSize="@dimen/x26" />
-
-        <ImageView
-            android:layout_width="@dimen/x1"
-            android:layout_height="@dimen/y48"
-            android:layout_marginTop="@dimen/y20"
-            android:background="#6ad865" />
-
-        <TextView
-            android:id="@+id/cwp_layout_main_b_stop"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="停车场"
-            android:textColor="#6ad865"
-            android:textSize="@dimen/x26" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ll_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/x32"
-        android:layout_marginRight="@dimen/x32"
-        android:layout_marginTop="@dimen/y190">
+        android:background="@drawable/cwp_main_map_bcg_map"
+        android:visibility="visible">
 
-        <include
-            layout="@layout/cwp_layout_baidu_map"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/y650" />
-    </LinearLayout>
+            android:layout_height="@dimen/y104"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x30"
+            android:background="@drawable/cwp_main_map_bcg_items">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y120"
-        android:layout_marginLeft="@dimen/x20"
-        android:layout_marginRight="@dimen/x28"
-        android:layout_marginTop="@dimen/y104"
-        android:background="@drawable/cwp_main_map_bcg_search">
+            <TextView
+                android:id="@+id/item_navigation"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingTop="@dimen/y30"
+                android:text="路径导航"
+                android:textColor="#7bb5ed"
+                android:textSize="@dimen/x26" />
 
-        <Button
-            android:id="@+id/btn_search"
-            android:layout_width="@dimen/x30"
-            android:layout_height="@dimen/y30"
-            android:layout_gravity="center|right"
-            android:layout_marginRight="@dimen/y54"
-            android:background="@drawable/cwp_main_map_btn_img_search" />
+            <ImageView
+                android:layout_width="@dimen/x1"
+                android:layout_height="@dimen/y48"
+                android:layout_marginTop="@dimen/y20"
+                android:background="#6ad865" />
 
-        <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
-            android:layout_width="@dimen/x510"
+            <TextView
+                android:id="@+id/item_gas"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="加油站"
+                android:textColor="#6ad865"
+                android:textSize="@dimen/x26" />
+
+            <ImageView
+                android:layout_width="@dimen/x1"
+                android:layout_height="@dimen/y48"
+                android:layout_marginTop="@dimen/y20"
+                android:background="#6ad865" />
+
+            <TextView
+                android:id="@+id/item_repair"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="修车店"
+                android:textColor="#6ad865"
+                android:textSize="@dimen/x26" />
+
+            <ImageView
+                android:layout_width="@dimen/x1"
+                android:layout_height="@dimen/y48"
+                android:layout_marginTop="@dimen/y20"
+                android:background="#6ad865" />
+
+            <TextView
+                android:id="@+id/item_park"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="停车场"
+                android:textColor="#6ad865"
+                android:textSize="@dimen/x26" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x12"
-            android:layout_marginTop="@dimen/y16"
-            android:completionHint="请选择目的地"
-            android:lines="1"
-            android:scrollbars="none"
-            android:completionThreshold="1"
-            android:dropDownHeight="@dimen/y300"
-            android:gravity="left|center_vertical"
-            android:hint="湖南工业大学"
-            android:paddingLeft="@dimen/x28"
-            android:textSize="@dimen/x26" />
+            android:layout_marginLeft="@dimen/x32"
+            android:layout_marginRight="@dimen/x32"
+            android:layout_marginTop="@dimen/y190">
+
+            <include
+                layout="@layout/cwp_layout_baidu_map"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y650" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y120"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_marginRight="@dimen/x28"
+            android:layout_marginTop="@dimen/y104"
+            android:background="@drawable/cwp_main_map_bcg_search">
+
+            <Button
+                android:id="@+id/btn_search"
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/y30"
+                android:layout_gravity="center|right"
+                android:layout_marginRight="@dimen/y54"
+                android:background="@drawable/cwp_main_map_btn_img_search" />
+
+            <AutoCompleteTextView
+                android:id="@+id/tv_autoComplete"
+                android:layout_width="@dimen/x510"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x12"
+                android:layout_marginTop="@dimen/y16"
+                android:completionHint="请选择目的地"
+                android:completionThreshold="1"
+                android:dropDownHeight="@dimen/y300"
+                android:gravity="left|center_vertical"
+                android:hint="@string/Hunan_university_of_technology"
+                android:lines="1"
+                android:paddingLeft="@dimen/x28"
+                android:scrollbars="none"
+                android:textSize="@dimen/x26" />
+
+        </FrameLayout>
+
 
     </FrameLayout>
 
-
-</FrameLayout>
+</layout>

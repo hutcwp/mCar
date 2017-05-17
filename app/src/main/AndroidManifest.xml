@@ -36,7 +36,7 @@
     <meta-data android:name="BMOB_CHANNEL" />
 
     <application
-        android:name=".base.application.MyApplication"
+        android:name=".app.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
@@ -48,16 +48,19 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="y8iZP8DNzBFpE8NBkP5wSUEqqLEHGn3u" />
 
+        <service android:name="com.cheshouye.api.client.WeizhangIntentService"/>
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
 
         <activity
-            android:name=".cwp.activity.BNDemoMainActivity"
+            android:name=".activitys.map.BNMainActivity"
+            android:windowSoftInputMode="stateHidden|stateUnchanged"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden" />
         <activity
-            android:name=".cwp.activity.BNDemoGuideActivity"
+            android:name=".activitys.map.BNGuideActivity"
             android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
@@ -65,32 +68,33 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- Zero's -->
-        <activity android:name=".zero.activity.OilCityActivity" />
-        <activity android:name=".zero.activity.IllegalQueryActivity" />
-        <activity android:name=".zero.activity.IllegalResultActivity" />
-        <activity android:name=".zero.activity.FeedbackActivity" />
-        <activity android:name=".zero.activity.FeedbackSuccessActivity" />
+        <activity android:name=".activitys.business.OilCityActivity" />
+        <activity android:name=".activitys.business.IllegalQueryActivity" />
+        <activity android:name=".activitys.business.IllegalResultActivity" />
+        <activity android:name=".activitys.other.FeedbackActivity" />
+        <activity android:name=".activitys.other.FeedbackSuccessActivity" />
 
         <!-- Way -->
-        <activity android:name=".way.activitys.InfocarActivity" />
-        <activity android:name=".way.activitys.UserActivity" />
-        <activity android:name=".way.activitys.RepasswordActivity" />
-        <activity android:name=".way.activitys.WelcomeActivity">
+        <activity android:name=".activitys.info.CarInfoActivity" />
+        <activity android:name=".activitys.user.UserActivity" />
+        <activity android:name=".activitys.user.ResetPasswordActivity" />
+        <activity android:name=".activitys.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".way.activitys.LoginActivity" />
-        <activity android:name=".way.activitys.RegisterSMSActivity" />
-        <activity android:name=".way.activitys.RegisterActivity" />
+        <activity android:name=".activitys.user.LoginActivity" />
+        <activity android:name=".activitys.user.RegisterSMSActivity" />
+        <activity android:name=".activitys.user.RegisterActivity" />
 
         <!-- activity -->
-        <activity android:name=".cwp.activity.AboutActivity" />
-        <activity android:name=".zero.activity.MoveCarActivity" />
-        <activity android:name=".cwp.activity.SafeActivity" />
-        <activity android:name=".cwp.activity.WebViewContentActivity" />
-        <activity android:name=".cwp.activity.CheckActivity"/>
+        <activity android:name=".activitys.about.AboutActivity" />
+        <activity android:name=".activitys.business.MoveCarActivity" />
+        <activity android:name=".activitys.safe.SafeActivity" />
+        <activity android:name=".activitys.other.WebViewContentActivity" />
+        <activity android:name=".activitys.other.CheckActivity" />
 
     </application>
 

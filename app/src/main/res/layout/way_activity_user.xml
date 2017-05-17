@@ -1,96 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ebebeb"
-    android:orientation="vertical">
 
-    <include layout="@layout/cwp_layout_title_menu" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data >
 
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:layout_height="match_parent"
+        android:background="#ebebeb"
         android:orientation="vertical">
+
+        <include layout="@layout/ly_title"
+            android:id="@+id/title" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x30"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
             android:orientation="vertical">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/y88"
-                android:layout_marginTop="@dimen/y20"
-                android:background="#ffffff">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginRight="@dimen/x30"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:text="帐号"
-                    android:textColor="#404040"
-                    android:textSize="@dimen/x30" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y88"
+                    android:layout_marginTop="@dimen/y20"
+                    android:background="#ffffff">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="帐号"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x30" />
 
 
-                <TextView
-                    android:id="@+id/tv_re_password_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:text="XXXXXXXXXXX"
-                    android:textColor="#808080"
-                    android:textSize="@dimen/x26" />
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="XXXXXXXXXXX"
+                        android:textColor="#808080"
+                        android:textSize="@dimen/x26" />
 
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#ebebeb" />
-
-            <RelativeLayout
-                android:id="@+id/bu_repassword"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/y88"
-                android:background="#ffffff">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:text="重置密码"
-                    android:textColor="#404040"
-                    android:textSize="@dimen/x30" />
+                </RelativeLayout>
 
                 <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="@dimen/x22"
-                    android:layout_height="@dimen/y40"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/cwp_user_password_reset" />
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#ebebeb" />
 
-            </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/ly_reset_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y88"
+                    android:background="#ffffff">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/reset_password"
+                        android:textColor="#404040"
+                        android:textSize="@dimen/x30" />
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/x22"
+                        android:layout_height="@dimen/y40"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/cwp_user_password_reset" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/x20"
+            android:paddingLeft="@dimen/x30"
+            android:paddingRight="@dimen/x30"
+            android:text="@string/user_info_msg"
+            android:textColor="#75aff4"
+            android:textSize="@dimen/x26" />
+
     </LinearLayout>
+</layout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/x20"
-        android:paddingLeft="@dimen/x30"
-        android:paddingRight="@dimen/x30"
-        android:text="帐号即车主手机号码，该帐号登录状态下记录的车辆默认与此手机号码绑定"
-        android:textColor="#75aff4"
-        android:textSize="@dimen/x26" />
-
-</LinearLayout>

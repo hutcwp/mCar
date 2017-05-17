@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.hut.cwp.mcar.cwp.view.ProgressWebView
+    <com.hut.cwp.mcar.activitys.map.view.ProgressWebView
         android:id="@+id/webview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

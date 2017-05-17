@@ -1,139 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#e9e9e9">
+<layout>
+    <data>
 
-    <FrameLayout
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/x30"
-        android:layout_marginRight="@dimen/x70"
-        android:layout_marginTop="@dimen/y60"
-        android:background="@android:color/white" />
-
-    <!--背景打造-->
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="137dp"
-        android:src="@drawable/cwp_main_news_bannera"
-        android:translationX="-14dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y174"
-        android:layout_marginTop="@dimen/y248"
-        android:background="@drawable/cwp_main_news_bannerb"
-        android:translationX="-14dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y174"
-        android:layout_marginTop="@dimen/y396"
-        android:background="@drawable/cwp_main_news_bannerb"
-        android:translationX="-14dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/y174"
-        android:layout_marginTop="@dimen/y544"
-        android:background="@drawable/cwp_main_news_bannerb"
-        android:translationX="-14dp" />
-    <!--背景打造-->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:background="#e9e9e9">
 
         <FrameLayout
-            android:layout_width="@dimen/x620"
-            android:layout_height="@dimen/y180"
-            android:layout_marginLeft="@dimen/x70"
-            android:layout_marginTop="@dimen/y24"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginRight="@dimen/x70"
+            android:layout_marginTop="@dimen/y60"
+            android:background="@android:color/white" />
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="@dimen/x24"
-                android:paddingTop="@dimen/y24"
-                android:text="汽车资讯"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/x22" />
-
-            <TextView
-                android:id="@+id/article_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:paddingTop="@dimen/y100"
-                android:text="西雅特将停产MPV车型"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/x28" />
-
-        </FrameLayout>
-
+        <!--背景打造-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="137dp"
+            android:src="@drawable/cwp_main_news_bannera"
+            android:translationX="-14dp" />
 
         <LinearLayout
-            android:layout_width="@dimen/x620"
-            android:layout_height="@dimen/y110"
-            android:layout_marginLeft="@dimen/x70"
-            android:layout_marginRight="@dimen/x30"
-            android:layout_marginTop="@dimen/y48"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y174"
+            android:layout_marginTop="@dimen/y248"
+            android:background="@drawable/cwp_main_news_bannerb"
+            android:translationX="-14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y174"
+            android:layout_marginTop="@dimen/y396"
+            android:background="@drawable/cwp_main_news_bannerb"
+            android:translationX="-14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y174"
+            android:layout_marginTop="@dimen/y544"
+            android:background="@drawable/cwp_main_news_bannerb"
+            android:translationX="-14dp" />
+        <!--背景打造-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/article_one"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="现代全新雅尊官图发布"
-                android:textColor="#808080"
-                android:textSize="@dimen/x26" />
+            <FrameLayout
+                android:layout_width="@dimen/x620"
+                android:layout_height="@dimen/y180"
+                android:layout_marginLeft="@dimen/x70"
+                android:layout_marginTop="@dimen/y24"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/x24"
+                    android:paddingTop="@dimen/y24"
+                    android:text="汽车资讯"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/x22" />
+
+                <TextView
+                    android:id="@+id/tv_article_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="@dimen/y100"
+                    android:text="西雅特将停产MPV车型"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/x28" />
+
+            </FrameLayout>
+
+
+            <LinearLayout
+                android:layout_width="@dimen/x620"
+                android:layout_height="@dimen/y110"
+                android:layout_marginLeft="@dimen/x70"
+                android:layout_marginRight="@dimen/x30"
+                android:layout_marginTop="@dimen/y48"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_article_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="现代全新雅尊官图发布"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/x26" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/x620"
+                android:layout_height="@dimen/y110"
+                android:layout_marginLeft="@dimen/x70"
+                android:layout_marginRight="@dimen/x30"
+                android:layout_marginTop="@dimen/y36"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_article_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="新宝马5系海外售价公布"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/x26" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="@dimen/x620"
+                android:layout_height="@dimen/y110"
+                android:layout_marginLeft="@dimen/x70"
+                android:layout_marginRight="@dimen/x30"
+                android:layout_marginTop="@dimen/y36"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_article_three"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="雷凌1.2T 11月1日首发"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/x26" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="@dimen/x620"
-            android:layout_height="@dimen/y110"
-            android:layout_marginLeft="@dimen/x70"
-            android:layout_marginRight="@dimen/x30"
-            android:layout_marginTop="@dimen/y36"
-            android:orientation="vertical">
+    </FrameLayout>
 
-            <TextView
-                android:id="@+id/article_two"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="新宝马5系海外售价公布"
-                android:textColor="#808080"
-                android:textSize="@dimen/x26" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="@dimen/x620"
-            android:layout_height="@dimen/y110"
-            android:layout_marginLeft="@dimen/x70"
-            android:layout_marginRight="@dimen/x30"
-            android:layout_marginTop="@dimen/y36"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/article_three"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="雷凌1.2T 11月1日首发"
-                android:textColor="#808080"
-                android:textSize="@dimen/x26" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-</FrameLayout>
+</layout>

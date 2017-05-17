@@ -1,102 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/way_bcg_login"
-    android:orientation="vertical">
+<layout >
 
-    <RelativeLayout
+    <data>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/y100">
-
-        <ImageButton
-            android:id="@+id/bu_return1"
-            android:layout_width="@dimen/x16"
-            android:layout_height="@dimen/y30"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginLeft="@dimen/x80"
-            android:background="@drawable/way_login_btn_back" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="登录"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x48" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/x120"
-        android:layout_marginTop="@dimen/y80"
+        android:layout_height="match_parent"
+        android:background="@drawable/way_bcg_login"
         android:orientation="vertical">
 
-        <TextView
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y100">
+
+            <ImageButton
+                android:id="@+id/btn_back"
+                android:layout_width="@dimen/x16"
+                android:layout_height="@dimen/y30"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/x80"
+                android:background="@drawable/way_login_btn_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="登录"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x48" />
+
+        </RelativeLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="帐号"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x30" />
+            android:layout_marginLeft="@dimen/x120"
+            android:layout_marginTop="@dimen/y80"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/login_account"
-            android:layout_width="@dimen/x400"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x40"
-            android:layout_marginTop="@dimen/y20"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x42" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="帐号"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x30" />
 
-        <!--<ImageView-->
-        <!--android:layout_width="600px"-->
-        <!--android:layout_height="1px"-->
-        <!--android:layout_marginLeft="60px"-->
-        <!--android:layout_marginTop="30px"-->
-        <!--android:background="#ffffff" />-->
+            <EditText
+                android:id="@+id/edt_account"
+                android:layout_width="@dimen/x400"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x40"
+                android:layout_marginTop="@dimen/y20"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x42" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="600px"-->
+            <!--android:layout_height="1px"-->
+            <!--android:layout_marginLeft="60px"-->
+            <!--android:layout_marginTop="30px"-->
+            <!--android:background="#ffffff" />-->
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y40"
+                android:text="密码"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x30" />
+
+            <EditText
+                android:inputType="textPassword"
+                android:id="@+id/edt_password"
+                android:layout_width="@dimen/x400"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/x40"
+                android:layout_marginTop="@dimen/y20"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/x42" />
+
+            <!--<ImageView-->
+            <!--android:layout_width="600px"-->
+            <!--android:layout_height="1px"-->
+            <!--android:layout_marginLeft="60px"-->
+            <!--android:layout_marginTop="30px"-->
+            <!--android:layout_marginRight="240px"-->
+            <!--android:background="#ffffff" />-->
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_login"
+            android:layout_width="@dimen/x140"
+            android:layout_height="@dimen/y140"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/y40"
-            android:text="密码"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x30" />
+            android:background="@drawable/way_xml_btn_circle_full"
+            android:src="@drawable/way_login_btn_login" />
 
-        <EditText
-            android:inputType="textPassword"
-            android:id="@+id/login_password"
-            android:layout_width="@dimen/x400"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x40"
-            android:layout_marginTop="@dimen/y20"
-            android:textColor="#ffffff"
-            android:textSize="@dimen/x42" />
-
-        <!--<ImageView-->
-        <!--android:layout_width="600px"-->
-        <!--android:layout_height="1px"-->
-        <!--android:layout_marginLeft="60px"-->
-        <!--android:layout_marginTop="30px"-->
-        <!--android:layout_marginRight="240px"-->
-        <!--android:background="#ffffff" />-->
 
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/bu_login_in"
-        android:layout_width="@dimen/x140"
-        android:layout_height="@dimen/y140"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/y40"
-        android:background="@drawable/way_xml_btn_circle_full"
-        android:src="@drawable/way_login_btn_login" />
-
-
-</LinearLayout>
+</layout>
