@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.cheshouye.api.client.WeizhangClient;
 import com.cheshouye.api.client.WeizhangIntentService;
@@ -13,6 +13,7 @@ import com.cheshouye.api.client.json.CityInfoJson;
 import com.cheshouye.api.client.json.ProvinceInfoJson;
 import com.cheshouye.api.client.json.WeizhangResponseJson;
 import com.hut.cwp.mcar.R;
+import com.hut.cwp.mcar.activitys.business.adapter.AreaSelectAdapter;
 import com.hut.cwp.mcar.activitys.business.adapter.CarInfoAdapter;
 import com.hut.cwp.mcar.activitys.business.bean.CarInfoBean;
 import com.hut.cwp.mcar.activitys.info.bean.CarInfo;
@@ -56,7 +57,7 @@ public class IllegalQueryActivity extends BaseActivity {
 
     int oldSelected = -1;
 
-    int currentProvinceCode = 12; //默认值为12
+    int currentProvinceCode = -1; //默认值为12
     int currentCityCode = 10;
 
     @Override
@@ -81,21 +82,28 @@ public class IllegalQueryActivity extends BaseActivity {
             } else {
                 Log.d("test", "pList == null");
             }
-            Binding.lvCarIndo.setAdapter(new ArrayAdapter<>(IllegalQueryActivity.this, R.layout.item_select_area, data));
+//            Binding.lvCarIndo.setAdapter(new ArrayAdapter<>(IllegalQueryActivity.this, R.layout.item_select_area, data));
+            Binding.lvCarIndo.setAdapter(new AreaSelectAdapter(IllegalQueryActivity.this, R.layout.item_select_area, data));
+
             Binding.lvCarIndo.setOnItemClickListener((adapterView, view12, position, l) -> setProvinceListener(position));
         });
 
         Binding.btnSelectCity.setOnClickListener(view -> {
 
-            cList = WeizhangClient.getCitys(currentProvinceCode);
-            if (cList != null) {
-                data2 = new ArrayList<>();
-                for (CityInfoJson city : cList) {
-                    data2.add(city.getCity_name());
+            if (currentProvinceCode == -1) {
+                Toast.makeText(IllegalQueryActivity.this, "请先选择省份！", Toast.LENGTH_LONG).show();
+            } else {
+
+                cList = WeizhangClient.getCitys(currentProvinceCode);
+                if (cList != null) {
+                    data2 = new ArrayList<>();
+                    for (CityInfoJson city : cList) {
+                        data2.add(city.getCity_name());
+                    }
                 }
+                Binding.lvCarIndo.setAdapter(new AreaSelectAdapter(IllegalQueryActivity.this, R.layout.item_select_area, data2));
+                Binding.lvCarIndo.setOnItemClickListener((adapterView, view1, position, l) -> setCityListener(position));
             }
-            Binding.lvCarIndo.setAdapter(new ArrayAdapter<String>(IllegalQueryActivity.this, R.layout.item_select_area, data2));
-            Binding.lvCarIndo.setOnItemClickListener((adapterView, view1, position, l) -> setCityListener(position));
         });
 
         Binding.btnQuery.setOnClickListener(view -> {
@@ -219,10 +227,8 @@ public class IllegalQueryActivity extends BaseActivity {
         view.findViewById(R.id.rb_il_qy_car_info_radio_box).setBackgroundResource(R.drawable.z_il_qy_radio_box_selected);
         if (oldSelected != position) {
             if (oldSelected != -1) {
-
                 mCarInfoBeanList.get(oldSelected).setChecked(false);
             }
-
             mCarInfoBeanList.get(position).setChecked(true);
             oldSelected = position;
         }
@@ -239,7 +245,20 @@ public class IllegalQueryActivity extends BaseActivity {
         Binding.btnSelectProvince.setText(data.get(position));
         currentProvinceCode = pList.get(position).getProvinceId();
 
-        Binding.lvCarIndo.setAdapter(new ArrayAdapter<>(IllegalQueryActivity.this, R.layout.item_select_area, data2));
+
+        if (currentProvinceCode == -1) {
+            Toast.makeText(IllegalQueryActivity.this, "请先选择省份！", Toast.LENGTH_LONG).show();
+        } else {
+
+            cList = WeizhangClient.getCitys(currentProvinceCode);
+            if (cList != null) {
+                data2 = new ArrayList<>();
+                for (CityInfoJson city : cList) {
+                    data2.add(city.getCity_name());
+                }
+            }
+        }
+        Binding.lvCarIndo.setAdapter(new AreaSelectAdapter(IllegalQueryActivity.this, R.layout.item_select_area, data2));
         Binding.lvCarIndo.setOnItemClickListener((adapterView, view1, pos, l) -> setCityListener(pos));
 
     }
@@ -255,7 +274,7 @@ public class IllegalQueryActivity extends BaseActivity {
 
         mCarsInfoAdapter = new CarInfoAdapter(IllegalQueryActivity.this, mCarInfoBeanList);
         Binding.lvCarIndo.setAdapter(mCarsInfoAdapter);
-        Binding.lvCarIndo.setOnItemClickListener((adapterView, view, pos, l) -> setCarInfoListener(view,pos));
+        Binding.lvCarIndo.setOnItemClickListener((adapterView, view, pos, l) -> setCarInfoListener(view, pos));
     }
 
 }
