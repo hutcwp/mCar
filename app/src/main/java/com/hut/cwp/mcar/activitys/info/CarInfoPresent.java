@@ -7,7 +7,7 @@ import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.activitys.info.bean.CarInfo;
 import com.hut.cwp.mcar.activitys.info.adapter.MyCarInfoAdapter;
 import com.hut.cwp.mcar.activitys.info.intefaces.InfoPresent;
-import com.hut.cwp.mcar.app.MyApplication;
+import com.hut.cwp.mcar.app.App;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +53,7 @@ public class CarInfoPresent implements InfoPresent {
             activity.showProgress();
             //加入信息
             CarInfo carInfo = new CarInfo();
-            carInfo.setUsername(MyApplication.getUsername());
+            carInfo.setUsername(App.getUsername());
             carInfo.setLicensePlate(licensePlate);
             carInfo.setEngine(engine);
             carInfo.setVin(vin);
@@ -104,8 +104,8 @@ public class CarInfoPresent implements InfoPresent {
     public void queryCar() {
 
         BmobQuery<CarInfo> query = new BmobQuery<>();
-        query.addWhereEqualTo("username", MyApplication.getUsername());
-//        Log.d("tag", "usename:" + MyApplication.getUsername());
+        query.addWhereEqualTo("username", App.getUsername());
+//        Log.d("tag", "usename:" + App.getUsername());
         //返回50条数据，如果不加上这条语句，默认返回10条数据
         query.setLimit(50);
         //执行查询方法

@@ -177,21 +177,6 @@ public class BNMainActivity extends BaseActivity implements MainView {
                 present.searchDestination("株洲", Binding.lyMainMap.tvAutoComplete.getText().toString().trim());
             }
         });
-        /**
-         * 业务模块
-         */
-//        Binding.lyHListview.ivIllegalRecord.setOnClickListener(view ->
-//                present.ivIllegalRecord());
-//        Binding.lyHListview.ivGasPrice.setOnClickListener(view ->
-//                present.gasPrice());
-//        Binding.lyHListview.ivInsurance.setOnClickListener(view ->
-//                present.insurance());
-//        Binding.lyHListview.ivCheck.setOnClickListener(view ->
-//                present.checkCar());
-//        Binding.lyHListview.ivMoveNotice.setOnClickListener(view ->
-//                present.moveCar());
-
-
 
         /**
          * 菜单模块
@@ -221,17 +206,6 @@ public class BNMainActivity extends BaseActivity implements MainView {
         Binding.hRecyclerView.setLayoutManager(manager);
         Binding.hRecyclerView.setAdapter(new HRecyclerViewAdapter(BNMainActivity.this));
 
-
-//        Binding.hRecyclerView.getChildAt(0).setOnClickListener( view ->
-//                present.ivIllegalRecord());
-//        Binding.hRecyclerView.getChildAt(1).setOnClickListener( view ->
-//                present.gasPrice());
-//        Binding.hRecyclerView.getChildAt(2).setOnClickListener( view ->
-//                present.insurance());
-//        Binding.hRecyclerView.getChildAt(3).setOnClickListener( view ->
-//                present.checkCar());
-//        Binding.hRecyclerView.getChildAt(4).setOnClickListener( view ->
-//                present.moveCar());
     }
 
     /**
@@ -284,7 +258,6 @@ public class BNMainActivity extends BaseActivity implements MainView {
         public void beforeTextChanged(CharSequence s, int start, int count,
                                       int after) {
         }
-
         //文字变化时
         @Override
         public void onTextChanged(CharSequence s, int start, int before,
@@ -293,7 +266,6 @@ public class BNMainActivity extends BaseActivity implements MainView {
                 present.searchDestination("株洲", Binding.lyMainMap.tvAutoComplete.getText().toString());
             }
         }
-
         //文字变化后
         @Override
         public void afterTextChanged(Editable s) {

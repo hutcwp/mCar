@@ -19,9 +19,8 @@ import java.io.File;
 
 public class BaiduMapNavi {
 
-    private final static String TAG = "MainActivity_a";
-    private static final String APP_FOLDER_NAME = "mCar";
 
+    private static final String APP_FOLDER_NAME = "mCar";
 
     private String authinfo = null;
     private String mSDCardPath = null;

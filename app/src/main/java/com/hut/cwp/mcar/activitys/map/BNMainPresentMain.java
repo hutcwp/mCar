@@ -27,8 +27,8 @@ import com.hut.cwp.mcar.activitys.other.WebViewContentActivity;
 import com.hut.cwp.mcar.activitys.safe.SafeActivity;
 import com.hut.cwp.mcar.activitys.user.LoginActivity;
 import com.hut.cwp.mcar.activitys.user.UserActivity;
+import com.hut.cwp.mcar.app.App;
 import com.hut.cwp.mcar.app.Globel;
-import com.hut.cwp.mcar.app.MyApplication;
 import com.hut.cwp.mcar.utils.Local;
 import com.hut.cwp.mcar.activitys.business.IllegalQueryActivity;
 import com.hut.cwp.mcar.activitys.business.MoveCarActivity;
@@ -262,13 +262,13 @@ public class BNMainPresentMain implements MainPresent {
      */
     @Override
     public void loginOut() {
-        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
-            MyApplication.setLandState(MyApplication.NO_LAND);
-            MyApplication.setUsername("");
+        if (App.getLandState() == App.HAD_LANDED) {
+            App.setLandState(App.NO_LAND);
+            App.setUsername("");
             activity.closeMenu();
             Toast.makeText(activity, "已经退出当前账号", Toast.LENGTH_SHORT).show();
             Log.d("测试", "已经退出当前账号");
-        } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
+        } else if (App.getLandState() == App.NO_LAND) {
             Toast.makeText(activity, "请先登录", Toast.LENGTH_SHORT).show();
         }
     }
@@ -300,9 +300,9 @@ public class BNMainPresentMain implements MainPresent {
      */
     @Override
     public void myCar() {
-        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
+        if (App.getLandState() == App.HAD_LANDED) {
             activity.startActivity(new Intent(activity, CarInfoActivity.class));
-        } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
+        } else if (App.getLandState() == App.NO_LAND) {
             Intent intent = new Intent(activity, LoginActivity.class);
             intent.putExtra("TAG", Globel.From);
 
@@ -317,9 +317,9 @@ public class BNMainPresentMain implements MainPresent {
      */
     @Override
     public void userInfo() {
-        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
+        if (App.getLandState() == App.HAD_LANDED) {
             activity.startActivity(new Intent(activity, UserActivity.class));
-        } else if (MyApplication.getLandState() == MyApplication.NO_LAND) {
+        } else if (App.getLandState() == App.NO_LAND) {
             Intent intent = new Intent(activity, LoginActivity.class);
             intent.putExtra("TAG", Globel.From);
             activity.startActivity(intent);

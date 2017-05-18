@@ -2,7 +2,6 @@ package com.hut.cwp.mcar.activitys.map;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -55,8 +54,7 @@ public class BNGuideActivity extends Activity {
 
 		BNMainPresentMain.activityList.add(this);
 		createHandler();
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-		}
+
 		View view = null;
 		if (useCommonInterface) {
 			//使用通用接口

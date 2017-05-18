@@ -11,8 +11,9 @@ import android.widget.Toast;
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.activitys.WelcomeActivity;
 import com.hut.cwp.mcar.app.Globel;
-import com.hut.cwp.mcar.app.MyApplication;
+import com.hut.cwp.mcar.app.App;
 import com.hut.cwp.mcar.base.BaseActivity;
+import com.hut.cwp.mcar.utils.EncryptionUtil;
 import com.hut.cwp.mcar.utils.ProxyLodingProgress;
 import com.hut.cwp.mcar.activitys.map.BNMainActivity;
 import com.hut.cwp.mcar.databinding.WayActivityLoginBinding;
@@ -92,7 +93,7 @@ public class LoginActivity extends BaseActivity {
         } else {
             BmobUser bu2 = new BmobUser();
             bu2.setUsername(account2);
-            bu2.setPassword(password2);
+            bu2.setPassword(EncryptionUtil.encryByMD5(password2));
 
             ProxyLodingProgress.show(LoginActivity.this);
 
@@ -111,8 +112,8 @@ public class LoginActivity extends BaseActivity {
                         editor.putString("username", account2);
                         editor.putString("password", password2);
                         editor.apply();
-                        MyApplication.setLandState(MyApplication.HAD_LANDED);
-                        MyApplication.setUsername(account2);
+                        App.setLandState(App.HAD_LANDED);
+                        App.setUsername(account2);
                         finish();
                     } else {
                         Toast.makeText(LoginActivity.this, getString(R.string.login_failure) + e, Toast.LENGTH_SHORT).show();

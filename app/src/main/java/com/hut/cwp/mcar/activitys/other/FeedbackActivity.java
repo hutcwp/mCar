@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.hut.cwp.mcar.R;
-import com.hut.cwp.mcar.app.MyApplication;
+import com.hut.cwp.mcar.app.App;
 import com.hut.cwp.mcar.base.BaseActivity;
 import com.hut.cwp.mcar.databinding.ZActivityFeedbackBinding;
 import com.hut.cwp.mcar.activitys.business.bean.FeedbackBean;
@@ -22,7 +22,7 @@ public class FeedbackActivity extends BaseActivity {
 
     private ZActivityFeedbackBinding Binding;
 
-    private int mLandState = MyApplication.getLandState();
+    private int mLandState = App.getLandState();
 
     @Override
     protected int getLayoutId() {
@@ -40,7 +40,7 @@ public class FeedbackActivity extends BaseActivity {
     @Override
     protected void loadData() {
 
-        if (mLandState == MyApplication.NO_LAND) {
+        if (mLandState == App.NO_LAND) {
             Binding.tvPhoneNumber.setVisibility(View.VISIBLE);
         }
     }
@@ -107,7 +107,7 @@ public class FeedbackActivity extends BaseActivity {
 
         String phone = null;
         //没有登陆
-        if (mLandState == MyApplication.NO_LAND) {
+        if (mLandState == App.NO_LAND) {
             phone = Binding.tvPhoneNumber.getText().toString();
             if (TextUtils.isEmpty(phone)) {
                 Toast.makeText(FeedbackActivity.this, "手机号码不能为空", Toast.LENGTH_SHORT).show();
@@ -118,8 +118,8 @@ public class FeedbackActivity extends BaseActivity {
                     phone = null;
                 }
             }
-        } else if (mLandState == MyApplication.HAD_LANDED) {
-            phone = MyApplication.getUsername();
+        } else if (mLandState == App.HAD_LANDED) {
+            phone = App.getUsername();
         }
         return phone;
     }

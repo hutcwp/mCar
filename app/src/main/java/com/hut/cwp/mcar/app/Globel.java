@@ -11,5 +11,6 @@ public class Globel {
 
     public static final String From = "FROM_BNMainActivity";
 
+    public static final String AppName ="mCar";
 
 }

@@ -3,6 +3,7 @@ package com.hut.cwp.mcar.app;
 import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.hut.cwp.mcar.utils.CrashHandler;
 
 import cn.bmob.v3.Bmob;
 
@@ -10,7 +11,7 @@ import cn.bmob.v3.Bmob;
  * Created by Adminis on 2016/9/21.
  */
 
-public class MyApplication extends Application {
+public class App extends Application {
 
     public static int HAD_LANDED = 1;
     public static int NO_LAND = 0;
@@ -27,6 +28,9 @@ public class MyApplication extends Application {
         //注意该方法要再setContentView方法之前实现
         SDKInitializer.initialize(getApplicationContext());
         Bmob.initialize(getApplicationContext(), "a248d73a620fa5f2458692545f8bc07a");//Bomb's AppKey
+
+        CrashHandler crashHandler = CrashHandler.getInstance();
+        crashHandler.init(this);
 
     }
 

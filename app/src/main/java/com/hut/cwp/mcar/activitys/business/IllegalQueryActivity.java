@@ -17,7 +17,7 @@ import com.hut.cwp.mcar.activitys.business.adapter.AreaSelectAdapter;
 import com.hut.cwp.mcar.activitys.business.adapter.CarInfoAdapter;
 import com.hut.cwp.mcar.activitys.business.bean.CarInfoBean;
 import com.hut.cwp.mcar.activitys.info.bean.CarInfo;
-import com.hut.cwp.mcar.app.MyApplication;
+import com.hut.cwp.mcar.app.App;
 import com.hut.cwp.mcar.base.BaseActivity;
 import com.hut.cwp.mcar.databinding.ZActivityIllegalQueryBinding;
 
@@ -180,9 +180,9 @@ public class IllegalQueryActivity extends BaseActivity {
 
         cList = WeizhangClient.getCitys(12);
 
-        if (MyApplication.getLandState() == MyApplication.HAD_LANDED) {
+        if (App.getLandState() == App.HAD_LANDED) {
             BmobQuery<CarInfo> carInfoBmobQuery = new BmobQuery<>();
-            carInfoBmobQuery.addWhereEqualTo("username", MyApplication.getUsername());
+            carInfoBmobQuery.addWhereEqualTo("username", App.getUsername());
             carInfoBmobQuery.findObjects(new FindListener<CarInfo>() {
                 @Override
                 public void done(List<CarInfo> list, final BmobException e) {

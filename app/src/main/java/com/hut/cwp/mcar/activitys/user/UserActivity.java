@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.hut.cwp.mcar.R;
-import com.hut.cwp.mcar.app.MyApplication;
+import com.hut.cwp.mcar.app.App;
 import com.hut.cwp.mcar.base.BaseActivity;
 import com.hut.cwp.mcar.databinding.WayActivityUserBinding;
 
@@ -23,7 +23,7 @@ public class UserActivity extends BaseActivity {
         WayActivityUserBinding binding1 = (WayActivityUserBinding) getBinding();
 
         //获取当前用户名
-        binding1.tvUsername.setText(MyApplication.getUsername());
+        binding1.tvUsername.setText(App.getUsername());
         //设置标题
         binding1.title.tvTitle.setText(R.string.account);
         //设置返回

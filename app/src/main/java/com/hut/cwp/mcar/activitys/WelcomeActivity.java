@@ -34,14 +34,15 @@ public class WelcomeActivity extends BaseActivity {
         binding1.btnRegister.setOnClickListener(view -> {
             Intent intent = new Intent(WelcomeActivity.this, RegisterActivity.class);
             startActivity(intent);
-            finish();
+//            finish();
         });
 
         binding1.btnLogin.setOnClickListener(view -> {
             Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
             startActivity(intent);
-            finish();
+//            finish();
         });
+
     }
 
     @Override
@@ -58,7 +59,7 @@ public class WelcomeActivity extends BaseActivity {
     public void broswer(View v) {
         Intent intent = new Intent(WelcomeActivity.this, BNMainActivity.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 
 }

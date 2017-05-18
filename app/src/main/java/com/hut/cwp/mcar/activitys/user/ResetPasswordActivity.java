@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.hut.cwp.mcar.R;
 import com.hut.cwp.mcar.base.BaseActivity;
 import com.hut.cwp.mcar.databinding.WayActivityResetPasswordBinding;
+import com.hut.cwp.mcar.utils.EncryptionUtil;
 import com.hut.cwp.mcar.utils.ProxyLodingProgress;
 
 import cn.bmob.v3.BmobUser;
@@ -61,7 +62,7 @@ public class ResetPasswordActivity extends BaseActivity {
 
             ProxyLodingProgress.show(ResetPasswordActivity.this);
 
-            BmobUser.updateCurrentUserPassword(oldPassword, newPassword, new UpdateListener() {
+            BmobUser.updateCurrentUserPassword(EncryptionUtil.encryByMD5(oldPassword), EncryptionUtil.encryByMD5(newPassword), new UpdateListener() {
 
                 @Override
                 public void done(BmobException e) {
